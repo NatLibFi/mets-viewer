@@ -23,12 +23,7 @@ if ($unzip != 0) {
 	die("Missing command: 'unzip'.");
 }
 
-if (system("convert >> /dev/null") != 0) {
-	die("Missing command: 'convert' (part of ImageMagick library)");
-}
-
-
-opendir(DIR, $IMPORT_DIR);
+opendir(DIR, $IMPORT_DIR) or die("Could not open dir: $IMPORT_DIR");
 my @files = grep(/\.zip$/,readdir(DIR));
 closedir(DIR);
 
@@ -43,6 +38,9 @@ foreach my $file (@files) {
 sub import($) {
 	my $file = shift;
 	
+	if (!-d $WORKING_DIR) {
+		mkdir($WORKING_DIR, 0777);
+	}
 	
 	mkdir($WORKING_DIR . $file, 0777);	
 	my $status = system("unzip -qqo $IMPORT_DIR$file mets.xml -d $WORKING_DIR$file/");
@@ -61,6 +59,9 @@ sub import($) {
 	
 	print "Importing package: $urn\n";
 	
+	if (!-d $PACKAGE_DIR) {
+		mkdir($PACKAGE_DIR, 0777);
+	}
 	mkdir($PACKAGE_DIR . $urn, 0777);
 	
 	if (system("unzip -qqo $IMPORT_DIR$file -d $PACKAGE_DIR$urn/") != 0) {
