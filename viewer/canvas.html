@@ -1,0 +1,74 @@
+<html>
+  <head>
+
+
+<script type="text/javascript" src="js/core/jquery-1.5.js"></script>
+  
+
+<style type="text/css">
+	#viewer { 
+	 border: 1px solid black;
+	}
+
+</style>
+
+
+<script type="text/javascript">
+
+var oImageSize;
+var oViewerSize;
+var oScale;
+
+
+
+function redrawCanvas() {
+
+	var canvas = document.getElementById("viewer");
+
+	  if (!canvas.getContext) { 
+		alert("selain ei tue"); 
+	  }  
+
+	  var ctx = canvas.getContext("2d");
+	  ctx.clearRect(0,0,canvas.width,canvas.height);  
+
+	var img = new Image();  
+	img.src = "../packages/URN:NBN-fi-fd2010-00002522/0001.jpg";
+	$(img).ready(function() {
+		
+		oImageSize = { width: img.width, height: img.height };
+		
+		console.log(oImageSize);
+		console.log(oViewerSize);
+		
+		var scalingFactor = oViewerSize.height / oImageSize.height;
+		ctx.scale(scalingFactor, scalingFactor);
+		
+		
+		ctx.drawImage(img, 0, 0);
+		
+		
+	});
+
+}
+
+$(document).ready(function() {
+	oViewerSize = {width: $('#viewer').width(), height: $('#viewer').height()};
+	redrawCanvas();
+});
+
+</script>
+
+
+
+    <title>canvas viewer</title>
+
+</head>
+
+<body>
+
+<canvas id="viewer" height="700" width="900"></canvas>
+
+</body>
+
+</html>
