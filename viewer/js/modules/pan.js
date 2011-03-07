@@ -31,8 +31,8 @@ onCoreReady(function() {
 			mouseXdiff = mouseXlast - mouseX;
 			mouseYdiff = mouseYlast - mouseY;
 			
-			oViewportPosition.x -= mouseXdiff;
-			oViewportPosition.y -= mouseYdiff;
+			oViewportPosition.x -= mouseXdiff / viewport.zoom;
+			oViewportPosition.y -= mouseYdiff / viewport.zoom;
 
 			setViewportPosition(oViewportPosition.x, oViewportPosition.y);
 			

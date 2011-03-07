@@ -2,7 +2,7 @@
 var imgIndexReady = false;
 
 
-onScaleReady(function() {
+onCoreReady(function() {
 	buildImageIndex();		
 });
 

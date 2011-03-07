@@ -11,11 +11,12 @@
 <script type="text/javascript" src="js/core/observers.js"></script>
 <script type="text/javascript" src="js/core/viewport.js"></script>
 
-<!--
+
 <script type="text/javascript" src="js/modules/toc.js"></script>
 
 <script type="text/javascript" src="js/modules/page_changer.js"></script>
 <script type="text/javascript" src="js/modules/image_index.js"></script>
+<!--
 <script type="text/javascript" src="js/modules/text_overlay.js"></script>
 -->
 <script type="text/javascript" src="js/modules/zoom.js"></script>
@@ -60,12 +61,12 @@ function redrawCanvas() {
 		maxHeight = (images[i].img.height > maxHeight) ? images[i].img.height : maxHeight;
 	}
 	
-	ctx.translate(viewport.x, viewport.y);
 	
+	ctx.translate(viewport.x * viewport.zoom, viewport.y * viewport.zoom);
+
 	scalingFactor = oViewerSize.height / maxHeight * viewport.zoom;
 	ctx.scale(scalingFactor, scalingFactor);
 	
-
 
 
 	for (var i=0;i<images.length;i++) {
@@ -140,8 +141,6 @@ $(document).ready(function() {
 	});
 	
 });
-
-
 
 
 function fileIDToPageNum(sFileID) {
@@ -225,13 +224,9 @@ var currentImage;
 
 function loadImage(num) {
 
-	
-
 	smallImage = new Image();
 	smallImage.src= sDataPath + "small-" + num + ".jpg";
-	
-	
-	
+
 	$(smallImage).load(function() {
 
 		images = [];
@@ -251,11 +246,18 @@ function loadImage(num) {
 	
 		setViewportZoom(1);
 	
-		setViewportPosition(0,0);
+		totalPagesWidth = 0;
+		totalPagesHeight = 0;
+		for (i=0;i<images.length;i++) {
+			totalPagesWidth += images[i].img.width;
+			totalPagesHeight += images[i].img.height;
+		}
+		
+		//Center the page(s)
+		viewportStartX = ($("#viewer").width() - $("#viewer").height() * (totalPagesWidth / totalPagesHeight)) / 2;
+		
+		setViewportPosition(viewportStartX,0);
 
-		$("#viewer").css('background-image', 'url('+ smallImage.src +')');
-	
-	
 		triggerSmallImageReady();
 		
 		bgImage = new Image();
@@ -278,15 +280,7 @@ function loadImage(num) {
 			
 			oImageSize.scale = w / oImageSize.width;
 	
-	
-			setViewportZoom(1);
-		
-	
-			setViewportPosition(0,0);
 
-
-			$("#viewer").css('background-image', 'url('+ bgImage.src +')');
-	
 			triggerImageReady();
 		
 		});

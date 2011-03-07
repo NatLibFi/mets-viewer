@@ -1,6 +1,7 @@
 
-var ZOOM_SPEED = 1.2;
-
+var ZOOM_SPEED = 1.3;
+var ZOOM_MAX = 3;
+var ZOOM_MIN = 0.7;
 onCoreReady(function() {
 	$("#viewer").mousewheel(function(e, delta) {
 			e.preventDefault();
@@ -10,23 +11,23 @@ onCoreReady(function() {
 			var zoomLevel = getViewportZoom();
 			
 
-			console.log(oViewerSize);
-		
 			var preViewportSize = { 
 				 width: oViewerSize.width / zoomLevel
 				,height: oViewerSize.height / zoomLevel 
 			}; 
 
-		
 			if (delta > 0) {
 				zoomLevel *= ZOOM_SPEED;
 				
 			} else {
 				zoomLevel /= ZOOM_SPEED;
-			
 			}
 			
-			var XYKerroin = {
+			if (zoomLevel < ZOOM_MIN || zoomLevel > ZOOM_MAX) {
+				return;
+			}
+			
+			var mouseMul = {
 				 x: oViewerSize.width / mouseX
 				,y: oViewerSize.height / mouseY
 			}
@@ -36,22 +37,13 @@ onCoreReady(function() {
 				,height: oViewerSize.height / zoomLevel
 			}; 
 	
-			console.log("mousepos " + mouseX + "," + mouseY);
-			console.log(preViewportSize);
-			console.log(postViewportSize);
-			
-			var xOffset = (postViewportSize.width - preViewportSize.width) / XYKerroin.x;
-			var yOffset = (postViewportSize.height - preViewportSize.height) / XYKerroin.y;
-
-			
-			console.log(xOffset + "," + yOffset);
-			
+			var xOffset = (postViewportSize.width - preViewportSize.width) / mouseMul.x;
+			var yOffset = (postViewportSize.height - preViewportSize.height) / mouseMul.y;
+	
 			oViewportPosition = getViewportPosition();
-		
-			oViewportPosition.x += (postViewportSize.width - preViewportSize.width) / 2 * scalingFactor;
-			
-			//oViewportPosition.x += xOffset;
-			//oViewportPosition.y += yOffset;
+	
+			oViewportPosition.x += xOffset;
+			oViewportPosition.y += yOffset;
 	
 			setViewportPositionAndZoom(oViewportPosition.x, oViewportPosition.y, zoomLevel);
 	
