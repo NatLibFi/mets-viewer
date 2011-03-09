@@ -1,43 +1,68 @@
+var toc = {};
 
-onCoreReady(function() {
-	buildIndex();
+toc._construct = function() {
 
-});
+	function buildIndex() {
 
+		$("#index .content_items").html('');
 
-function buildIndex() {
-
-	$("#index .content_items").html('');
-
-	$.get(sDataPath + "mets.xml", function(data) {
+		$.get(viewer.getPackagePath() + "mets.xml", function(data) {
 	
-		$(data).find("div[TYPE='CHAPTER']").each(function() {
+			$(data).find("div[TYPE='CHAPTER']").each(function() {
 		
-			label = $(this).attr('LABEL');
+				label = $(this).attr('LABEL');
 			
-			$file = $(this).find('area[FILEID]').first();
+				$file = $(this).find('area[FILEID]').first();
 	
-			page = fileIDToPageNum ( $file.attr('FILEID') );
-			debuglog(page);
-			
-			if (page != null) {
-				$li = $("<li></li>");
-				$a = $("<a page='"+page+"' href='#page="+page+"'>"+ label +"</a>");
-				$li.append($a);
-				$("#index .content_items").append($li);
+				page = fileIDToPageNum ( $file.attr('FILEID') );
+	
+				if (page != null) {
+					$li = $("<li></li>");
+					$a = $("<a page='"+page+"' href='#page="+page+"'>"+ label +"</a>");
+					$li.append($a);
+					$("#index .content_items").append($li);
 				
-				$a.click(function() {
-					num = $(this).attr('page');
-					while (num.length < 4) {
-						num = "0" + num;
-					}
-					loadPage(num);
+					$a.click(function() {
+						num = $(this).attr('page');
+						while (num.length < 4) {
+							num = "0" + num;
+						}
+						loadPage(num);
 				
-				});
-			}
+					});
+				}
+			});
+		
+	
 		});
-		
-	
-	});
 
+	};
+
+
+	function fileIDToPageNum(sFileID) {
+
+
+		var re = new RegExp("(\\d+)","gi");
+
+		var match = re.exec(sFileID);
+	
+		if (match[1] != undefined) {
+			return parseInt(match[1],10);
+		}
+
+		return null;
+	};
+
+	toc.buildIndex=buildIndex;
+
+
+	onCoreReady(function() {
+		toc.buildIndex();
+
+	});
 }
+toc._construct();
+
+
+
+

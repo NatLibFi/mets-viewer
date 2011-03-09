@@ -11,331 +11,46 @@
 <script type="text/javascript" src="js/core/observers.js"></script>
 <script type="text/javascript" src="js/core/viewport.js"></script>
 
+<script type="text/javascript" src="js/core/viewer.js"></script>
+
 
 <script type="text/javascript" src="js/modules/toc.js"></script>
 
 <script type="text/javascript" src="js/modules/page_changer.js"></script>
 <script type="text/javascript" src="js/modules/image_index.js"></script>
-<!--
+
 <script type="text/javascript" src="js/modules/text_overlay.js"></script>
--->
+
 <script type="text/javascript" src="js/modules/zoom.js"></script>
 <script type="text/javascript" src="js/modules/pan.js"></script>
 
-<script type="text/javascript">
-
-var sDataPath = "/mets_viewer/packages/";
-var oImageSize = {width: 0, height: 0};
-var oPageSize = {};
-var oScale = {};
-var scalingFactor;
-var images = [];
-
-mouse_mode = "pan";
-
-
-function debug(msg) {
-	debuglog(msg);
-}
-
-onSmallImageReady(redrawCanvas);
-onImageReady(redrawCanvas);
-onViewportChange(redrawCanvas);
-
-function redrawCanvas() {
-
-	var canvas = document.getElementById("viewer");
-
-	if (!canvas.getContext) { 
-		alert("selain ei tue"); 
-	}
-
-	var ctx = canvas.getContext("2d");
-	ctx.clearRect(0,0,canvas.width,canvas.height);  
-
-	ctx.save();
-	
-	var maxHeight=0;
-	for (var i=0;i<images.length;i++) {
-	
-		maxHeight = (images[i].img.height > maxHeight) ? images[i].img.height : maxHeight;
-	}
-	
-	
-	ctx.translate(viewport.x * viewport.zoom, viewport.y * viewport.zoom);
-
-	scalingFactor = oViewerSize.height / maxHeight * viewport.zoom;
-	ctx.scale(scalingFactor, scalingFactor);
-	
-
-
-	for (var i=0;i<images.length;i++) {
-		
-		ctx.drawImage(images[i].img, images[i].xOffset, images[i].yOffset);
-		
-	}
-
-	ctx.restore();
-	
-}
-
-
-function getPackagePath() {
-
-	return sDataPath;
-}
-
-function currentPage() {
-		var pagehashPattern = new RegExp('#page=(\\d+)','gi');
-
-		var matches = pagehashPattern.exec(window.location.hash);
-		if (matches == null) {
-			return 1;
-		}
-		if (matches.length > 1) {
-			return parseInt(matches[1], 10);
-		}
-		
-		return null;
-}
-
-function currentPage4() {
-	num = "" + currentPage();
-	while (num.length < 4) {
-		num = "0" + num;
-	}
-	return num;
-}
-
-var mouseX, mouseY, mouseXlast, mouseYlast;
-
-
-$(document).ready(function() {
-	oViewerSize = {width: $('#viewer').width(), height: $('#viewer').height()};
-	
-	$(window).bind('hashchange', function() {
-
-		loadPage(currentPage());
-		triggerPagechange();
-		
-	});
-
-
-	page = $.query.get('page') || 1;
-	sDataPath += $.query.get('item') + "/";
-
-	loadPage(page);
-	
-	//tell registered modules that the core is ready.
-	triggerCoreReady();
-	
-
-	$("#viewer").mousemove(function(e) {
-
-		mouseXlast = mouseX || 0;
-		mouseYlast = mouseY || 0;
-		
-		mouseX = e.pageX - $(this).offset().left;
-		mouseY = e.pageY - $(this).offset().top;
-
-	});
-	
-});
-
-
-function fileIDToPageNum(sFileID) {
-
-
-	var re = new RegExp("(\\d+)","gi");
-
-	var match = re.exec(sFileID);
-	
-	if (match[1] != undefined) {
-		return parseInt(match[1],10);
-	}
-
-	return null;
-}
-
-
-
-function loadPage(num) {
-	num = "" + num;
-	while (num.length < 4) {
-		num = "0" + num;
-	}
-	
-	$("#viewer").empty();
-
-	loadImage(num);	
-}
-
-var Xpx;
-var Ypx;
-var zoom;
-
-function getViewerSize() {
-
-	fWidth = $("#viewer").width();
-	fHeight = $("#viewer").height();
-	return { width: fWidth, height: fHeight };
-}
-
-function getViewerPosition() {
-	return $("#viewer").offset();
-}
-
-function getViewerBounds() {
-
-	var pos = getViewerPosition();
-
-	var size = getViewerSize();
-	
-	return {
-		left: pos.left,
-		right: pos.left + size.width,
-		top: pos.top,
-		bottom: pos.top + size.height
-	};
-
-}
-
-function getScaledImageSize() {
-
-	width = oImageSize.width * oImageSize.scale;
-	height = oImageSize.height * oImageSize.scale;
-
-	return { width: width, height: height };
-}
-
-function getViewportSize() {
-
-	fWidth = $("#viewer").width() / zoom;
-	fHeight = $("#viewer").height() / zoom;
-
-	return { width: fWidth, height: fHeight };
-}
-
-
-var imageScale;
-var oViewerSize;
-var currentImage;
-
-
-function loadImage(num) {
-
-	smallImage = new Image();
-	smallImage.src= sDataPath + "small-" + num + ".jpg";
-
-	$(smallImage).load(function() {
-
-		images = [];
-		images.push({img: smallImage, xOffset: 0, yOffset: 0});
-	
-		oImageSize = { width: smallImage.width, height: smallImage.height, ratio: smallImage.width / smallImage.height};
-
-
-		elemWidth = $("#viewer").width();
-		elemHeight = $("#viewer").height();
-		var w = elemHeight * oImageSize.ratio;
-		oImageSize.left = (elemWidth-w)/2;
-		oImageSize.top = 0;
-			
-		oImageSize.scale = w / oImageSize.width;
-	
-	
-		setViewportZoom(1);
-	
-		totalPagesWidth = 0;
-		totalPagesHeight = 0;
-		for (i=0;i<images.length;i++) {
-			totalPagesWidth += images[i].img.width;
-			totalPagesHeight += images[i].img.height;
-		}
-		
-		//Center the page(s)
-		viewportStartX = ($("#viewer").width() - $("#viewer").height() * (totalPagesWidth / totalPagesHeight)) / 2;
-		
-		setViewportPosition(viewportStartX,0);
-
-		triggerSmallImageReady();
-		
-		bgImage = new Image();
-		bgImage.src= sDataPath + num + ".jpg";
-
-		
-		$(bgImage).load(function() {
-
-			images = [];
-			images.push({img: bgImage, xOffset: 0, yOffset: 0});
-		
-			oImageSize = { width: bgImage.width, height: bgImage.height, ratio: bgImage.width / bgImage.height};
-
-
-			elemWidth = $("#viewer").width();
-			elemHeight = $("#viewer").height();
-			var w = elemHeight * oImageSize.ratio;
-			oImageSize.left = (elemWidth-w)/2;
-			oImageSize.top = 0;
-			
-			oImageSize.scale = w / oImageSize.width;
-	
-
-			triggerImageReady();
-		
-		});
-		
-		
-	});
-}
-
-
-function debuglog(msg) {
-	if (window.console && console.log) {
-		console.log(msg);
-	}
-
-}
-
-$(document).ready(function() {
-	$("#pan").click(function() { setmode(this); });
-	$("#select").click(function() { setmode(this); });
-});
-
-function setmode(item) {
-
-	mode = $(item).attr('id');
-	
-	$(item).addClass('selected');
-
-	mouse_mode = mode;
-	if (mode == 'pan') {
-		$("#select").removeClass('selected');
-		
-		$("#viewer").css('cursor', 'default');
-		$("#viewer span").css('cursor', 'default');
-	}
-
-	if (mode == 'select') {
-		$("#pan").removeClass('selected');
-		$("#viewer").css('cursor', 'text');
-		$("#viewer span").css('cursor', 'text');
-	}
-	
-}
-
-
-</script>
 
 <link rel="stylesheet" href="css/ui-lightness/jquery-ui-1.8.10.custom.css" type="text/css" media="all" />
 
 <style type="text/css">
+
+#text_overlay {
+	position: relative;
+	height: 700px;
+	width: 900px;
+	display: inline-block;
+}
+#texts {
+	position: relative;
+	height: 700px;
+	width: 900px;
+	display: inline-block;
+	float: left;
+}
+
 #viewer {
 	position: relative;
 	border: 1px solid black;	
 
 	background-repeat: no-repeat;
 	display: inline-block;
+	float:left;
+	cursor: default;
 }
 
 #viewer span {
@@ -345,7 +60,6 @@ function setmode(item) {
 .text {
 	color: rgba(0,0,0,0);
 
-	
 }
 
 #top_toolbars {
@@ -447,9 +161,9 @@ Sisällysluettelo
 	<div class="content_items"></div>
 </div>
 
-
-<canvas id="viewer" height="700" width="900"></canvas>
-
+<div id="text_overlay">
+	<canvas id="viewer" height="700" width="900"></canvas>
+</div>
 
 <div id="imageindex">
 	<div class="content_items">Latadataan</div>

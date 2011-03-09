@@ -1,44 +1,59 @@
 
-var panning = false;
+var pan = {};
 
-onCoreReady(function() {
+pan._construct = function() {
 
-	$("#viewer").mousedown(function(e) {
+	var panning = false;
+
+	onCoreReady(function() {
+
+		$("#text_overlay").mousedown(function(e) {
+			if (viewer.getMouseMode() == 'pan') {
+				e.preventDefault();
+				panning = true;
+			}
+		});
 		
-		if (mouse_mode == 'pan') {
+		
+		$("#viewer").mousedown(function(e) {
+			if (viewer.getMouseMode() == 'pan') {
+				e.preventDefault();
+				panning = true;
+			}
+		});
+	
+		$("#viewer").mouseup(function(e) {
 			e.preventDefault();
-			panning = true;
-		}
-	});
-	
-	$("#viewer").mouseup(function(e) {
-		e.preventDefault();
 		
-		panning = false;
-	});
+			panning = false;
+		});
 	
-	$("#viewer").mouseout(function(e) {
+		$("#viewer").mouseout(function(e) {
 		
-		panning = false;
-	});
+			panning = false;
+		});
 	
-	$("#viewer").mousemove(function(e) {
+		$("#viewer").mousemove(function(e) {
 
-		if (panning) {
+			if (panning) {
 		
-			oViewportPosition = getViewportPosition();
+				oViewportPosition = viewport.getPosition();
+				
 			
-			mouseXdiff = mouseXlast - mouseX;
-			mouseYdiff = mouseYlast - mouseY;
+				mouseXdiff = viewer.getLastMousePosition().x - viewer.getMousePosition().x;
+				mouseYdiff = viewer.getLastMousePosition().y - viewer.getMousePosition().y;
 			
-			oViewportPosition.x -= mouseXdiff / viewport.zoom;
-			oViewportPosition.y -= mouseYdiff / viewport.zoom;
+				oViewportPosition.x -= mouseXdiff / viewport.zoom;
+				oViewportPosition.y -= mouseYdiff / viewport.zoom;
 
-			setViewportPosition(oViewportPosition.x, oViewportPosition.y);
+				viewport.setPosition(oViewportPosition.x, oViewportPosition.y);
 			
 			
-		}
+			}
+		});
+
 	});
-
-});
 	
+}
+pan._construct();
+
