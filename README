@@ -1,0 +1,7 @@
+License is in the LICENCE file (2-clause bsd)
+
+Installing dependencies:
+
+yum install perl-XML-LibXML.x86_64
+yum install ImageMagick-perl.x86_64
+yum install perl-XML-Simple.noarch

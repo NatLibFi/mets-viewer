@@ -46,7 +46,12 @@ image_index._construct = function() {
 	this.buildImageIndex=buildImageIndex;
 	
 	onCoreReady(function() {
-		image_index.buildImageIndex();		
+		$("#imageindex").toggle();
+		image_index.buildImageIndex();	
+		$('#imageindex_toggle').click(function() {
+			$("#imageindex").toggle('fast','swing');
+		});
+			
 	});
 	
 }

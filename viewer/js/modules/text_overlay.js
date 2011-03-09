@@ -32,6 +32,7 @@ text_overlay._construct=function() {
 	 		return;
 	 	}
 	 
+
 		if (cache[num] === undefined) {
 
 			$.get( viewer.getPackagePath() + num + '.xml', function(data) {
@@ -42,7 +43,9 @@ text_overlay._construct=function() {
 				oScale = {
 					 width:  imageData.size.width / oPageSize.width * imageData.size.scale
 					,height: imageData.size.height / oPageSize.height * imageData.size.scale
+					
 				}
+				oScale.ratio = imageData.size.ratio;
 				
 				triggerScaleReady();
 			
@@ -51,18 +54,18 @@ text_overlay._construct=function() {
 					,"scale": oScale
 				};
 			
-				renderText(cache[num].data, cache[num].scale);
+				renderText(cache[num].data, cache[num].scale, imageData);
 
 			});
 	
 		} else {
 
-				renderText(cache[num].data, cache[num].scale);
+				renderText(cache[num].data, cache[num].scale, imageData);
 		}
 	}
 
 
-	function renderText(data, oScale) {
+	function renderText(data, oScale, imageData) {
 		
 	
 		if ($("#viewer").css('cursor') != 'wait') {
@@ -81,7 +84,7 @@ text_overlay._construct=function() {
 		textLoadDelayer = setTimeout(function() {
 			$(data).find('String').each(function() {
 		
-				render_string($(this), oScale);
+				render_string($(this), oScale, imageData);
 		
 			});
 		
@@ -94,20 +97,24 @@ text_overlay._construct=function() {
 	
 	}
 
-	function render_string($oString, oScale) {
+	function render_string($oString, oScale, imageData) {
+	
+		oViewerSize = viewer.getSize();
+
+		viewerScale = (oViewerSize.height) / imageData.size.height / imageData.size.scale;
 	
 		oViewportPosition = viewport.getPosition();
-		var left = parseInt($oString.attr('HPOS'), 10) * oScale.width * viewport.getZoom();
-		var top =  parseInt($oString.attr('VPOS'), 10) * oScale.height * viewport.getZoom();
+		var left = parseInt($oString.attr('HPOS'), 10) * oScale.width * viewport.getZoom() * viewerScale;
+		var top =  parseInt($oString.attr('VPOS'), 10) * oScale.height * viewport.getZoom() * viewerScale;
 		
 		left +=  oViewportPosition.x * viewport.getZoom();
 		top +=  oViewportPosition.y * viewport.getZoom();
 		
-		var width = $oString.attr('WIDTH') * oScale.width * viewport.getZoom();
-		var height = $oString.attr('HEIGHT') * oScale.height * viewport.getZoom();
+		var width = $oString.attr('WIDTH') * oScale.width * viewport.getZoom() * viewerScale;
+		var height = $oString.attr('HEIGHT') * oScale.height * viewport.getZoom() * viewerScale;
 	
 
-		oViewerSize = viewer.getSize();
+		
 		
 		//Dont create stringelements if they're out of bounds
 		if (left < 0 || left+width > oViewerSize.width ||

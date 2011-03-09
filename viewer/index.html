@@ -6,6 +6,7 @@
 <title>Viewer</title>
 
 <script type="text/javascript" src="js/core/jquery-1.5.js"></script>
+<script type="text/javascript" src="js/core/jquery-ui-1.8.10.custom.min.js"></script>
 <script type="text/javascript" src="js/core/jquery.mousewheel.min.js"></script>
 <script type="text/javascript" src="js/core/jquery.query-2.1.7.js"></script>
 <script type="text/javascript" src="js/core/observers.js"></script>
@@ -59,7 +60,7 @@
 
 .text {
 	color: rgba(0,0,0,0);
-
+border: 1px solid black;	
 }
 
 #top_toolbars {
@@ -105,15 +106,44 @@
 	margin: 4px;
 	
 }
+#imageindexContainer {
+	float: right;
+	display: inline-block;
+	vertical-align: top;
+}
+#imageindexContainer img {
+	border: 0;
+	margin-right: -5px;
+}
+
+#toc_container {
+	display: inline-block;
+	vertical-align: top;
+	
+}
+
+#toc_container img {
+	padding: 0px;
+	margin-left: -5px;
+}
+
+
 #index {
 	display: inline-block;
 	vertical-align: top;
-	width: 120px;
+	width: 215px;
+	border: 1px solid black;
+	padding: 0px;
+	margin: 0px;
+	
+	height: 200px;
 }
 #index .content_items li {
 	cursor: pointer;
 	list-style: none;
+	width: 95%;
 }
+
 
 #imageindex {
 	display: inline-block;
@@ -156,19 +186,25 @@
 <div id="toolbar"><div id="pan" class="selected icon_pan"></div><div id="select" class="icon_select"></div></div>
 </div>
 
+<div id="toc_container">
+
 <div id="index">
-Sisällysluettelo
 	<div class="content_items"></div>
+</div>
+<img id="toc_toggle" src="img/toc.png"/>
 </div>
 
 <div id="text_overlay">
 	<canvas id="viewer" height="700" width="900"></canvas>
 </div>
 
+<div id="imageindexContainer">
+<img id="imageindex_toggle" src="img/imagelist.png"/>
 <div id="imageindex">
 	<div class="content_items">Latadataan</div>
 </div>
 
+</div>
 
 </body>
 

@@ -34,6 +34,11 @@ viewer._construct=function() {
 		var ctx = canvas.getContext("2d");
 		ctx.clearRect(0,0,canvas.width,canvas.height);  
 
+	
+		canvas.width=oViewerSize.width;
+		canvas.height=oViewerSize.height;
+		
+
 		ctx.save();
 	
 		var maxHeight=0;
@@ -46,6 +51,7 @@ viewer._construct=function() {
 		ctx.translate(viewport.x * viewport.zoom, viewport.y * viewport.zoom);
 
 		scalingFactor = oViewerSize.height / maxHeight * viewport.zoom;
+	
 		ctx.scale(scalingFactor, scalingFactor);
 	
 
@@ -120,7 +126,17 @@ viewer._construct=function() {
 			mouseY = e.pageY - $(this).offset().top;
 
 		});
+		
+		$("#viewer").resizable({ 
+		  resize: function(event, ui) {
+		  	oViewerSize = {width: $('#viewer').width(), height: $('#viewer').height()};
+		  	redrawCanvas();
+		  }
+		});
 	
+	
+		$("#pan").click(function() { setmode(this); });
+		$("#select").click(function() { setmode(this); });
 	});
 
 
@@ -155,7 +171,6 @@ viewer._construct=function() {
 		smallImage.src= sDataPath + "small-" + num + ".jpg";
 
 		$(smallImage).load(function() {
-
 
 			oImageSize = { width: smallImage.width, height: smallImage.height, ratio: smallImage.width / smallImage.height };
 			
@@ -215,11 +230,6 @@ viewer._construct=function() {
 		});
 	}
 
-
-	$(document).ready(function() {
-		$("#pan").click(function() { setmode(this); });
-		$("#select").click(function() { setmode(this); });
-	});
 
 	function setmode(item) {
 

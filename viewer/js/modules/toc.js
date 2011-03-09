@@ -58,6 +58,12 @@ toc._construct = function() {
 
 	onCoreReady(function() {
 		toc.buildIndex();
+		$("#index").resizable();
+
+		$('#toc_toggle').click(function() {
+			$("#index").toggle('fast', 'swing');
+		});
+
 
 	});
 }
