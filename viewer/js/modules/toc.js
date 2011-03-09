@@ -21,7 +21,7 @@ toc._construct = function() {
 					$a = $("<a page='"+page+"' href='#page="+page+"'>"+ label +"</a>");
 					$li.append($a);
 					$("#index .content_items").append($li);
-				
+					$("#index").height($("#index .content_items").height());
 					$a.click(function() {
 						num = $(this).attr('page');
 						while (num.length < 4) {
