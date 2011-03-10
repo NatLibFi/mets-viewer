@@ -6,6 +6,7 @@ use File::Copy;
 use XML::LibXML;
 use Image::Magick;
 use XML::Simple;
+use Digest::MD5 qw(md5_hex);
 
 sub import($);
 
@@ -14,7 +15,8 @@ my $WORKING_DIR = "temp/";
 my $PACKAGE_DIR = "packages/";
 
 `rm -rf temp/*`;
-`rm -rf packages/*`;
+#`rm -rf packages/*`;
+
 
 
 #check prequisites
@@ -38,6 +40,10 @@ foreach my $file (@files) {
 sub import($) {
 	my $file = shift;
 	
+	
+	my $import_digest = md5($IMPORT_DIR . $file);
+
+	
 	if (!-d $WORKING_DIR) {
 		mkdir($WORKING_DIR, 0777);
 	}
@@ -60,8 +66,33 @@ sub import($) {
 	print "Importing package: $urn\n";
 	
 	if (!-d $PACKAGE_DIR) {
+		print "Creating new directory: '$PACKAGE_DIR'\n";
 		mkdir($PACKAGE_DIR, 0777);
 	}
+	if (-d $PACKAGE_DIR . $urn) {
+		print "Package $urn exists\n";
+		my $h = open(MD5, "<", $PACKAGE_DIR . $urn . "/md5");
+		if (!$h) {
+			print "Could not find md5, removing package $PACKAGE_DIR$urn\n";
+			`rm -rf $PACKAGE_DIR$urn`;
+		} else {
+		
+			my $digest = <MD5>;
+			if ($import_digest eq $digest) {
+			
+				print "Package already imported, skipping\n";
+				return;
+			
+			} 
+			print "Checksum mismatch, updating package $PACKAGE_DIR$urn\n";
+			`rm -rf $PACKAGE_DIR$urn`;
+		
+		}
+	}
+	
+	
+	
+	
 	mkdir($PACKAGE_DIR . $urn, 0777);
 	
 	if (system("unzip -qqo $IMPORT_DIR$file -d $PACKAGE_DIR$urn/") != 0) {
@@ -132,11 +163,14 @@ sub import($) {
 
 	my $xmlWriter = new XML::Simple (NoAttr=>1, RootName=>'images', xmldecl => '<?xml version="1.0"?>');
 
-	open (MYFILE, '>', "$PACKAGE_DIR$urn/imageIndex.xml");
- 	print MYFILE  $xmlWriter->XMLout(\@imageIndex);
- 	close (MYFILE); 
+	open (IMAGESFILE, '>', "$PACKAGE_DIR$urn/imageIndex.xml");
+ 	print IMAGESFILE  $xmlWriter->XMLout(\@imageIndex);
+ 	close (IMAGESFILE); 
 	
 	
+	open (MD5, '>', "$PACKAGE_DIR$urn/md5");
+ 	print MD5 $import_digest;
+ 	close (MD5); 
 	
 	
 	
@@ -158,6 +192,20 @@ sub import($) {
 	
 	}
 	
+
+}
+
+sub md5($) {
+
+	my $file = shift;
+	
+	open(my $fh, "<", $file) or die ("Could not open $file");
+	
+	my $ctx = Digest::MD5->new;
+	
+	$ctx->addfile($fh);
+	
+	return $ctx->hexdigest;
 
 }
 

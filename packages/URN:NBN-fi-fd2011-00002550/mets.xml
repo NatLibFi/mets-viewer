@@ -1,0 +1,2791 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<mets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.loc.gov/METS/" xsi:schemaLocation="http://www.loc.gov/METS/ http://schema.ccs-gmbh.com/docworks/mets-metae.xsd" xmlns:MODS="http://www.loc.gov/mods/v3" xmlns:mix="http://www.loc.gov/mix/" xmlns:xlink="http://www.w3.org/TR/xlink" TYPE="METAe_Monograph" LABEL="Dissertatio gradualis, stricturas quasdam criticas in historiam Alandiae, maris Baltici insulae, continens Stricturae quaedam criticae in historiam Alandiae, maris Baltici insulae">
+	<metsHdr CREATEDATE="2011-01-17T13:49:55" LASTMODDATE="2011-01-17T13:49:55">
+		<agent ROLE="CREATOR" TYPE="OTHER" OTHERTYPE="SOFTWARE">
+			<name>CCS docWORKS/METAe Version 6.4-1</name>
+		</agent>
+	</metsHdr>
+	<dmdSec ID="dmd-marc">
+		<mdWrap MIMETYPE="text/xml" MDTYPE="MARC" LABEL="Bibliographic meta-data of the digital version">
+			<xmlData>
+<MARC:record xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:MARC="http://www.loc.gov/MARC21/slim" xsi:schemaLocation="http://www.loc.gov/MARC21/slim http://www.loc.gov/standards/marcxml/schema/MARC21slim.xsd">
+	<MARC:leader>01197nam a2200265 a 4500</MARC:leader>
+	<MARC:controlfield tag="007">cr#gn#mmmmaabp</MARC:controlfield>
+	<MARC:controlfield tag="007">cr#gn#mmmmaada</MARC:controlfield>
+	<MARC:controlfield tag="008">110117s1792    fi ####||m||||00| 0 lat  </MARC:controlfield>
+	<MARC:datafield tag="015" ind1=" " ind2=" ">
+		<MARC:subfield code="a">fd2011-00002550</MARC:subfield>
+	</MARC:datafield>
+	<MARC:datafield tag="024" ind1="7" ind2="0">
+		<MARC:subfield code="a">URN:NBN-fi-fd2011-00002550</MARC:subfield>
+		<MARC:subfield code="2">urn</MARC:subfield>
+	</MARC:datafield>
+	<MARC:datafield tag="040" ind1=" " ind2=" ">
+		<MARC:subfield code="a">FI-NL</MARC:subfield>
+		<MARC:subfield code="b">eng</MARC:subfield>
+	</MARC:datafield>
+	<MARC:datafield tag="041" ind1="0" ind2=" ">
+		<MARC:subfield code="a">lat</MARC:subfield>
+	</MARC:datafield>
+	<MARC:datafield tag="100" ind1="1" ind2=" ">
+		<MARC:subfield code="a">Bilmark, Johannes,</MARC:subfield>
+		<MARC:subfield code="d">1728-1801,</MARC:subfield>
+		<MARC:subfield code="e">praeses.</MARC:subfield>
+	</MARC:datafield>
+	<MARC:datafield tag="245" ind1="1" ind2="0">
+		<MARC:subfield code="a">Dissertatio gradualis, stricturas quasdam criticas in historiam Alandiae, maris Baltici insulae, continens /</MARC:subfield>
+		<MARC:subfield code="c">Quam ... praeside mag. Johanne Bilmark, ... publice censurae submittit Daniel Backman, Borea-Fenno, in auditorio majori die IX Junii MDCCXCII, ...</MARC:subfield>
+		<MARC:subfield code="h">[Electronic Resource]</MARC:subfield>
+	</MARC:datafield>
+	<MARC:datafield tag="246" ind1="3" ind2=" ">
+		<MARC:subfield code="a">Stricturae quaedam criticae in historiam Alandiae, maris Baltici insulae</MARC:subfield>
+	</MARC:datafield>
+	<MARC:datafield tag="260" ind1=" " ind2=" ">
+		<MARC:subfield code="a">Aboae :</MARC:subfield>
+		<MARC:subfield code="b">typis Frenckellianis,</MARC:subfield>
+		<MARC:subfield code="c">1792.</MARC:subfield>
+	</MARC:datafield>
+	<MARC:datafield tag="300" ind1=" " ind2=" ">
+		<MARC:subfield code="a">20 p.</MARC:subfield>
+		<MARC:subfield code="c">13 x 20 cm</MARC:subfield>
+	</MARC:datafield>
+	<MARC:datafield tag="501" ind1=" " ind2=" ">
+		<MARC:subfield code="a">Bound in: Dissertatio historica de paroecia Alandiae Lemland, eique annexa Lumparland / Daniel Ferdinandus Mallén. Aboae : typis Frenckellianis, [1792]</MARC:subfield>
+	</MARC:datafield>
+	<MARC:datafield tag="502" ind1=" " ind2=" ">
+		<MARC:subfield code="a">Diss. :</MARC:subfield>
+		<MARC:subfield code="c">Turku,</MARC:subfield>
+		<MARC:subfield code="d">1792.</MARC:subfield>
+	</MARC:datafield>
+	<MARC:datafield tag="506" ind1=" " ind2=" ">
+		<MARC:subfield code="3">Access copy</MARC:subfield>
+		<MARC:subfield code="a">Available on the Internet</MARC:subfield>
+		<MARC:subfield code="f">Internet resource</MARC:subfield>
+		<MARC:subfield code="u">http://urn.fi/URN:NBN:fi-fe200912222458</MARC:subfield>
+	</MARC:datafield>
+	<MARC:datafield tag="510" ind1="3" ind2=" ">
+		<MARC:subfield code="a">Vallinkoski 440</MARC:subfield>
+	</MARC:datafield>
+	<MARC:datafield tag="520" ind1="3" ind2=" ">
+		<MARC:subfield code="a">A historical description of Åland, Finland.</MARC:subfield>
+	</MARC:datafield>
+	<MARC:datafield tag="533" ind1=" " ind2=" ">
+		<MARC:subfield code="a">Digital reproduction</MARC:subfield>
+		<MARC:subfield code="b">Mikkeli</MARC:subfield>
+		<MARC:subfield code="c">The National Library of Finland / Centre for Preservation and Digitisation</MARC:subfield>
+		<MARC:subfield code="d">20110117</MARC:subfield>
+		<MARC:subfield code="e">METS/ALTO, PDF, JPEG2000, JPG</MARC:subfield>
+		<MARC:subfield code="f">TravelEuropeana</MARC:subfield>
+		<MARC:subfield code="n">Markup level: minimal</MARC:subfield>
+	</MARC:datafield>
+	<MARC:datafield tag="538" ind1=" " ind2=" ">
+		<MARC:subfield code="a">World Wide Web</MARC:subfield>
+	</MARC:datafield>
+	<MARC:datafield tag="542" ind1="1" ind2=" ">
+		<MARC:subfield code="l">Copyrights expired based on the publication year</MARC:subfield>
+		<MARC:subfield code="o">20110117</MARC:subfield>
+		<MARC:subfield code="r">fi</MARC:subfield>
+		<MARC:subfield code="u">http://urn.fi/URN:NBN:fi-fe200912222462</MARC:subfield>
+	</MARC:datafield>
+	<MARC:datafield tag="561" ind1=" " ind2=" ">
+		<MARC:subfield code="a">Unknown  (reviewed last in 2010)</MARC:subfield>
+	</MARC:datafield>
+	<MARC:datafield tag="583" ind1="1" ind2=" ">
+		<MARC:subfield code="a">Digitised</MARC:subfield>
+		<MARC:subfield code="c">20110117</MARC:subfield>
+		<MARC:subfield code="f">Legal deposit material</MARC:subfield>
+		<MARC:subfield code="h">The National Library of Finland</MARC:subfield>
+		<MARC:subfield code="l">Committed to preserve</MARC:subfield>
+	</MARC:datafield>
+	<MARC:datafield tag="653" ind1=" " ind2="0">
+		<MARC:subfield code="a">history</MARC:subfield>
+	</MARC:datafield>
+	<MARC:datafield tag="653" ind1=" " ind2="5">
+		<MARC:subfield code="a">Åland</MARC:subfield>
+	</MARC:datafield>
+	<MARC:datafield tag="700" ind1="1" ind2=" ">
+		<MARC:subfield code="a">Backman, Daniel Danielis,</MARC:subfield>
+		<MARC:subfield code="d">1769-1834,</MARC:subfield>
+		<MARC:subfield code="e">respondent.</MARC:subfield>
+	</MARC:datafield>
+	<MARC:datafield tag="776" ind1="0" ind2=" ">
+		<MARC:subfield code="i">Original item</MARC:subfield>
+		<MARC:subfield code="o">(barcode)1201003121</MARC:subfield>
+		<MARC:subfield code="o">(NBN)f20101049 (sid.)</MARC:subfield>
+		<MARC:subfield code="w">(FI-NL)938721</MARC:subfield>
+	</MARC:datafield>
+	<MARC:datafield tag="856" ind1="4" ind2="0">
+		<MARC:subfield code="u">http://urn.fi/URN:NBN:fi-fd2011-00002550</MARC:subfield>
+	</MARC:datafield>
+	<MARC:datafield tag="903" ind1=" " ind2=" ">
+		<MARC:subfield code="a">d</MARC:subfield>
+	</MARC:datafield>
+</MARC:record>
+
+			</xmlData>
+		</mdWrap>
+	</dmdSec>
+	<dmdSec ID="ch001-dmd-mods">
+		<mdWrap MIMETYPE="text/xml" MDTYPE="MODS" LABEL="Bibliographic meta-data of chapter 1">
+			<xmlData>
+				<MODS:mods>
+					<MODS:titleInfo ID="MODSMD_CHAP1_TI1" xml:lang="la">
+						<MODS:title>PRAEFATIO.</MODS:title>
+					</MODS:titleInfo>
+					<MODS:language>
+						<MODS:languageTerm type="code" authority="rfc3066">la</MODS:languageTerm>
+					</MODS:language>
+					<MODS:identifier type="urn">URN:NBN-fi-fd2011-00002550-ch001</MODS:identifier>
+					<MODS:relatedItem type="host">
+						<MODS:identifier type="urn">URN:NBN-fi-fd2011-00002550</MODS:identifier>
+					</MODS:relatedItem>
+				</MODS:mods>
+			</xmlData>
+		</mdWrap>
+	</dmdSec>
+	<dmdSec ID="ch001-ill001-dmd-mods">
+		<mdWrap MIMETYPE="text/xml" MDTYPE="MODS" LABEL="Bibliographic meta-data of picture">
+			<xmlData>
+				<MODS:mods>
+					<MODS:titleInfo ID="MODSMD_PICT1_TI1" xml:lang="la">
+						<MODS:title>Ei kuvatekstiä</MODS:title>
+					</MODS:titleInfo>
+					<MODS:typeOfResource>still image</MODS:typeOfResource>
+					<MODS:physicalDescription>
+						<MODS:extent>12cm x 4cm</MODS:extent>
+					</MODS:physicalDescription>
+					<MODS:genre authority="local">somiste</MODS:genre>
+					<MODS:identifier type="urn">URN:NBN-fi-fd2011-00002550-ch001-ill001</MODS:identifier>
+					<MODS:relatedItem type="host">
+						<MODS:identifier type="urn">URN:NBN-fi-fd2011-00002550-ch001</MODS:identifier>
+					</MODS:relatedItem>
+				</MODS:mods>
+			</xmlData>
+		</mdWrap>
+	</dmdSec>
+	<dmdSec ID="ch002-dmd-mods">
+		<mdWrap MIMETYPE="text/xml" MDTYPE="MODS" LABEL="Bibliographic meta-data of chapter 2">
+			<xmlData>
+				<MODS:mods>
+					<MODS:titleInfo ID="MODSMD_CHAP2_TI2" xml:lang="la">
+						<MODS:title>§. I.</MODS:title>
+					</MODS:titleInfo>
+					<MODS:language>
+						<MODS:languageTerm type="code" authority="rfc3066">la</MODS:languageTerm>
+					</MODS:language>
+					<MODS:identifier type="urn">URN:NBN-fi-fd2011-00002550-ch002</MODS:identifier>
+					<MODS:relatedItem type="host">
+						<MODS:identifier type="urn">URN:NBN-fi-fd2011-00002550</MODS:identifier>
+					</MODS:relatedItem>
+				</MODS:mods>
+			</xmlData>
+		</mdWrap>
+	</dmdSec>
+	<dmdSec ID="ch003-dmd-mods">
+		<mdWrap MIMETYPE="text/xml" MDTYPE="MODS" LABEL="Bibliographic meta-data of chapter 3">
+			<xmlData>
+				<MODS:mods>
+					<MODS:titleInfo ID="MODSMD_CHAP3_TI3" xml:lang="la">
+						<MODS:title>§. II.</MODS:title>
+					</MODS:titleInfo>
+					<MODS:language>
+						<MODS:languageTerm type="code" authority="rfc3066">la</MODS:languageTerm>
+					</MODS:language>
+					<MODS:identifier type="urn">URN:NBN-fi-fd2011-00002550-ch003</MODS:identifier>
+					<MODS:relatedItem type="host">
+						<MODS:identifier type="urn">URN:NBN-fi-fd2011-00002550</MODS:identifier>
+					</MODS:relatedItem>
+				</MODS:mods>
+			</xmlData>
+		</mdWrap>
+	</dmdSec>
+	<dmdSec ID="ch004-dmd-mods">
+		<mdWrap MIMETYPE="text/xml" MDTYPE="MODS" LABEL="Bibliographic meta-data of chapter 4">
+			<xmlData>
+				<MODS:mods>
+					<MODS:titleInfo ID="MODSMD_CHAP4_TI4" xml:lang="la">
+						<MODS:title>§. III.</MODS:title>
+					</MODS:titleInfo>
+					<MODS:language>
+						<MODS:languageTerm type="code" authority="rfc3066">la</MODS:languageTerm>
+					</MODS:language>
+					<MODS:identifier type="urn">URN:NBN-fi-fd2011-00002550-ch004</MODS:identifier>
+					<MODS:relatedItem type="host">
+						<MODS:identifier type="urn">URN:NBN-fi-fd2011-00002550</MODS:identifier>
+					</MODS:relatedItem>
+				</MODS:mods>
+			</xmlData>
+		</mdWrap>
+	</dmdSec>
+	<dmdSec ID="ch005-dmd-mods">
+		<mdWrap MIMETYPE="text/xml" MDTYPE="MODS" LABEL="Bibliographic meta-data of chapter 5">
+			<xmlData>
+				<MODS:mods>
+					<MODS:titleInfo ID="MODSMD_CHAP5_TI5" xml:lang="la">
+						<MODS:title>§. IV.</MODS:title>
+					</MODS:titleInfo>
+					<MODS:language>
+						<MODS:languageTerm type="code" authority="rfc3066">la</MODS:languageTerm>
+					</MODS:language>
+					<MODS:identifier type="urn">URN:NBN-fi-fd2011-00002550-ch005</MODS:identifier>
+					<MODS:relatedItem type="host">
+						<MODS:identifier type="urn">URN:NBN-fi-fd2011-00002550</MODS:identifier>
+					</MODS:relatedItem>
+				</MODS:mods>
+			</xmlData>
+		</mdWrap>
+	</dmdSec>
+	<dmdSec ID="ch006-dmd-mods">
+		<mdWrap MIMETYPE="text/xml" MDTYPE="MODS" LABEL="Bibliographic meta-data of chapter 6">
+			<xmlData>
+				<MODS:mods>
+					<MODS:titleInfo ID="MODSMD_CHAP6_TI6" xml:lang="la">
+						<MODS:title>§. V.</MODS:title>
+					</MODS:titleInfo>
+					<MODS:language>
+						<MODS:languageTerm type="code" authority="rfc3066">la</MODS:languageTerm>
+					</MODS:language>
+					<MODS:identifier type="urn">URN:NBN-fi-fd2011-00002550-ch006</MODS:identifier>
+					<MODS:relatedItem type="host">
+						<MODS:identifier type="urn">URN:NBN-fi-fd2011-00002550</MODS:identifier>
+					</MODS:relatedItem>
+				</MODS:mods>
+			</xmlData>
+		</mdWrap>
+	</dmdSec>
+	<dmdSec ID="ch007-dmd-mods">
+		<mdWrap MIMETYPE="text/xml" MDTYPE="MODS" LABEL="Bibliographic meta-data of chapter 7">
+			<xmlData>
+				<MODS:mods>
+					<MODS:titleInfo ID="MODSMD_CHAP7_TI7" xml:lang="la">
+						<MODS:title>§. VI.</MODS:title>
+					</MODS:titleInfo>
+					<MODS:language>
+						<MODS:languageTerm type="code" authority="rfc3066">la</MODS:languageTerm>
+					</MODS:language>
+					<MODS:identifier type="urn">URN:NBN-fi-fd2011-00002550-ch007</MODS:identifier>
+					<MODS:relatedItem type="host">
+						<MODS:identifier type="urn">URN:NBN-fi-fd2011-00002550</MODS:identifier>
+					</MODS:relatedItem>
+				</MODS:mods>
+			</xmlData>
+		</mdWrap>
+	</dmdSec>
+	<dmdSec ID="ch008-dmd-mods">
+		<mdWrap MIMETYPE="text/xml" MDTYPE="MODS" LABEL="Bibliographic meta-data of chapter 8">
+			<xmlData>
+				<MODS:mods>
+					<MODS:titleInfo ID="MODSMD_CHAP8_TI8" xml:lang="la">
+						<MODS:title>§. VII</MODS:title>
+					</MODS:titleInfo>
+					<MODS:language>
+						<MODS:languageTerm type="code" authority="rfc3066">la</MODS:languageTerm>
+					</MODS:language>
+					<MODS:identifier type="urn">URN:NBN-fi-fd2011-00002550-ch008</MODS:identifier>
+					<MODS:relatedItem type="host">
+						<MODS:identifier type="urn">URN:NBN-fi-fd2011-00002550</MODS:identifier>
+					</MODS:relatedItem>
+				</MODS:mods>
+			</xmlData>
+		</mdWrap>
+	</dmdSec>
+	<dmdSec ID="ch009-dmd-mods">
+		<mdWrap MIMETYPE="text/xml" MDTYPE="MODS" LABEL="Bibliographic meta-data of chapter 9">
+			<xmlData>
+				<MODS:mods>
+					<MODS:titleInfo ID="MODSMD_CHAP9_TI9" xml:lang="la">
+						<MODS:title>§. VIII</MODS:title>
+					</MODS:titleInfo>
+					<MODS:language>
+						<MODS:languageTerm type="code" authority="rfc3066">la</MODS:languageTerm>
+					</MODS:language>
+					<MODS:identifier type="urn">URN:NBN-fi-fd2011-00002550-ch009</MODS:identifier>
+					<MODS:relatedItem type="host">
+						<MODS:identifier type="urn">URN:NBN-fi-fd2011-00002550</MODS:identifier>
+					</MODS:relatedItem>
+				</MODS:mods>
+			</xmlData>
+		</mdWrap>
+	</dmdSec>
+	<dmdSec ID="ch009-ill001-dmd-mods">
+		<mdWrap MIMETYPE="text/xml" MDTYPE="MODS" LABEL="Bibliographic meta-data of picture">
+			<xmlData>
+				<MODS:mods>
+					<MODS:titleInfo ID="MODSMD_PICT2_TI2" xml:lang="la">
+						<MODS:title>Ei kuvatekstiä</MODS:title>
+					</MODS:titleInfo>
+					<MODS:typeOfResource>still image</MODS:typeOfResource>
+					<MODS:physicalDescription>
+						<MODS:extent>6cm x 1cm</MODS:extent>
+					</MODS:physicalDescription>
+					<MODS:genre authority="local">somiste</MODS:genre>
+					<MODS:identifier type="urn">URN:NBN-fi-fd2011-00002550-ch009-ill001</MODS:identifier>
+					<MODS:relatedItem type="host">
+						<MODS:identifier type="urn">URN:NBN-fi-fd2011-00002550-ch009</MODS:identifier>
+					</MODS:relatedItem>
+				</MODS:mods>
+			</xmlData>
+		</mdWrap>
+	</dmdSec>
+	<amdSec ID="IMGPARAM00001">
+		<techMD ID="IMGPARAM00001TECHMD">
+			<mdWrap MDTYPE="NISOIMG">
+				<xmlData>
+					<mix:mix>
+						<mix:BasicImageParameters>
+							<mix:Format>
+								<mix:MIMEType>image/jpeg</mix:MIMEType>
+								<mix:ByteOrder>little-endian</mix:ByteOrder>
+								<mix:Compression>
+									<mix:CompressionScheme>6</mix:CompressionScheme>
+								</mix:Compression>
+								<mix:PhotometricInterpretation>
+									<mix:ColorSpace>1</mix:ColorSpace>
+								</mix:PhotometricInterpretation>
+							</mix:Format>
+							<mix:File>
+								<mix:ImageIdentifier imageIdentifierLocation="//hyperion/export/docworks_63_export/digitool/TravelEuropeana/fd2011-00002550-digitool">0001.jpg</mix:ImageIdentifier>
+								<mix:FileSize>378850</mix:FileSize>
+								<mix:Orientation>1</mix:Orientation>
+								<mix:DisplayOrientation>1</mix:DisplayOrientation>
+							</mix:File>
+						</mix:BasicImageParameters>
+						<mix:ImageCreation>
+							<mix:SourceType>METAe_Monograph</mix:SourceType>
+							<mix:SourceID/>
+							<mix:ImageProducer/>
+							<mix:Host>
+								<mix:HostComputer>DWQA16</mix:HostComputer>
+								<mix:OperatingSystem>windows</mix:OperatingSystem>
+								<mix:OSVersion>5.1 Service Pack 3</mix:OSVersion>
+							</mix:Host>
+							<mix:DeviceSource/>
+							<mix:ScanningSystemCapture>
+								<mix:ScanningSystemHardware>
+									<mix:ScannerManufacturer/>
+									<mix:ScannerModel>
+										<mix:ScannerModelName/>
+										<mix:ScannerModelNumber/>
+										<mix:ScannerModelSerialNo/>
+									</mix:ScannerModel>
+								</mix:ScanningSystemHardware>
+								<mix:ScanningSystemSoftware>
+									<mix:ScanningSoftware>CCS docWORKS</mix:ScanningSoftware>
+									<mix:ScanningSoftwareVersionNo/>
+								</mix:ScanningSystemSoftware>
+								<mix:ScannerCaptureSettings>
+									<mix:PixelSize>0.0846666</mix:PixelSize>
+									<mix:PhysScanResolution>
+										<mix:XphysScanResolution>300</mix:XphysScanResolution>
+										<mix:YphysScanResolution>300</mix:YphysScanResolution>
+									</mix:PhysScanResolution>
+								</mix:ScannerCaptureSettings>
+							</mix:ScanningSystemCapture>
+						</mix:ImageCreation>
+						<mix:ImagingPerformanceAssessment>
+							<mix:SpatialMetrics>
+								<mix:ImageWidth>1580</mix:ImageWidth>
+								<mix:ImageLength>2433</mix:ImageLength>
+							</mix:SpatialMetrics>
+							<mix:Energetics>
+								<mix:BitsPerSample>8</mix:BitsPerSample>
+								<mix:SamplesPerPixel>1</mix:SamplesPerPixel>
+							</mix:Energetics>
+						</mix:ImagingPerformanceAssessment>
+						<mix:ChangeHistory>
+							<mix:ImageProcessing>
+								<mix:SourceData>./TravelEuropeana/1201003121/0002/000043.TIF</mix:SourceData>
+							</mix:ImageProcessing>
+						</mix:ChangeHistory>
+					</mix:mix>
+				</xmlData>
+			</mdWrap>
+		</techMD>
+	</amdSec>
+	<amdSec ID="IMGPARAM00002">
+		<techMD ID="IMGPARAM00002TECHMD">
+			<mdWrap MDTYPE="NISOIMG">
+				<xmlData>
+					<mix:mix>
+						<mix:BasicImageParameters>
+							<mix:Format>
+								<mix:MIMEType>image/jpeg</mix:MIMEType>
+								<mix:ByteOrder>little-endian</mix:ByteOrder>
+								<mix:Compression>
+									<mix:CompressionScheme>6</mix:CompressionScheme>
+								</mix:Compression>
+								<mix:PhotometricInterpretation>
+									<mix:ColorSpace>1</mix:ColorSpace>
+								</mix:PhotometricInterpretation>
+							</mix:Format>
+							<mix:File>
+								<mix:ImageIdentifier imageIdentifierLocation="//hyperion/export/docworks_63_export/digitool/TravelEuropeana/fd2011-00002550-digitool">0002.jpg</mix:ImageIdentifier>
+								<mix:FileSize>328250</mix:FileSize>
+								<mix:Orientation>1</mix:Orientation>
+								<mix:DisplayOrientation>1</mix:DisplayOrientation>
+							</mix:File>
+						</mix:BasicImageParameters>
+						<mix:ImageCreation>
+							<mix:SourceType>METAe_Monograph</mix:SourceType>
+							<mix:SourceID/>
+							<mix:ImageProducer/>
+							<mix:Host>
+								<mix:HostComputer>DWQA16</mix:HostComputer>
+								<mix:OperatingSystem>windows</mix:OperatingSystem>
+								<mix:OSVersion>5.1 Service Pack 3</mix:OSVersion>
+							</mix:Host>
+							<mix:DeviceSource/>
+							<mix:ScanningSystemCapture>
+								<mix:ScanningSystemHardware>
+									<mix:ScannerManufacturer/>
+									<mix:ScannerModel>
+										<mix:ScannerModelName/>
+										<mix:ScannerModelNumber/>
+										<mix:ScannerModelSerialNo/>
+									</mix:ScannerModel>
+								</mix:ScanningSystemHardware>
+								<mix:ScanningSystemSoftware>
+									<mix:ScanningSoftware>CCS docWORKS</mix:ScanningSoftware>
+									<mix:ScanningSoftwareVersionNo/>
+								</mix:ScanningSystemSoftware>
+								<mix:ScannerCaptureSettings>
+									<mix:PixelSize>0.0846666</mix:PixelSize>
+									<mix:PhysScanResolution>
+										<mix:XphysScanResolution>300</mix:XphysScanResolution>
+										<mix:YphysScanResolution>300</mix:YphysScanResolution>
+									</mix:PhysScanResolution>
+								</mix:ScannerCaptureSettings>
+							</mix:ScanningSystemCapture>
+						</mix:ImageCreation>
+						<mix:ImagingPerformanceAssessment>
+							<mix:SpatialMetrics>
+								<mix:ImageWidth>1580</mix:ImageWidth>
+								<mix:ImageLength>2433</mix:ImageLength>
+							</mix:SpatialMetrics>
+							<mix:Energetics>
+								<mix:BitsPerSample>8</mix:BitsPerSample>
+								<mix:SamplesPerPixel>1</mix:SamplesPerPixel>
+							</mix:Energetics>
+						</mix:ImagingPerformanceAssessment>
+						<mix:ChangeHistory>
+							<mix:ImageProcessing>
+								<mix:SourceData>./TravelEuropeana/1201003121/0002/000044.TIF</mix:SourceData>
+							</mix:ImageProcessing>
+						</mix:ChangeHistory>
+					</mix:mix>
+				</xmlData>
+			</mdWrap>
+		</techMD>
+	</amdSec>
+	<amdSec ID="IMGPARAM00003">
+		<techMD ID="IMGPARAM00003TECHMD">
+			<mdWrap MDTYPE="NISOIMG">
+				<xmlData>
+					<mix:mix>
+						<mix:BasicImageParameters>
+							<mix:Format>
+								<mix:MIMEType>image/jpeg</mix:MIMEType>
+								<mix:ByteOrder>little-endian</mix:ByteOrder>
+								<mix:Compression>
+									<mix:CompressionScheme>6</mix:CompressionScheme>
+								</mix:Compression>
+								<mix:PhotometricInterpretation>
+									<mix:ColorSpace>1</mix:ColorSpace>
+								</mix:PhotometricInterpretation>
+							</mix:Format>
+							<mix:File>
+								<mix:ImageIdentifier imageIdentifierLocation="//hyperion/export/docworks_63_export/digitool/TravelEuropeana/fd2011-00002550-digitool">0003.jpg</mix:ImageIdentifier>
+								<mix:FileSize>416575</mix:FileSize>
+								<mix:Orientation>1</mix:Orientation>
+								<mix:DisplayOrientation>1</mix:DisplayOrientation>
+							</mix:File>
+						</mix:BasicImageParameters>
+						<mix:ImageCreation>
+							<mix:SourceType>METAe_Monograph</mix:SourceType>
+							<mix:SourceID/>
+							<mix:ImageProducer/>
+							<mix:Host>
+								<mix:HostComputer>DWQA16</mix:HostComputer>
+								<mix:OperatingSystem>windows</mix:OperatingSystem>
+								<mix:OSVersion>5.1 Service Pack 3</mix:OSVersion>
+							</mix:Host>
+							<mix:DeviceSource/>
+							<mix:ScanningSystemCapture>
+								<mix:ScanningSystemHardware>
+									<mix:ScannerManufacturer/>
+									<mix:ScannerModel>
+										<mix:ScannerModelName/>
+										<mix:ScannerModelNumber/>
+										<mix:ScannerModelSerialNo/>
+									</mix:ScannerModel>
+								</mix:ScanningSystemHardware>
+								<mix:ScanningSystemSoftware>
+									<mix:ScanningSoftware>CCS docWORKS</mix:ScanningSoftware>
+									<mix:ScanningSoftwareVersionNo/>
+								</mix:ScanningSystemSoftware>
+								<mix:ScannerCaptureSettings>
+									<mix:PixelSize>0.0846666</mix:PixelSize>
+									<mix:PhysScanResolution>
+										<mix:XphysScanResolution>300</mix:XphysScanResolution>
+										<mix:YphysScanResolution>300</mix:YphysScanResolution>
+									</mix:PhysScanResolution>
+								</mix:ScannerCaptureSettings>
+							</mix:ScanningSystemCapture>
+						</mix:ImageCreation>
+						<mix:ImagingPerformanceAssessment>
+							<mix:SpatialMetrics>
+								<mix:ImageWidth>1580</mix:ImageWidth>
+								<mix:ImageLength>2433</mix:ImageLength>
+							</mix:SpatialMetrics>
+							<mix:Energetics>
+								<mix:BitsPerSample>8</mix:BitsPerSample>
+								<mix:SamplesPerPixel>1</mix:SamplesPerPixel>
+							</mix:Energetics>
+						</mix:ImagingPerformanceAssessment>
+						<mix:ChangeHistory>
+							<mix:ImageProcessing>
+								<mix:SourceData>./TravelEuropeana/1201003121/0002/000045.TIF</mix:SourceData>
+							</mix:ImageProcessing>
+						</mix:ChangeHistory>
+					</mix:mix>
+				</xmlData>
+			</mdWrap>
+		</techMD>
+	</amdSec>
+	<amdSec ID="IMGPARAM00004">
+		<techMD ID="IMGPARAM00004TECHMD">
+			<mdWrap MDTYPE="NISOIMG">
+				<xmlData>
+					<mix:mix>
+						<mix:BasicImageParameters>
+							<mix:Format>
+								<mix:MIMEType>image/jpeg</mix:MIMEType>
+								<mix:ByteOrder>little-endian</mix:ByteOrder>
+								<mix:Compression>
+									<mix:CompressionScheme>6</mix:CompressionScheme>
+								</mix:Compression>
+								<mix:PhotometricInterpretation>
+									<mix:ColorSpace>1</mix:ColorSpace>
+								</mix:PhotometricInterpretation>
+							</mix:Format>
+							<mix:File>
+								<mix:ImageIdentifier imageIdentifierLocation="//hyperion/export/docworks_63_export/digitool/TravelEuropeana/fd2011-00002550-digitool">0004.jpg</mix:ImageIdentifier>
+								<mix:FileSize>433724</mix:FileSize>
+								<mix:Orientation>1</mix:Orientation>
+								<mix:DisplayOrientation>1</mix:DisplayOrientation>
+							</mix:File>
+						</mix:BasicImageParameters>
+						<mix:ImageCreation>
+							<mix:SourceType>METAe_Monograph</mix:SourceType>
+							<mix:SourceID/>
+							<mix:ImageProducer/>
+							<mix:Host>
+								<mix:HostComputer>DWQA16</mix:HostComputer>
+								<mix:OperatingSystem>windows</mix:OperatingSystem>
+								<mix:OSVersion>5.1 Service Pack 3</mix:OSVersion>
+							</mix:Host>
+							<mix:DeviceSource/>
+							<mix:ScanningSystemCapture>
+								<mix:ScanningSystemHardware>
+									<mix:ScannerManufacturer/>
+									<mix:ScannerModel>
+										<mix:ScannerModelName/>
+										<mix:ScannerModelNumber/>
+										<mix:ScannerModelSerialNo/>
+									</mix:ScannerModel>
+								</mix:ScanningSystemHardware>
+								<mix:ScanningSystemSoftware>
+									<mix:ScanningSoftware>CCS docWORKS</mix:ScanningSoftware>
+									<mix:ScanningSoftwareVersionNo/>
+								</mix:ScanningSystemSoftware>
+								<mix:ScannerCaptureSettings>
+									<mix:PixelSize>0.0846666</mix:PixelSize>
+									<mix:PhysScanResolution>
+										<mix:XphysScanResolution>300</mix:XphysScanResolution>
+										<mix:YphysScanResolution>300</mix:YphysScanResolution>
+									</mix:PhysScanResolution>
+								</mix:ScannerCaptureSettings>
+							</mix:ScanningSystemCapture>
+						</mix:ImageCreation>
+						<mix:ImagingPerformanceAssessment>
+							<mix:SpatialMetrics>
+								<mix:ImageWidth>1580</mix:ImageWidth>
+								<mix:ImageLength>2433</mix:ImageLength>
+							</mix:SpatialMetrics>
+							<mix:Energetics>
+								<mix:BitsPerSample>8</mix:BitsPerSample>
+								<mix:SamplesPerPixel>1</mix:SamplesPerPixel>
+							</mix:Energetics>
+						</mix:ImagingPerformanceAssessment>
+						<mix:ChangeHistory>
+							<mix:ImageProcessing>
+								<mix:SourceData>./TravelEuropeana/1201003121/0002/000046.TIF</mix:SourceData>
+							</mix:ImageProcessing>
+						</mix:ChangeHistory>
+					</mix:mix>
+				</xmlData>
+			</mdWrap>
+		</techMD>
+	</amdSec>
+	<amdSec ID="IMGPARAM00005">
+		<techMD ID="IMGPARAM00005TECHMD">
+			<mdWrap MDTYPE="NISOIMG">
+				<xmlData>
+					<mix:mix>
+						<mix:BasicImageParameters>
+							<mix:Format>
+								<mix:MIMEType>image/jpeg</mix:MIMEType>
+								<mix:ByteOrder>little-endian</mix:ByteOrder>
+								<mix:Compression>
+									<mix:CompressionScheme>6</mix:CompressionScheme>
+								</mix:Compression>
+								<mix:PhotometricInterpretation>
+									<mix:ColorSpace>1</mix:ColorSpace>
+								</mix:PhotometricInterpretation>
+							</mix:Format>
+							<mix:File>
+								<mix:ImageIdentifier imageIdentifierLocation="//hyperion/export/docworks_63_export/digitool/TravelEuropeana/fd2011-00002550-digitool">0005.jpg</mix:ImageIdentifier>
+								<mix:FileSize>411805</mix:FileSize>
+								<mix:Orientation>1</mix:Orientation>
+								<mix:DisplayOrientation>1</mix:DisplayOrientation>
+							</mix:File>
+						</mix:BasicImageParameters>
+						<mix:ImageCreation>
+							<mix:SourceType>METAe_Monograph</mix:SourceType>
+							<mix:SourceID/>
+							<mix:ImageProducer/>
+							<mix:Host>
+								<mix:HostComputer>DWQA16</mix:HostComputer>
+								<mix:OperatingSystem>windows</mix:OperatingSystem>
+								<mix:OSVersion>5.1 Service Pack 3</mix:OSVersion>
+							</mix:Host>
+							<mix:DeviceSource/>
+							<mix:ScanningSystemCapture>
+								<mix:ScanningSystemHardware>
+									<mix:ScannerManufacturer/>
+									<mix:ScannerModel>
+										<mix:ScannerModelName/>
+										<mix:ScannerModelNumber/>
+										<mix:ScannerModelSerialNo/>
+									</mix:ScannerModel>
+								</mix:ScanningSystemHardware>
+								<mix:ScanningSystemSoftware>
+									<mix:ScanningSoftware>CCS docWORKS</mix:ScanningSoftware>
+									<mix:ScanningSoftwareVersionNo/>
+								</mix:ScanningSystemSoftware>
+								<mix:ScannerCaptureSettings>
+									<mix:PixelSize>0.0846666</mix:PixelSize>
+									<mix:PhysScanResolution>
+										<mix:XphysScanResolution>300</mix:XphysScanResolution>
+										<mix:YphysScanResolution>300</mix:YphysScanResolution>
+									</mix:PhysScanResolution>
+								</mix:ScannerCaptureSettings>
+							</mix:ScanningSystemCapture>
+						</mix:ImageCreation>
+						<mix:ImagingPerformanceAssessment>
+							<mix:SpatialMetrics>
+								<mix:ImageWidth>1580</mix:ImageWidth>
+								<mix:ImageLength>2433</mix:ImageLength>
+							</mix:SpatialMetrics>
+							<mix:Energetics>
+								<mix:BitsPerSample>8</mix:BitsPerSample>
+								<mix:SamplesPerPixel>1</mix:SamplesPerPixel>
+							</mix:Energetics>
+						</mix:ImagingPerformanceAssessment>
+						<mix:ChangeHistory>
+							<mix:ImageProcessing>
+								<mix:SourceData>./TravelEuropeana/1201003121/0002/000047.TIF</mix:SourceData>
+							</mix:ImageProcessing>
+						</mix:ChangeHistory>
+					</mix:mix>
+				</xmlData>
+			</mdWrap>
+		</techMD>
+	</amdSec>
+	<amdSec ID="IMGPARAM00006">
+		<techMD ID="IMGPARAM00006TECHMD">
+			<mdWrap MDTYPE="NISOIMG">
+				<xmlData>
+					<mix:mix>
+						<mix:BasicImageParameters>
+							<mix:Format>
+								<mix:MIMEType>image/jpeg</mix:MIMEType>
+								<mix:ByteOrder>little-endian</mix:ByteOrder>
+								<mix:Compression>
+									<mix:CompressionScheme>6</mix:CompressionScheme>
+								</mix:Compression>
+								<mix:PhotometricInterpretation>
+									<mix:ColorSpace>1</mix:ColorSpace>
+								</mix:PhotometricInterpretation>
+							</mix:Format>
+							<mix:File>
+								<mix:ImageIdentifier imageIdentifierLocation="//hyperion/export/docworks_63_export/digitool/TravelEuropeana/fd2011-00002550-digitool">0006.jpg</mix:ImageIdentifier>
+								<mix:FileSize>448662</mix:FileSize>
+								<mix:Orientation>1</mix:Orientation>
+								<mix:DisplayOrientation>1</mix:DisplayOrientation>
+							</mix:File>
+						</mix:BasicImageParameters>
+						<mix:ImageCreation>
+							<mix:SourceType>METAe_Monograph</mix:SourceType>
+							<mix:SourceID/>
+							<mix:ImageProducer/>
+							<mix:Host>
+								<mix:HostComputer>DWQA16</mix:HostComputer>
+								<mix:OperatingSystem>windows</mix:OperatingSystem>
+								<mix:OSVersion>5.1 Service Pack 3</mix:OSVersion>
+							</mix:Host>
+							<mix:DeviceSource/>
+							<mix:ScanningSystemCapture>
+								<mix:ScanningSystemHardware>
+									<mix:ScannerManufacturer/>
+									<mix:ScannerModel>
+										<mix:ScannerModelName/>
+										<mix:ScannerModelNumber/>
+										<mix:ScannerModelSerialNo/>
+									</mix:ScannerModel>
+								</mix:ScanningSystemHardware>
+								<mix:ScanningSystemSoftware>
+									<mix:ScanningSoftware>CCS docWORKS</mix:ScanningSoftware>
+									<mix:ScanningSoftwareVersionNo/>
+								</mix:ScanningSystemSoftware>
+								<mix:ScannerCaptureSettings>
+									<mix:PixelSize>0.0846666</mix:PixelSize>
+									<mix:PhysScanResolution>
+										<mix:XphysScanResolution>300</mix:XphysScanResolution>
+										<mix:YphysScanResolution>300</mix:YphysScanResolution>
+									</mix:PhysScanResolution>
+								</mix:ScannerCaptureSettings>
+							</mix:ScanningSystemCapture>
+						</mix:ImageCreation>
+						<mix:ImagingPerformanceAssessment>
+							<mix:SpatialMetrics>
+								<mix:ImageWidth>1580</mix:ImageWidth>
+								<mix:ImageLength>2433</mix:ImageLength>
+							</mix:SpatialMetrics>
+							<mix:Energetics>
+								<mix:BitsPerSample>8</mix:BitsPerSample>
+								<mix:SamplesPerPixel>1</mix:SamplesPerPixel>
+							</mix:Energetics>
+						</mix:ImagingPerformanceAssessment>
+						<mix:ChangeHistory>
+							<mix:ImageProcessing>
+								<mix:SourceData>./TravelEuropeana/1201003121/0002/000048.TIF</mix:SourceData>
+							</mix:ImageProcessing>
+						</mix:ChangeHistory>
+					</mix:mix>
+				</xmlData>
+			</mdWrap>
+		</techMD>
+	</amdSec>
+	<amdSec ID="IMGPARAM00007">
+		<techMD ID="IMGPARAM00007TECHMD">
+			<mdWrap MDTYPE="NISOIMG">
+				<xmlData>
+					<mix:mix>
+						<mix:BasicImageParameters>
+							<mix:Format>
+								<mix:MIMEType>image/jpeg</mix:MIMEType>
+								<mix:ByteOrder>little-endian</mix:ByteOrder>
+								<mix:Compression>
+									<mix:CompressionScheme>6</mix:CompressionScheme>
+								</mix:Compression>
+								<mix:PhotometricInterpretation>
+									<mix:ColorSpace>1</mix:ColorSpace>
+								</mix:PhotometricInterpretation>
+							</mix:Format>
+							<mix:File>
+								<mix:ImageIdentifier imageIdentifierLocation="//hyperion/export/docworks_63_export/digitool/TravelEuropeana/fd2011-00002550-digitool">0007.jpg</mix:ImageIdentifier>
+								<mix:FileSize>434110</mix:FileSize>
+								<mix:Orientation>1</mix:Orientation>
+								<mix:DisplayOrientation>1</mix:DisplayOrientation>
+							</mix:File>
+						</mix:BasicImageParameters>
+						<mix:ImageCreation>
+							<mix:SourceType>METAe_Monograph</mix:SourceType>
+							<mix:SourceID/>
+							<mix:ImageProducer/>
+							<mix:Host>
+								<mix:HostComputer>DWQA16</mix:HostComputer>
+								<mix:OperatingSystem>windows</mix:OperatingSystem>
+								<mix:OSVersion>5.1 Service Pack 3</mix:OSVersion>
+							</mix:Host>
+							<mix:DeviceSource/>
+							<mix:ScanningSystemCapture>
+								<mix:ScanningSystemHardware>
+									<mix:ScannerManufacturer/>
+									<mix:ScannerModel>
+										<mix:ScannerModelName/>
+										<mix:ScannerModelNumber/>
+										<mix:ScannerModelSerialNo/>
+									</mix:ScannerModel>
+								</mix:ScanningSystemHardware>
+								<mix:ScanningSystemSoftware>
+									<mix:ScanningSoftware>CCS docWORKS</mix:ScanningSoftware>
+									<mix:ScanningSoftwareVersionNo/>
+								</mix:ScanningSystemSoftware>
+								<mix:ScannerCaptureSettings>
+									<mix:PixelSize>0.0846666</mix:PixelSize>
+									<mix:PhysScanResolution>
+										<mix:XphysScanResolution>300</mix:XphysScanResolution>
+										<mix:YphysScanResolution>300</mix:YphysScanResolution>
+									</mix:PhysScanResolution>
+								</mix:ScannerCaptureSettings>
+							</mix:ScanningSystemCapture>
+						</mix:ImageCreation>
+						<mix:ImagingPerformanceAssessment>
+							<mix:SpatialMetrics>
+								<mix:ImageWidth>1580</mix:ImageWidth>
+								<mix:ImageLength>2433</mix:ImageLength>
+							</mix:SpatialMetrics>
+							<mix:Energetics>
+								<mix:BitsPerSample>8</mix:BitsPerSample>
+								<mix:SamplesPerPixel>1</mix:SamplesPerPixel>
+							</mix:Energetics>
+						</mix:ImagingPerformanceAssessment>
+						<mix:ChangeHistory>
+							<mix:ImageProcessing>
+								<mix:SourceData>./TravelEuropeana/1201003121/0002/000049.TIF</mix:SourceData>
+							</mix:ImageProcessing>
+						</mix:ChangeHistory>
+					</mix:mix>
+				</xmlData>
+			</mdWrap>
+		</techMD>
+	</amdSec>
+	<amdSec ID="IMGPARAM00008">
+		<techMD ID="IMGPARAM00008TECHMD">
+			<mdWrap MDTYPE="NISOIMG">
+				<xmlData>
+					<mix:mix>
+						<mix:BasicImageParameters>
+							<mix:Format>
+								<mix:MIMEType>image/jpeg</mix:MIMEType>
+								<mix:ByteOrder>little-endian</mix:ByteOrder>
+								<mix:Compression>
+									<mix:CompressionScheme>6</mix:CompressionScheme>
+								</mix:Compression>
+								<mix:PhotometricInterpretation>
+									<mix:ColorSpace>1</mix:ColorSpace>
+								</mix:PhotometricInterpretation>
+							</mix:Format>
+							<mix:File>
+								<mix:ImageIdentifier imageIdentifierLocation="//hyperion/export/docworks_63_export/digitool/TravelEuropeana/fd2011-00002550-digitool">0008.jpg</mix:ImageIdentifier>
+								<mix:FileSize>428180</mix:FileSize>
+								<mix:Orientation>1</mix:Orientation>
+								<mix:DisplayOrientation>1</mix:DisplayOrientation>
+							</mix:File>
+						</mix:BasicImageParameters>
+						<mix:ImageCreation>
+							<mix:SourceType>METAe_Monograph</mix:SourceType>
+							<mix:SourceID/>
+							<mix:ImageProducer/>
+							<mix:Host>
+								<mix:HostComputer>DWQA16</mix:HostComputer>
+								<mix:OperatingSystem>windows</mix:OperatingSystem>
+								<mix:OSVersion>5.1 Service Pack 3</mix:OSVersion>
+							</mix:Host>
+							<mix:DeviceSource/>
+							<mix:ScanningSystemCapture>
+								<mix:ScanningSystemHardware>
+									<mix:ScannerManufacturer/>
+									<mix:ScannerModel>
+										<mix:ScannerModelName/>
+										<mix:ScannerModelNumber/>
+										<mix:ScannerModelSerialNo/>
+									</mix:ScannerModel>
+								</mix:ScanningSystemHardware>
+								<mix:ScanningSystemSoftware>
+									<mix:ScanningSoftware>CCS docWORKS</mix:ScanningSoftware>
+									<mix:ScanningSoftwareVersionNo/>
+								</mix:ScanningSystemSoftware>
+								<mix:ScannerCaptureSettings>
+									<mix:PixelSize>0.0846666</mix:PixelSize>
+									<mix:PhysScanResolution>
+										<mix:XphysScanResolution>300</mix:XphysScanResolution>
+										<mix:YphysScanResolution>300</mix:YphysScanResolution>
+									</mix:PhysScanResolution>
+								</mix:ScannerCaptureSettings>
+							</mix:ScanningSystemCapture>
+						</mix:ImageCreation>
+						<mix:ImagingPerformanceAssessment>
+							<mix:SpatialMetrics>
+								<mix:ImageWidth>1580</mix:ImageWidth>
+								<mix:ImageLength>2433</mix:ImageLength>
+							</mix:SpatialMetrics>
+							<mix:Energetics>
+								<mix:BitsPerSample>8</mix:BitsPerSample>
+								<mix:SamplesPerPixel>1</mix:SamplesPerPixel>
+							</mix:Energetics>
+						</mix:ImagingPerformanceAssessment>
+						<mix:ChangeHistory>
+							<mix:ImageProcessing>
+								<mix:SourceData>./TravelEuropeana/1201003121/0002/000050.TIF</mix:SourceData>
+							</mix:ImageProcessing>
+						</mix:ChangeHistory>
+					</mix:mix>
+				</xmlData>
+			</mdWrap>
+		</techMD>
+	</amdSec>
+	<amdSec ID="IMGPARAM00009">
+		<techMD ID="IMGPARAM00009TECHMD">
+			<mdWrap MDTYPE="NISOIMG">
+				<xmlData>
+					<mix:mix>
+						<mix:BasicImageParameters>
+							<mix:Format>
+								<mix:MIMEType>image/jpeg</mix:MIMEType>
+								<mix:ByteOrder>little-endian</mix:ByteOrder>
+								<mix:Compression>
+									<mix:CompressionScheme>6</mix:CompressionScheme>
+								</mix:Compression>
+								<mix:PhotometricInterpretation>
+									<mix:ColorSpace>1</mix:ColorSpace>
+								</mix:PhotometricInterpretation>
+							</mix:Format>
+							<mix:File>
+								<mix:ImageIdentifier imageIdentifierLocation="//hyperion/export/docworks_63_export/digitool/TravelEuropeana/fd2011-00002550-digitool">0009.jpg</mix:ImageIdentifier>
+								<mix:FileSize>407346</mix:FileSize>
+								<mix:Orientation>1</mix:Orientation>
+								<mix:DisplayOrientation>1</mix:DisplayOrientation>
+							</mix:File>
+						</mix:BasicImageParameters>
+						<mix:ImageCreation>
+							<mix:SourceType>METAe_Monograph</mix:SourceType>
+							<mix:SourceID/>
+							<mix:ImageProducer/>
+							<mix:Host>
+								<mix:HostComputer>DWQA16</mix:HostComputer>
+								<mix:OperatingSystem>windows</mix:OperatingSystem>
+								<mix:OSVersion>5.1 Service Pack 3</mix:OSVersion>
+							</mix:Host>
+							<mix:DeviceSource/>
+							<mix:ScanningSystemCapture>
+								<mix:ScanningSystemHardware>
+									<mix:ScannerManufacturer/>
+									<mix:ScannerModel>
+										<mix:ScannerModelName/>
+										<mix:ScannerModelNumber/>
+										<mix:ScannerModelSerialNo/>
+									</mix:ScannerModel>
+								</mix:ScanningSystemHardware>
+								<mix:ScanningSystemSoftware>
+									<mix:ScanningSoftware>CCS docWORKS</mix:ScanningSoftware>
+									<mix:ScanningSoftwareVersionNo/>
+								</mix:ScanningSystemSoftware>
+								<mix:ScannerCaptureSettings>
+									<mix:PixelSize>0.0846666</mix:PixelSize>
+									<mix:PhysScanResolution>
+										<mix:XphysScanResolution>300</mix:XphysScanResolution>
+										<mix:YphysScanResolution>300</mix:YphysScanResolution>
+									</mix:PhysScanResolution>
+								</mix:ScannerCaptureSettings>
+							</mix:ScanningSystemCapture>
+						</mix:ImageCreation>
+						<mix:ImagingPerformanceAssessment>
+							<mix:SpatialMetrics>
+								<mix:ImageWidth>1580</mix:ImageWidth>
+								<mix:ImageLength>2433</mix:ImageLength>
+							</mix:SpatialMetrics>
+							<mix:Energetics>
+								<mix:BitsPerSample>8</mix:BitsPerSample>
+								<mix:SamplesPerPixel>1</mix:SamplesPerPixel>
+							</mix:Energetics>
+						</mix:ImagingPerformanceAssessment>
+						<mix:ChangeHistory>
+							<mix:ImageProcessing>
+								<mix:SourceData>./TravelEuropeana/1201003121/0002/000051.TIF</mix:SourceData>
+							</mix:ImageProcessing>
+						</mix:ChangeHistory>
+					</mix:mix>
+				</xmlData>
+			</mdWrap>
+		</techMD>
+	</amdSec>
+	<amdSec ID="IMGPARAM00010">
+		<techMD ID="IMGPARAM00010TECHMD">
+			<mdWrap MDTYPE="NISOIMG">
+				<xmlData>
+					<mix:mix>
+						<mix:BasicImageParameters>
+							<mix:Format>
+								<mix:MIMEType>image/jpeg</mix:MIMEType>
+								<mix:ByteOrder>little-endian</mix:ByteOrder>
+								<mix:Compression>
+									<mix:CompressionScheme>6</mix:CompressionScheme>
+								</mix:Compression>
+								<mix:PhotometricInterpretation>
+									<mix:ColorSpace>1</mix:ColorSpace>
+								</mix:PhotometricInterpretation>
+							</mix:Format>
+							<mix:File>
+								<mix:ImageIdentifier imageIdentifierLocation="//hyperion/export/docworks_63_export/digitool/TravelEuropeana/fd2011-00002550-digitool">0010.jpg</mix:ImageIdentifier>
+								<mix:FileSize>425524</mix:FileSize>
+								<mix:Orientation>1</mix:Orientation>
+								<mix:DisplayOrientation>1</mix:DisplayOrientation>
+							</mix:File>
+						</mix:BasicImageParameters>
+						<mix:ImageCreation>
+							<mix:SourceType>METAe_Monograph</mix:SourceType>
+							<mix:SourceID/>
+							<mix:ImageProducer/>
+							<mix:Host>
+								<mix:HostComputer>DWQA16</mix:HostComputer>
+								<mix:OperatingSystem>windows</mix:OperatingSystem>
+								<mix:OSVersion>5.1 Service Pack 3</mix:OSVersion>
+							</mix:Host>
+							<mix:DeviceSource/>
+							<mix:ScanningSystemCapture>
+								<mix:ScanningSystemHardware>
+									<mix:ScannerManufacturer/>
+									<mix:ScannerModel>
+										<mix:ScannerModelName/>
+										<mix:ScannerModelNumber/>
+										<mix:ScannerModelSerialNo/>
+									</mix:ScannerModel>
+								</mix:ScanningSystemHardware>
+								<mix:ScanningSystemSoftware>
+									<mix:ScanningSoftware>CCS docWORKS</mix:ScanningSoftware>
+									<mix:ScanningSoftwareVersionNo/>
+								</mix:ScanningSystemSoftware>
+								<mix:ScannerCaptureSettings>
+									<mix:PixelSize>0.0846666</mix:PixelSize>
+									<mix:PhysScanResolution>
+										<mix:XphysScanResolution>300</mix:XphysScanResolution>
+										<mix:YphysScanResolution>300</mix:YphysScanResolution>
+									</mix:PhysScanResolution>
+								</mix:ScannerCaptureSettings>
+							</mix:ScanningSystemCapture>
+						</mix:ImageCreation>
+						<mix:ImagingPerformanceAssessment>
+							<mix:SpatialMetrics>
+								<mix:ImageWidth>1580</mix:ImageWidth>
+								<mix:ImageLength>2433</mix:ImageLength>
+							</mix:SpatialMetrics>
+							<mix:Energetics>
+								<mix:BitsPerSample>8</mix:BitsPerSample>
+								<mix:SamplesPerPixel>1</mix:SamplesPerPixel>
+							</mix:Energetics>
+						</mix:ImagingPerformanceAssessment>
+						<mix:ChangeHistory>
+							<mix:ImageProcessing>
+								<mix:SourceData>./TravelEuropeana/1201003121/0002/000052.TIF</mix:SourceData>
+							</mix:ImageProcessing>
+						</mix:ChangeHistory>
+					</mix:mix>
+				</xmlData>
+			</mdWrap>
+		</techMD>
+	</amdSec>
+	<amdSec ID="IMGPARAM00011">
+		<techMD ID="IMGPARAM00011TECHMD">
+			<mdWrap MDTYPE="NISOIMG">
+				<xmlData>
+					<mix:mix>
+						<mix:BasicImageParameters>
+							<mix:Format>
+								<mix:MIMEType>image/jpeg</mix:MIMEType>
+								<mix:ByteOrder>little-endian</mix:ByteOrder>
+								<mix:Compression>
+									<mix:CompressionScheme>6</mix:CompressionScheme>
+								</mix:Compression>
+								<mix:PhotometricInterpretation>
+									<mix:ColorSpace>1</mix:ColorSpace>
+								</mix:PhotometricInterpretation>
+							</mix:Format>
+							<mix:File>
+								<mix:ImageIdentifier imageIdentifierLocation="//hyperion/export/docworks_63_export/digitool/TravelEuropeana/fd2011-00002550-digitool">0011.jpg</mix:ImageIdentifier>
+								<mix:FileSize>430019</mix:FileSize>
+								<mix:Orientation>1</mix:Orientation>
+								<mix:DisplayOrientation>1</mix:DisplayOrientation>
+							</mix:File>
+						</mix:BasicImageParameters>
+						<mix:ImageCreation>
+							<mix:SourceType>METAe_Monograph</mix:SourceType>
+							<mix:SourceID/>
+							<mix:ImageProducer/>
+							<mix:Host>
+								<mix:HostComputer>DWQA16</mix:HostComputer>
+								<mix:OperatingSystem>windows</mix:OperatingSystem>
+								<mix:OSVersion>5.1 Service Pack 3</mix:OSVersion>
+							</mix:Host>
+							<mix:DeviceSource/>
+							<mix:ScanningSystemCapture>
+								<mix:ScanningSystemHardware>
+									<mix:ScannerManufacturer/>
+									<mix:ScannerModel>
+										<mix:ScannerModelName/>
+										<mix:ScannerModelNumber/>
+										<mix:ScannerModelSerialNo/>
+									</mix:ScannerModel>
+								</mix:ScanningSystemHardware>
+								<mix:ScanningSystemSoftware>
+									<mix:ScanningSoftware>CCS docWORKS</mix:ScanningSoftware>
+									<mix:ScanningSoftwareVersionNo/>
+								</mix:ScanningSystemSoftware>
+								<mix:ScannerCaptureSettings>
+									<mix:PixelSize>0.0846666</mix:PixelSize>
+									<mix:PhysScanResolution>
+										<mix:XphysScanResolution>300</mix:XphysScanResolution>
+										<mix:YphysScanResolution>300</mix:YphysScanResolution>
+									</mix:PhysScanResolution>
+								</mix:ScannerCaptureSettings>
+							</mix:ScanningSystemCapture>
+						</mix:ImageCreation>
+						<mix:ImagingPerformanceAssessment>
+							<mix:SpatialMetrics>
+								<mix:ImageWidth>1580</mix:ImageWidth>
+								<mix:ImageLength>2433</mix:ImageLength>
+							</mix:SpatialMetrics>
+							<mix:Energetics>
+								<mix:BitsPerSample>8</mix:BitsPerSample>
+								<mix:SamplesPerPixel>1</mix:SamplesPerPixel>
+							</mix:Energetics>
+						</mix:ImagingPerformanceAssessment>
+						<mix:ChangeHistory>
+							<mix:ImageProcessing>
+								<mix:SourceData>./TravelEuropeana/1201003121/0002/000053.TIF</mix:SourceData>
+							</mix:ImageProcessing>
+						</mix:ChangeHistory>
+					</mix:mix>
+				</xmlData>
+			</mdWrap>
+		</techMD>
+	</amdSec>
+	<amdSec ID="IMGPARAM00012">
+		<techMD ID="IMGPARAM00012TECHMD">
+			<mdWrap MDTYPE="NISOIMG">
+				<xmlData>
+					<mix:mix>
+						<mix:BasicImageParameters>
+							<mix:Format>
+								<mix:MIMEType>image/jpeg</mix:MIMEType>
+								<mix:ByteOrder>little-endian</mix:ByteOrder>
+								<mix:Compression>
+									<mix:CompressionScheme>6</mix:CompressionScheme>
+								</mix:Compression>
+								<mix:PhotometricInterpretation>
+									<mix:ColorSpace>1</mix:ColorSpace>
+								</mix:PhotometricInterpretation>
+							</mix:Format>
+							<mix:File>
+								<mix:ImageIdentifier imageIdentifierLocation="//hyperion/export/docworks_63_export/digitool/TravelEuropeana/fd2011-00002550-digitool">0012.jpg</mix:ImageIdentifier>
+								<mix:FileSize>493682</mix:FileSize>
+								<mix:Orientation>1</mix:Orientation>
+								<mix:DisplayOrientation>1</mix:DisplayOrientation>
+							</mix:File>
+						</mix:BasicImageParameters>
+						<mix:ImageCreation>
+							<mix:SourceType>METAe_Monograph</mix:SourceType>
+							<mix:SourceID/>
+							<mix:ImageProducer/>
+							<mix:Host>
+								<mix:HostComputer>DWQA16</mix:HostComputer>
+								<mix:OperatingSystem>windows</mix:OperatingSystem>
+								<mix:OSVersion>5.1 Service Pack 3</mix:OSVersion>
+							</mix:Host>
+							<mix:DeviceSource/>
+							<mix:ScanningSystemCapture>
+								<mix:ScanningSystemHardware>
+									<mix:ScannerManufacturer/>
+									<mix:ScannerModel>
+										<mix:ScannerModelName/>
+										<mix:ScannerModelNumber/>
+										<mix:ScannerModelSerialNo/>
+									</mix:ScannerModel>
+								</mix:ScanningSystemHardware>
+								<mix:ScanningSystemSoftware>
+									<mix:ScanningSoftware>CCS docWORKS</mix:ScanningSoftware>
+									<mix:ScanningSoftwareVersionNo/>
+								</mix:ScanningSystemSoftware>
+								<mix:ScannerCaptureSettings>
+									<mix:PixelSize>0.0846666</mix:PixelSize>
+									<mix:PhysScanResolution>
+										<mix:XphysScanResolution>300</mix:XphysScanResolution>
+										<mix:YphysScanResolution>300</mix:YphysScanResolution>
+									</mix:PhysScanResolution>
+								</mix:ScannerCaptureSettings>
+							</mix:ScanningSystemCapture>
+						</mix:ImageCreation>
+						<mix:ImagingPerformanceAssessment>
+							<mix:SpatialMetrics>
+								<mix:ImageWidth>1580</mix:ImageWidth>
+								<mix:ImageLength>2433</mix:ImageLength>
+							</mix:SpatialMetrics>
+							<mix:Energetics>
+								<mix:BitsPerSample>8</mix:BitsPerSample>
+								<mix:SamplesPerPixel>1</mix:SamplesPerPixel>
+							</mix:Energetics>
+						</mix:ImagingPerformanceAssessment>
+						<mix:ChangeHistory>
+							<mix:ImageProcessing>
+								<mix:SourceData>./TravelEuropeana/1201003121/0002/000054.TIF</mix:SourceData>
+							</mix:ImageProcessing>
+						</mix:ChangeHistory>
+					</mix:mix>
+				</xmlData>
+			</mdWrap>
+		</techMD>
+	</amdSec>
+	<amdSec ID="IMGPARAM00013">
+		<techMD ID="IMGPARAM00013TECHMD">
+			<mdWrap MDTYPE="NISOIMG">
+				<xmlData>
+					<mix:mix>
+						<mix:BasicImageParameters>
+							<mix:Format>
+								<mix:MIMEType>image/jpeg</mix:MIMEType>
+								<mix:ByteOrder>little-endian</mix:ByteOrder>
+								<mix:Compression>
+									<mix:CompressionScheme>6</mix:CompressionScheme>
+								</mix:Compression>
+								<mix:PhotometricInterpretation>
+									<mix:ColorSpace>1</mix:ColorSpace>
+								</mix:PhotometricInterpretation>
+							</mix:Format>
+							<mix:File>
+								<mix:ImageIdentifier imageIdentifierLocation="//hyperion/export/docworks_63_export/digitool/TravelEuropeana/fd2011-00002550-digitool">0013.jpg</mix:ImageIdentifier>
+								<mix:FileSize>446259</mix:FileSize>
+								<mix:Orientation>1</mix:Orientation>
+								<mix:DisplayOrientation>1</mix:DisplayOrientation>
+							</mix:File>
+						</mix:BasicImageParameters>
+						<mix:ImageCreation>
+							<mix:SourceType>METAe_Monograph</mix:SourceType>
+							<mix:SourceID/>
+							<mix:ImageProducer/>
+							<mix:Host>
+								<mix:HostComputer>DWQA16</mix:HostComputer>
+								<mix:OperatingSystem>windows</mix:OperatingSystem>
+								<mix:OSVersion>5.1 Service Pack 3</mix:OSVersion>
+							</mix:Host>
+							<mix:DeviceSource/>
+							<mix:ScanningSystemCapture>
+								<mix:ScanningSystemHardware>
+									<mix:ScannerManufacturer/>
+									<mix:ScannerModel>
+										<mix:ScannerModelName/>
+										<mix:ScannerModelNumber/>
+										<mix:ScannerModelSerialNo/>
+									</mix:ScannerModel>
+								</mix:ScanningSystemHardware>
+								<mix:ScanningSystemSoftware>
+									<mix:ScanningSoftware>CCS docWORKS</mix:ScanningSoftware>
+									<mix:ScanningSoftwareVersionNo/>
+								</mix:ScanningSystemSoftware>
+								<mix:ScannerCaptureSettings>
+									<mix:PixelSize>0.0846666</mix:PixelSize>
+									<mix:PhysScanResolution>
+										<mix:XphysScanResolution>300</mix:XphysScanResolution>
+										<mix:YphysScanResolution>300</mix:YphysScanResolution>
+									</mix:PhysScanResolution>
+								</mix:ScannerCaptureSettings>
+							</mix:ScanningSystemCapture>
+						</mix:ImageCreation>
+						<mix:ImagingPerformanceAssessment>
+							<mix:SpatialMetrics>
+								<mix:ImageWidth>1580</mix:ImageWidth>
+								<mix:ImageLength>2433</mix:ImageLength>
+							</mix:SpatialMetrics>
+							<mix:Energetics>
+								<mix:BitsPerSample>8</mix:BitsPerSample>
+								<mix:SamplesPerPixel>1</mix:SamplesPerPixel>
+							</mix:Energetics>
+						</mix:ImagingPerformanceAssessment>
+						<mix:ChangeHistory>
+							<mix:ImageProcessing>
+								<mix:SourceData>./TravelEuropeana/1201003121/0002/000055.TIF</mix:SourceData>
+							</mix:ImageProcessing>
+						</mix:ChangeHistory>
+					</mix:mix>
+				</xmlData>
+			</mdWrap>
+		</techMD>
+	</amdSec>
+	<amdSec ID="IMGPARAM00014">
+		<techMD ID="IMGPARAM00014TECHMD">
+			<mdWrap MDTYPE="NISOIMG">
+				<xmlData>
+					<mix:mix>
+						<mix:BasicImageParameters>
+							<mix:Format>
+								<mix:MIMEType>image/jpeg</mix:MIMEType>
+								<mix:ByteOrder>little-endian</mix:ByteOrder>
+								<mix:Compression>
+									<mix:CompressionScheme>6</mix:CompressionScheme>
+								</mix:Compression>
+								<mix:PhotometricInterpretation>
+									<mix:ColorSpace>1</mix:ColorSpace>
+								</mix:PhotometricInterpretation>
+							</mix:Format>
+							<mix:File>
+								<mix:ImageIdentifier imageIdentifierLocation="//hyperion/export/docworks_63_export/digitool/TravelEuropeana/fd2011-00002550-digitool">0014.jpg</mix:ImageIdentifier>
+								<mix:FileSize>430688</mix:FileSize>
+								<mix:Orientation>1</mix:Orientation>
+								<mix:DisplayOrientation>1</mix:DisplayOrientation>
+							</mix:File>
+						</mix:BasicImageParameters>
+						<mix:ImageCreation>
+							<mix:SourceType>METAe_Monograph</mix:SourceType>
+							<mix:SourceID/>
+							<mix:ImageProducer/>
+							<mix:Host>
+								<mix:HostComputer>DWQA16</mix:HostComputer>
+								<mix:OperatingSystem>windows</mix:OperatingSystem>
+								<mix:OSVersion>5.1 Service Pack 3</mix:OSVersion>
+							</mix:Host>
+							<mix:DeviceSource/>
+							<mix:ScanningSystemCapture>
+								<mix:ScanningSystemHardware>
+									<mix:ScannerManufacturer/>
+									<mix:ScannerModel>
+										<mix:ScannerModelName/>
+										<mix:ScannerModelNumber/>
+										<mix:ScannerModelSerialNo/>
+									</mix:ScannerModel>
+								</mix:ScanningSystemHardware>
+								<mix:ScanningSystemSoftware>
+									<mix:ScanningSoftware>CCS docWORKS</mix:ScanningSoftware>
+									<mix:ScanningSoftwareVersionNo/>
+								</mix:ScanningSystemSoftware>
+								<mix:ScannerCaptureSettings>
+									<mix:PixelSize>0.0846666</mix:PixelSize>
+									<mix:PhysScanResolution>
+										<mix:XphysScanResolution>300</mix:XphysScanResolution>
+										<mix:YphysScanResolution>300</mix:YphysScanResolution>
+									</mix:PhysScanResolution>
+								</mix:ScannerCaptureSettings>
+							</mix:ScanningSystemCapture>
+						</mix:ImageCreation>
+						<mix:ImagingPerformanceAssessment>
+							<mix:SpatialMetrics>
+								<mix:ImageWidth>1580</mix:ImageWidth>
+								<mix:ImageLength>2433</mix:ImageLength>
+							</mix:SpatialMetrics>
+							<mix:Energetics>
+								<mix:BitsPerSample>8</mix:BitsPerSample>
+								<mix:SamplesPerPixel>1</mix:SamplesPerPixel>
+							</mix:Energetics>
+						</mix:ImagingPerformanceAssessment>
+						<mix:ChangeHistory>
+							<mix:ImageProcessing>
+								<mix:SourceData>./TravelEuropeana/1201003121/0002/000056.TIF</mix:SourceData>
+							</mix:ImageProcessing>
+						</mix:ChangeHistory>
+					</mix:mix>
+				</xmlData>
+			</mdWrap>
+		</techMD>
+	</amdSec>
+	<amdSec ID="IMGPARAM00015">
+		<techMD ID="IMGPARAM00015TECHMD">
+			<mdWrap MDTYPE="NISOIMG">
+				<xmlData>
+					<mix:mix>
+						<mix:BasicImageParameters>
+							<mix:Format>
+								<mix:MIMEType>image/jpeg</mix:MIMEType>
+								<mix:ByteOrder>little-endian</mix:ByteOrder>
+								<mix:Compression>
+									<mix:CompressionScheme>6</mix:CompressionScheme>
+								</mix:Compression>
+								<mix:PhotometricInterpretation>
+									<mix:ColorSpace>1</mix:ColorSpace>
+								</mix:PhotometricInterpretation>
+							</mix:Format>
+							<mix:File>
+								<mix:ImageIdentifier imageIdentifierLocation="//hyperion/export/docworks_63_export/digitool/TravelEuropeana/fd2011-00002550-digitool">0015.jpg</mix:ImageIdentifier>
+								<mix:FileSize>464356</mix:FileSize>
+								<mix:Orientation>1</mix:Orientation>
+								<mix:DisplayOrientation>1</mix:DisplayOrientation>
+							</mix:File>
+						</mix:BasicImageParameters>
+						<mix:ImageCreation>
+							<mix:SourceType>METAe_Monograph</mix:SourceType>
+							<mix:SourceID/>
+							<mix:ImageProducer/>
+							<mix:Host>
+								<mix:HostComputer>DWQA16</mix:HostComputer>
+								<mix:OperatingSystem>windows</mix:OperatingSystem>
+								<mix:OSVersion>5.1 Service Pack 3</mix:OSVersion>
+							</mix:Host>
+							<mix:DeviceSource/>
+							<mix:ScanningSystemCapture>
+								<mix:ScanningSystemHardware>
+									<mix:ScannerManufacturer/>
+									<mix:ScannerModel>
+										<mix:ScannerModelName/>
+										<mix:ScannerModelNumber/>
+										<mix:ScannerModelSerialNo/>
+									</mix:ScannerModel>
+								</mix:ScanningSystemHardware>
+								<mix:ScanningSystemSoftware>
+									<mix:ScanningSoftware>CCS docWORKS</mix:ScanningSoftware>
+									<mix:ScanningSoftwareVersionNo/>
+								</mix:ScanningSystemSoftware>
+								<mix:ScannerCaptureSettings>
+									<mix:PixelSize>0.0846666</mix:PixelSize>
+									<mix:PhysScanResolution>
+										<mix:XphysScanResolution>300</mix:XphysScanResolution>
+										<mix:YphysScanResolution>300</mix:YphysScanResolution>
+									</mix:PhysScanResolution>
+								</mix:ScannerCaptureSettings>
+							</mix:ScanningSystemCapture>
+						</mix:ImageCreation>
+						<mix:ImagingPerformanceAssessment>
+							<mix:SpatialMetrics>
+								<mix:ImageWidth>1580</mix:ImageWidth>
+								<mix:ImageLength>2433</mix:ImageLength>
+							</mix:SpatialMetrics>
+							<mix:Energetics>
+								<mix:BitsPerSample>8</mix:BitsPerSample>
+								<mix:SamplesPerPixel>1</mix:SamplesPerPixel>
+							</mix:Energetics>
+						</mix:ImagingPerformanceAssessment>
+						<mix:ChangeHistory>
+							<mix:ImageProcessing>
+								<mix:SourceData>./TravelEuropeana/1201003121/0002/000057.TIF</mix:SourceData>
+							</mix:ImageProcessing>
+						</mix:ChangeHistory>
+					</mix:mix>
+				</xmlData>
+			</mdWrap>
+		</techMD>
+	</amdSec>
+	<amdSec ID="IMGPARAM00016">
+		<techMD ID="IMGPARAM00016TECHMD">
+			<mdWrap MDTYPE="NISOIMG">
+				<xmlData>
+					<mix:mix>
+						<mix:BasicImageParameters>
+							<mix:Format>
+								<mix:MIMEType>image/jpeg</mix:MIMEType>
+								<mix:ByteOrder>little-endian</mix:ByteOrder>
+								<mix:Compression>
+									<mix:CompressionScheme>6</mix:CompressionScheme>
+								</mix:Compression>
+								<mix:PhotometricInterpretation>
+									<mix:ColorSpace>1</mix:ColorSpace>
+								</mix:PhotometricInterpretation>
+							</mix:Format>
+							<mix:File>
+								<mix:ImageIdentifier imageIdentifierLocation="//hyperion/export/docworks_63_export/digitool/TravelEuropeana/fd2011-00002550-digitool">0016.jpg</mix:ImageIdentifier>
+								<mix:FileSize>442470</mix:FileSize>
+								<mix:Orientation>1</mix:Orientation>
+								<mix:DisplayOrientation>1</mix:DisplayOrientation>
+							</mix:File>
+						</mix:BasicImageParameters>
+						<mix:ImageCreation>
+							<mix:SourceType>METAe_Monograph</mix:SourceType>
+							<mix:SourceID/>
+							<mix:ImageProducer/>
+							<mix:Host>
+								<mix:HostComputer>DWQA16</mix:HostComputer>
+								<mix:OperatingSystem>windows</mix:OperatingSystem>
+								<mix:OSVersion>5.1 Service Pack 3</mix:OSVersion>
+							</mix:Host>
+							<mix:DeviceSource/>
+							<mix:ScanningSystemCapture>
+								<mix:ScanningSystemHardware>
+									<mix:ScannerManufacturer/>
+									<mix:ScannerModel>
+										<mix:ScannerModelName/>
+										<mix:ScannerModelNumber/>
+										<mix:ScannerModelSerialNo/>
+									</mix:ScannerModel>
+								</mix:ScanningSystemHardware>
+								<mix:ScanningSystemSoftware>
+									<mix:ScanningSoftware>CCS docWORKS</mix:ScanningSoftware>
+									<mix:ScanningSoftwareVersionNo/>
+								</mix:ScanningSystemSoftware>
+								<mix:ScannerCaptureSettings>
+									<mix:PixelSize>0.0846666</mix:PixelSize>
+									<mix:PhysScanResolution>
+										<mix:XphysScanResolution>300</mix:XphysScanResolution>
+										<mix:YphysScanResolution>300</mix:YphysScanResolution>
+									</mix:PhysScanResolution>
+								</mix:ScannerCaptureSettings>
+							</mix:ScanningSystemCapture>
+						</mix:ImageCreation>
+						<mix:ImagingPerformanceAssessment>
+							<mix:SpatialMetrics>
+								<mix:ImageWidth>1580</mix:ImageWidth>
+								<mix:ImageLength>2433</mix:ImageLength>
+							</mix:SpatialMetrics>
+							<mix:Energetics>
+								<mix:BitsPerSample>8</mix:BitsPerSample>
+								<mix:SamplesPerPixel>1</mix:SamplesPerPixel>
+							</mix:Energetics>
+						</mix:ImagingPerformanceAssessment>
+						<mix:ChangeHistory>
+							<mix:ImageProcessing>
+								<mix:SourceData>./TravelEuropeana/1201003121/0002/000058.TIF</mix:SourceData>
+							</mix:ImageProcessing>
+						</mix:ChangeHistory>
+					</mix:mix>
+				</xmlData>
+			</mdWrap>
+		</techMD>
+	</amdSec>
+	<amdSec ID="IMGPARAM00017">
+		<techMD ID="IMGPARAM00017TECHMD">
+			<mdWrap MDTYPE="NISOIMG">
+				<xmlData>
+					<mix:mix>
+						<mix:BasicImageParameters>
+							<mix:Format>
+								<mix:MIMEType>image/jpeg</mix:MIMEType>
+								<mix:ByteOrder>little-endian</mix:ByteOrder>
+								<mix:Compression>
+									<mix:CompressionScheme>6</mix:CompressionScheme>
+								</mix:Compression>
+								<mix:PhotometricInterpretation>
+									<mix:ColorSpace>1</mix:ColorSpace>
+								</mix:PhotometricInterpretation>
+							</mix:Format>
+							<mix:File>
+								<mix:ImageIdentifier imageIdentifierLocation="//hyperion/export/docworks_63_export/digitool/TravelEuropeana/fd2011-00002550-digitool">0017.jpg</mix:ImageIdentifier>
+								<mix:FileSize>450683</mix:FileSize>
+								<mix:Orientation>1</mix:Orientation>
+								<mix:DisplayOrientation>1</mix:DisplayOrientation>
+							</mix:File>
+						</mix:BasicImageParameters>
+						<mix:ImageCreation>
+							<mix:SourceType>METAe_Monograph</mix:SourceType>
+							<mix:SourceID/>
+							<mix:ImageProducer/>
+							<mix:Host>
+								<mix:HostComputer>DWQA16</mix:HostComputer>
+								<mix:OperatingSystem>windows</mix:OperatingSystem>
+								<mix:OSVersion>5.1 Service Pack 3</mix:OSVersion>
+							</mix:Host>
+							<mix:DeviceSource/>
+							<mix:ScanningSystemCapture>
+								<mix:ScanningSystemHardware>
+									<mix:ScannerManufacturer/>
+									<mix:ScannerModel>
+										<mix:ScannerModelName/>
+										<mix:ScannerModelNumber/>
+										<mix:ScannerModelSerialNo/>
+									</mix:ScannerModel>
+								</mix:ScanningSystemHardware>
+								<mix:ScanningSystemSoftware>
+									<mix:ScanningSoftware>CCS docWORKS</mix:ScanningSoftware>
+									<mix:ScanningSoftwareVersionNo/>
+								</mix:ScanningSystemSoftware>
+								<mix:ScannerCaptureSettings>
+									<mix:PixelSize>0.0846666</mix:PixelSize>
+									<mix:PhysScanResolution>
+										<mix:XphysScanResolution>300</mix:XphysScanResolution>
+										<mix:YphysScanResolution>300</mix:YphysScanResolution>
+									</mix:PhysScanResolution>
+								</mix:ScannerCaptureSettings>
+							</mix:ScanningSystemCapture>
+						</mix:ImageCreation>
+						<mix:ImagingPerformanceAssessment>
+							<mix:SpatialMetrics>
+								<mix:ImageWidth>1580</mix:ImageWidth>
+								<mix:ImageLength>2433</mix:ImageLength>
+							</mix:SpatialMetrics>
+							<mix:Energetics>
+								<mix:BitsPerSample>8</mix:BitsPerSample>
+								<mix:SamplesPerPixel>1</mix:SamplesPerPixel>
+							</mix:Energetics>
+						</mix:ImagingPerformanceAssessment>
+						<mix:ChangeHistory>
+							<mix:ImageProcessing>
+								<mix:SourceData>./TravelEuropeana/1201003121/0002/000059.TIF</mix:SourceData>
+							</mix:ImageProcessing>
+						</mix:ChangeHistory>
+					</mix:mix>
+				</xmlData>
+			</mdWrap>
+		</techMD>
+	</amdSec>
+	<amdSec ID="IMGPARAM00018">
+		<techMD ID="IMGPARAM00018TECHMD">
+			<mdWrap MDTYPE="NISOIMG">
+				<xmlData>
+					<mix:mix>
+						<mix:BasicImageParameters>
+							<mix:Format>
+								<mix:MIMEType>image/jpeg</mix:MIMEType>
+								<mix:ByteOrder>little-endian</mix:ByteOrder>
+								<mix:Compression>
+									<mix:CompressionScheme>6</mix:CompressionScheme>
+								</mix:Compression>
+								<mix:PhotometricInterpretation>
+									<mix:ColorSpace>1</mix:ColorSpace>
+								</mix:PhotometricInterpretation>
+							</mix:Format>
+							<mix:File>
+								<mix:ImageIdentifier imageIdentifierLocation="//hyperion/export/docworks_63_export/digitool/TravelEuropeana/fd2011-00002550-digitool">0018.jpg</mix:ImageIdentifier>
+								<mix:FileSize>437771</mix:FileSize>
+								<mix:Orientation>1</mix:Orientation>
+								<mix:DisplayOrientation>1</mix:DisplayOrientation>
+							</mix:File>
+						</mix:BasicImageParameters>
+						<mix:ImageCreation>
+							<mix:SourceType>METAe_Monograph</mix:SourceType>
+							<mix:SourceID/>
+							<mix:ImageProducer/>
+							<mix:Host>
+								<mix:HostComputer>DWQA16</mix:HostComputer>
+								<mix:OperatingSystem>windows</mix:OperatingSystem>
+								<mix:OSVersion>5.1 Service Pack 3</mix:OSVersion>
+							</mix:Host>
+							<mix:DeviceSource/>
+							<mix:ScanningSystemCapture>
+								<mix:ScanningSystemHardware>
+									<mix:ScannerManufacturer/>
+									<mix:ScannerModel>
+										<mix:ScannerModelName/>
+										<mix:ScannerModelNumber/>
+										<mix:ScannerModelSerialNo/>
+									</mix:ScannerModel>
+								</mix:ScanningSystemHardware>
+								<mix:ScanningSystemSoftware>
+									<mix:ScanningSoftware>CCS docWORKS</mix:ScanningSoftware>
+									<mix:ScanningSoftwareVersionNo/>
+								</mix:ScanningSystemSoftware>
+								<mix:ScannerCaptureSettings>
+									<mix:PixelSize>0.0846666</mix:PixelSize>
+									<mix:PhysScanResolution>
+										<mix:XphysScanResolution>300</mix:XphysScanResolution>
+										<mix:YphysScanResolution>300</mix:YphysScanResolution>
+									</mix:PhysScanResolution>
+								</mix:ScannerCaptureSettings>
+							</mix:ScanningSystemCapture>
+						</mix:ImageCreation>
+						<mix:ImagingPerformanceAssessment>
+							<mix:SpatialMetrics>
+								<mix:ImageWidth>1580</mix:ImageWidth>
+								<mix:ImageLength>2433</mix:ImageLength>
+							</mix:SpatialMetrics>
+							<mix:Energetics>
+								<mix:BitsPerSample>8</mix:BitsPerSample>
+								<mix:SamplesPerPixel>1</mix:SamplesPerPixel>
+							</mix:Energetics>
+						</mix:ImagingPerformanceAssessment>
+						<mix:ChangeHistory>
+							<mix:ImageProcessing>
+								<mix:SourceData>./TravelEuropeana/1201003121/0002/000060.TIF</mix:SourceData>
+							</mix:ImageProcessing>
+						</mix:ChangeHistory>
+					</mix:mix>
+				</xmlData>
+			</mdWrap>
+		</techMD>
+	</amdSec>
+	<amdSec ID="IMGPARAM00019">
+		<techMD ID="IMGPARAM00019TECHMD">
+			<mdWrap MDTYPE="NISOIMG">
+				<xmlData>
+					<mix:mix>
+						<mix:BasicImageParameters>
+							<mix:Format>
+								<mix:MIMEType>image/jpeg</mix:MIMEType>
+								<mix:ByteOrder>little-endian</mix:ByteOrder>
+								<mix:Compression>
+									<mix:CompressionScheme>6</mix:CompressionScheme>
+								</mix:Compression>
+								<mix:PhotometricInterpretation>
+									<mix:ColorSpace>1</mix:ColorSpace>
+								</mix:PhotometricInterpretation>
+							</mix:Format>
+							<mix:File>
+								<mix:ImageIdentifier imageIdentifierLocation="//hyperion/export/docworks_63_export/digitool/TravelEuropeana/fd2011-00002550-digitool">0019.jpg</mix:ImageIdentifier>
+								<mix:FileSize>444530</mix:FileSize>
+								<mix:Orientation>1</mix:Orientation>
+								<mix:DisplayOrientation>1</mix:DisplayOrientation>
+							</mix:File>
+						</mix:BasicImageParameters>
+						<mix:ImageCreation>
+							<mix:SourceType>METAe_Monograph</mix:SourceType>
+							<mix:SourceID/>
+							<mix:ImageProducer/>
+							<mix:Host>
+								<mix:HostComputer>DWQA16</mix:HostComputer>
+								<mix:OperatingSystem>windows</mix:OperatingSystem>
+								<mix:OSVersion>5.1 Service Pack 3</mix:OSVersion>
+							</mix:Host>
+							<mix:DeviceSource/>
+							<mix:ScanningSystemCapture>
+								<mix:ScanningSystemHardware>
+									<mix:ScannerManufacturer/>
+									<mix:ScannerModel>
+										<mix:ScannerModelName/>
+										<mix:ScannerModelNumber/>
+										<mix:ScannerModelSerialNo/>
+									</mix:ScannerModel>
+								</mix:ScanningSystemHardware>
+								<mix:ScanningSystemSoftware>
+									<mix:ScanningSoftware>CCS docWORKS</mix:ScanningSoftware>
+									<mix:ScanningSoftwareVersionNo/>
+								</mix:ScanningSystemSoftware>
+								<mix:ScannerCaptureSettings>
+									<mix:PixelSize>0.0846666</mix:PixelSize>
+									<mix:PhysScanResolution>
+										<mix:XphysScanResolution>300</mix:XphysScanResolution>
+										<mix:YphysScanResolution>300</mix:YphysScanResolution>
+									</mix:PhysScanResolution>
+								</mix:ScannerCaptureSettings>
+							</mix:ScanningSystemCapture>
+						</mix:ImageCreation>
+						<mix:ImagingPerformanceAssessment>
+							<mix:SpatialMetrics>
+								<mix:ImageWidth>1580</mix:ImageWidth>
+								<mix:ImageLength>2433</mix:ImageLength>
+							</mix:SpatialMetrics>
+							<mix:Energetics>
+								<mix:BitsPerSample>8</mix:BitsPerSample>
+								<mix:SamplesPerPixel>1</mix:SamplesPerPixel>
+							</mix:Energetics>
+						</mix:ImagingPerformanceAssessment>
+						<mix:ChangeHistory>
+							<mix:ImageProcessing>
+								<mix:SourceData>./TravelEuropeana/1201003121/0002/000061.TIF</mix:SourceData>
+							</mix:ImageProcessing>
+						</mix:ChangeHistory>
+					</mix:mix>
+				</xmlData>
+			</mdWrap>
+		</techMD>
+	</amdSec>
+	<amdSec ID="IMGPARAM00020">
+		<techMD ID="IMGPARAM00020TECHMD">
+			<mdWrap MDTYPE="NISOIMG">
+				<xmlData>
+					<mix:mix>
+						<mix:BasicImageParameters>
+							<mix:Format>
+								<mix:MIMEType>image/jpeg</mix:MIMEType>
+								<mix:ByteOrder>little-endian</mix:ByteOrder>
+								<mix:Compression>
+									<mix:CompressionScheme>6</mix:CompressionScheme>
+								</mix:Compression>
+								<mix:PhotometricInterpretation>
+									<mix:ColorSpace>1</mix:ColorSpace>
+								</mix:PhotometricInterpretation>
+							</mix:Format>
+							<mix:File>
+								<mix:ImageIdentifier imageIdentifierLocation="//hyperion/export/docworks_63_export/digitool/TravelEuropeana/fd2011-00002550-digitool">0020.jpg</mix:ImageIdentifier>
+								<mix:FileSize>417322</mix:FileSize>
+								<mix:Orientation>1</mix:Orientation>
+								<mix:DisplayOrientation>1</mix:DisplayOrientation>
+							</mix:File>
+						</mix:BasicImageParameters>
+						<mix:ImageCreation>
+							<mix:SourceType>METAe_Monograph</mix:SourceType>
+							<mix:SourceID/>
+							<mix:ImageProducer/>
+							<mix:Host>
+								<mix:HostComputer>DWQA16</mix:HostComputer>
+								<mix:OperatingSystem>windows</mix:OperatingSystem>
+								<mix:OSVersion>5.1 Service Pack 3</mix:OSVersion>
+							</mix:Host>
+							<mix:DeviceSource/>
+							<mix:ScanningSystemCapture>
+								<mix:ScanningSystemHardware>
+									<mix:ScannerManufacturer/>
+									<mix:ScannerModel>
+										<mix:ScannerModelName/>
+										<mix:ScannerModelNumber/>
+										<mix:ScannerModelSerialNo/>
+									</mix:ScannerModel>
+								</mix:ScanningSystemHardware>
+								<mix:ScanningSystemSoftware>
+									<mix:ScanningSoftware>CCS docWORKS</mix:ScanningSoftware>
+									<mix:ScanningSoftwareVersionNo/>
+								</mix:ScanningSystemSoftware>
+								<mix:ScannerCaptureSettings>
+									<mix:PixelSize>0.0846666</mix:PixelSize>
+									<mix:PhysScanResolution>
+										<mix:XphysScanResolution>300</mix:XphysScanResolution>
+										<mix:YphysScanResolution>300</mix:YphysScanResolution>
+									</mix:PhysScanResolution>
+								</mix:ScannerCaptureSettings>
+							</mix:ScanningSystemCapture>
+						</mix:ImageCreation>
+						<mix:ImagingPerformanceAssessment>
+							<mix:SpatialMetrics>
+								<mix:ImageWidth>1580</mix:ImageWidth>
+								<mix:ImageLength>2433</mix:ImageLength>
+							</mix:SpatialMetrics>
+							<mix:Energetics>
+								<mix:BitsPerSample>8</mix:BitsPerSample>
+								<mix:SamplesPerPixel>1</mix:SamplesPerPixel>
+							</mix:Energetics>
+						</mix:ImagingPerformanceAssessment>
+						<mix:ChangeHistory>
+							<mix:ImageProcessing>
+								<mix:SourceData>./TravelEuropeana/1201003121/0002/000062.TIF</mix:SourceData>
+							</mix:ImageProcessing>
+						</mix:ChangeHistory>
+					</mix:mix>
+				</xmlData>
+			</mdWrap>
+		</techMD>
+	</amdSec>
+	<fileSec>
+		<fileGrp ID="IMGGRP" USE="Images">
+			<file ID="IMG00001" CREATED="2011-01-17T13:49:02" ADMID="IMGPARAM00001" MIMETYPE="image/jpg" SEQ="1" GROUPID="1" CHECKSUM="8edcfd0aa5eacf65f3c9811b55a74c6e" CHECKSUMTYPE="MD5" SIZE="378850">
+				<FLocat LOCTYPE="URL" xlink:href="file://./0001.jpg"/>
+			</file>
+			<file ID="IMG00002" CREATED="2011-01-17T13:49:04" ADMID="IMGPARAM00002" MIMETYPE="image/jpg" SEQ="2" GROUPID="2" CHECKSUM="14bca399bb2fcd0e0dccc75d5efff62e" CHECKSUMTYPE="MD5" SIZE="328250">
+				<FLocat LOCTYPE="URL" xlink:href="file://./0002.jpg"/>
+			</file>
+			<file ID="IMG00003" CREATED="2011-01-17T13:49:06" ADMID="IMGPARAM00003" MIMETYPE="image/jpg" SEQ="3" GROUPID="3" CHECKSUM="d5abfeebb6812f395ee35b555509d12f" CHECKSUMTYPE="MD5" SIZE="416575">
+				<FLocat LOCTYPE="URL" xlink:href="file://./0003.jpg"/>
+			</file>
+			<file ID="IMG00004" CREATED="2011-01-17T13:49:07" ADMID="IMGPARAM00004" MIMETYPE="image/jpg" SEQ="4" GROUPID="4" CHECKSUM="fad61af64fb07d40c5e2e4f0894d3939" CHECKSUMTYPE="MD5" SIZE="433724">
+				<FLocat LOCTYPE="URL" xlink:href="file://./0004.jpg"/>
+			</file>
+			<file ID="IMG00005" CREATED="2011-01-17T13:49:09" ADMID="IMGPARAM00005" MIMETYPE="image/jpg" SEQ="5" GROUPID="5" CHECKSUM="7f6f32d0e6326dabd45b33d5905c5698" CHECKSUMTYPE="MD5" SIZE="411805">
+				<FLocat LOCTYPE="URL" xlink:href="file://./0005.jpg"/>
+			</file>
+			<file ID="IMG00006" CREATED="2011-01-17T13:49:11" ADMID="IMGPARAM00006" MIMETYPE="image/jpg" SEQ="6" GROUPID="6" CHECKSUM="419f50c40d2467fe450fc7547c1dbc84" CHECKSUMTYPE="MD5" SIZE="448662">
+				<FLocat LOCTYPE="URL" xlink:href="file://./0006.jpg"/>
+			</file>
+			<file ID="IMG00007" CREATED="2011-01-17T13:49:12" ADMID="IMGPARAM00007" MIMETYPE="image/jpg" SEQ="7" GROUPID="7" CHECKSUM="b1e06e402532dedfaaa30bd72a75cbd0" CHECKSUMTYPE="MD5" SIZE="434110">
+				<FLocat LOCTYPE="URL" xlink:href="file://./0007.jpg"/>
+			</file>
+			<file ID="IMG00008" CREATED="2011-01-17T13:49:14" ADMID="IMGPARAM00008" MIMETYPE="image/jpg" SEQ="8" GROUPID="8" CHECKSUM="5e26de0837996f9ca2e190ed1f789bba" CHECKSUMTYPE="MD5" SIZE="428180">
+				<FLocat LOCTYPE="URL" xlink:href="file://./0008.jpg"/>
+			</file>
+			<file ID="IMG00009" CREATED="2011-01-17T13:49:15" ADMID="IMGPARAM00009" MIMETYPE="image/jpg" SEQ="9" GROUPID="9" CHECKSUM="21e8f4c00aae55380495409ffc49b753" CHECKSUMTYPE="MD5" SIZE="407346">
+				<FLocat LOCTYPE="URL" xlink:href="file://./0009.jpg"/>
+			</file>
+			<file ID="IMG00010" CREATED="2011-01-17T13:49:17" ADMID="IMGPARAM00010" MIMETYPE="image/jpg" SEQ="10" GROUPID="10" CHECKSUM="079aa3d1a9f4abc504f18e61925236d9" CHECKSUMTYPE="MD5" SIZE="425524">
+				<FLocat LOCTYPE="URL" xlink:href="file://./0010.jpg"/>
+			</file>
+			<file ID="IMG00011" CREATED="2011-01-17T13:49:19" ADMID="IMGPARAM00011" MIMETYPE="image/jpg" SEQ="11" GROUPID="11" CHECKSUM="828ec4c65b941c096029b4cf1f2d5486" CHECKSUMTYPE="MD5" SIZE="430019">
+				<FLocat LOCTYPE="URL" xlink:href="file://./0011.jpg"/>
+			</file>
+			<file ID="IMG00012" CREATED="2011-01-17T13:49:20" ADMID="IMGPARAM00012" MIMETYPE="image/jpg" SEQ="12" GROUPID="12" CHECKSUM="d09535e6f07aca29c568e8f6636de7b7" CHECKSUMTYPE="MD5" SIZE="493682">
+				<FLocat LOCTYPE="URL" xlink:href="file://./0012.jpg"/>
+			</file>
+			<file ID="IMG00013" CREATED="2011-01-17T13:49:22" ADMID="IMGPARAM00013" MIMETYPE="image/jpg" SEQ="13" GROUPID="13" CHECKSUM="e934ff216ad5f68631c98f82eefae689" CHECKSUMTYPE="MD5" SIZE="446259">
+				<FLocat LOCTYPE="URL" xlink:href="file://./0013.jpg"/>
+			</file>
+			<file ID="IMG00014" CREATED="2011-01-17T13:49:24" ADMID="IMGPARAM00014" MIMETYPE="image/jpg" SEQ="14" GROUPID="14" CHECKSUM="c151c7ad980daf4debbb03501a8f0b89" CHECKSUMTYPE="MD5" SIZE="430688">
+				<FLocat LOCTYPE="URL" xlink:href="file://./0014.jpg"/>
+			</file>
+			<file ID="IMG00015" CREATED="2011-01-17T13:49:25" ADMID="IMGPARAM00015" MIMETYPE="image/jpg" SEQ="15" GROUPID="15" CHECKSUM="b835cecbb0c5bb10bb22496ad0dd8e7b" CHECKSUMTYPE="MD5" SIZE="464356">
+				<FLocat LOCTYPE="URL" xlink:href="file://./0015.jpg"/>
+			</file>
+			<file ID="IMG00016" CREATED="2011-01-17T13:49:27" ADMID="IMGPARAM00016" MIMETYPE="image/jpg" SEQ="16" GROUPID="16" CHECKSUM="b54ded144a2dfb5163cf6e83d867cc04" CHECKSUMTYPE="MD5" SIZE="442470">
+				<FLocat LOCTYPE="URL" xlink:href="file://./0016.jpg"/>
+			</file>
+			<file ID="IMG00017" CREATED="2011-01-17T13:49:29" ADMID="IMGPARAM00017" MIMETYPE="image/jpg" SEQ="17" GROUPID="17" CHECKSUM="3779eb2bc1037b0631908fde62ace552" CHECKSUMTYPE="MD5" SIZE="450683">
+				<FLocat LOCTYPE="URL" xlink:href="file://./0017.jpg"/>
+			</file>
+			<file ID="IMG00018" CREATED="2011-01-17T13:49:30" ADMID="IMGPARAM00018" MIMETYPE="image/jpg" SEQ="18" GROUPID="18" CHECKSUM="3b914a4fff741870938685555185bd03" CHECKSUMTYPE="MD5" SIZE="437771">
+				<FLocat LOCTYPE="URL" xlink:href="file://./0018.jpg"/>
+			</file>
+			<file ID="IMG00019" CREATED="2011-01-17T13:49:32" ADMID="IMGPARAM00019" MIMETYPE="image/jpg" SEQ="19" GROUPID="19" CHECKSUM="bbbada4184d058c196df70127f21da0c" CHECKSUMTYPE="MD5" SIZE="444530">
+				<FLocat LOCTYPE="URL" xlink:href="file://./0019.jpg"/>
+			</file>
+			<file ID="IMG00020" CREATED="2011-01-17T13:49:35" ADMID="IMGPARAM00020" MIMETYPE="image/jpg" SEQ="20" GROUPID="20" CHECKSUM="ca2a08bc9241651822e3c07684da8d0b" CHECKSUMTYPE="MD5" SIZE="417322">
+				<FLocat LOCTYPE="URL" xlink:href="file://./0020.jpg"/>
+			</file>
+		</fileGrp>
+		<fileGrp ID="ALTOGRP" USE="Text">
+			<file ID="ALTO00001" CREATED="2011-01-17T13:49:37" MIMETYPE="text/xml" SEQ="1" GROUPID="1" CHECKSUM="7c9b748c3e0198656b475f11f748f300" CHECKSUMTYPE="MD5" SIZE="15938">
+				<FLocat LOCTYPE="URL" xlink:href="file://./0001.xml"/>
+			</file>
+			<file ID="ALTO00002" CREATED="2011-01-17T13:49:37" MIMETYPE="text/xml" SEQ="2" GROUPID="2" CHECKSUM="ece8f5c26f1c059525a101a220b1a114" CHECKSUMTYPE="MD5" SIZE="1516">
+				<FLocat LOCTYPE="URL" xlink:href="file://./0002.xml"/>
+			</file>
+			<file ID="ALTO00003" CREATED="2011-01-17T13:49:37" MIMETYPE="text/xml" SEQ="3" GROUPID="3" CHECKSUM="fb384cc6dba08762566bba355d4abb8b" CHECKSUMTYPE="MD5" SIZE="28387">
+				<FLocat LOCTYPE="URL" xlink:href="file://./0003.xml"/>
+			</file>
+			<file ID="ALTO00004" CREATED="2011-01-17T13:49:37" MIMETYPE="text/xml" SEQ="4" GROUPID="4" CHECKSUM="650a44ff735d34e2bda9b3384ccf5981" CHECKSUMTYPE="MD5" SIZE="48762">
+				<FLocat LOCTYPE="URL" xlink:href="file://./0004.xml"/>
+			</file>
+			<file ID="ALTO00005" CREATED="2011-01-17T13:49:37" MIMETYPE="text/xml" SEQ="5" GROUPID="5" CHECKSUM="33215c92aadae4372f0c03915eb6fb03" CHECKSUMTYPE="MD5" SIZE="43009">
+				<FLocat LOCTYPE="URL" xlink:href="file://./0005.xml"/>
+			</file>
+			<file ID="ALTO00006" CREATED="2011-01-17T13:49:37" MIMETYPE="text/xml" SEQ="6" GROUPID="6" CHECKSUM="d400079dfb72cc9a2fb212a254e4253c" CHECKSUMTYPE="MD5" SIZE="42109">
+				<FLocat LOCTYPE="URL" xlink:href="file://./0006.xml"/>
+			</file>
+			<file ID="ALTO00007" CREATED="2011-01-17T13:49:37" MIMETYPE="text/xml" SEQ="7" GROUPID="7" CHECKSUM="430ad036782168cc2d5799338a50c6c4" CHECKSUMTYPE="MD5" SIZE="47599">
+				<FLocat LOCTYPE="URL" xlink:href="file://./0007.xml"/>
+			</file>
+			<file ID="ALTO00008" CREATED="2011-01-17T13:49:37" MIMETYPE="text/xml" SEQ="8" GROUPID="8" CHECKSUM="75c927774df14f6b1dc8fc34651d32bd" CHECKSUMTYPE="MD5" SIZE="43497">
+				<FLocat LOCTYPE="URL" xlink:href="file://./0008.xml"/>
+			</file>
+			<file ID="ALTO00009" CREATED="2011-01-17T13:49:37" MIMETYPE="text/xml" SEQ="9" GROUPID="9" CHECKSUM="3b311b1fa8aec08d0fe09a6472cb0055" CHECKSUMTYPE="MD5" SIZE="37598">
+				<FLocat LOCTYPE="URL" xlink:href="file://./0009.xml"/>
+			</file>
+			<file ID="ALTO00010" CREATED="2011-01-17T13:49:37" MIMETYPE="text/xml" SEQ="10" GROUPID="10" CHECKSUM="727b26a01fdb2b96780158effcd1669a" CHECKSUMTYPE="MD5" SIZE="38494">
+				<FLocat LOCTYPE="URL" xlink:href="file://./0010.xml"/>
+			</file>
+			<file ID="ALTO00011" CREATED="2011-01-17T13:49:37" MIMETYPE="text/xml" SEQ="11" GROUPID="11" CHECKSUM="3611e253e81704edde1ae6f6d15ed2ca" CHECKSUMTYPE="MD5" SIZE="39614">
+				<FLocat LOCTYPE="URL" xlink:href="file://./0011.xml"/>
+			</file>
+			<file ID="ALTO00012" CREATED="2011-01-17T13:49:37" MIMETYPE="text/xml" SEQ="12" GROUPID="12" CHECKSUM="e2448c8dc36d9e86f68d120dd34428a2" CHECKSUMTYPE="MD5" SIZE="43334">
+				<FLocat LOCTYPE="URL" xlink:href="file://./0012.xml"/>
+			</file>
+			<file ID="ALTO00013" CREATED="2011-01-17T13:49:37" MIMETYPE="text/xml" SEQ="13" GROUPID="13" CHECKSUM="2ab015fcae1691e4957d77df4cc3e459" CHECKSUMTYPE="MD5" SIZE="45558">
+				<FLocat LOCTYPE="URL" xlink:href="file://./0013.xml"/>
+			</file>
+			<file ID="ALTO00014" CREATED="2011-01-17T13:49:37" MIMETYPE="text/xml" SEQ="14" GROUPID="14" CHECKSUM="cf5d9601f101edaeb70232d2cd692261" CHECKSUMTYPE="MD5" SIZE="48680">
+				<FLocat LOCTYPE="URL" xlink:href="file://./0014.xml"/>
+			</file>
+			<file ID="ALTO00015" CREATED="2011-01-17T13:49:37" MIMETYPE="text/xml" SEQ="15" GROUPID="15" CHECKSUM="944532c4c1a89ebc85a6124aae94157c" CHECKSUMTYPE="MD5" SIZE="41587">
+				<FLocat LOCTYPE="URL" xlink:href="file://./0015.xml"/>
+			</file>
+			<file ID="ALTO00016" CREATED="2011-01-17T13:49:37" MIMETYPE="text/xml" SEQ="16" GROUPID="16" CHECKSUM="8c250d279b3ac659b574a39fbe6caad9" CHECKSUMTYPE="MD5" SIZE="40320">
+				<FLocat LOCTYPE="URL" xlink:href="file://./0016.xml"/>
+			</file>
+			<file ID="ALTO00017" CREATED="2011-01-17T13:49:37" MIMETYPE="text/xml" SEQ="17" GROUPID="17" CHECKSUM="a80900f1ed2020c59cd0ffcbc720620e" CHECKSUMTYPE="MD5" SIZE="46164">
+				<FLocat LOCTYPE="URL" xlink:href="file://./0017.xml"/>
+			</file>
+			<file ID="ALTO00018" CREATED="2011-01-17T13:49:37" MIMETYPE="text/xml" SEQ="18" GROUPID="18" CHECKSUM="17cbfd1f141e735d41efffbc4482072c" CHECKSUMTYPE="MD5" SIZE="41025">
+				<FLocat LOCTYPE="URL" xlink:href="file://./0018.xml"/>
+			</file>
+			<file ID="ALTO00019" CREATED="2011-01-17T13:49:37" MIMETYPE="text/xml" SEQ="19" GROUPID="19" CHECKSUM="502d6a06750cb8b7483afb88dea1e178" CHECKSUMTYPE="MD5" SIZE="44838">
+				<FLocat LOCTYPE="URL" xlink:href="file://./0019.xml"/>
+			</file>
+			<file ID="ALTO00020" CREATED="2011-01-17T13:49:37" MIMETYPE="text/xml" SEQ="20" GROUPID="20" CHECKSUM="148d3ae83b3c906705f0eeb53e2ef21a" CHECKSUMTYPE="MD5" SIZE="28199">
+				<FLocat LOCTYPE="URL" xlink:href="file://./0020.xml"/>
+			</file>
+		</fileGrp>
+		<fileGrp ID="PDF" USE="PDF">
+			<file ID="PDF001" CREATED="2011-01-17T13:49:55" MIMETYPE="text/PDF" CHECKSUM="e02fec4ad84047dc67c9574eddb4773b" CHECKSUMTYPE="MD5" SIZE="5904922">
+				<FLocat LOCTYPE="URL" xlink:href="file://./001.pdf"/>
+			</file>
+		</fileGrp>
+	</fileSec>
+	<structMap LABEL="Physical Structure" TYPE="PHYSICAL">
+		<div ID="DIVP1" LABEL="Dissertatio gradualis, stricturas quasdam criticas in historiam Alandiae, maris Baltici insulae, continens Stricturae quaedam criticae in historiam Alandiae, maris Baltici insulae" TYPE="METAe_Monograph" DMDID="dmd-marc">
+			<fptr FILEID="PDF001"/>
+			<div ID="DIVP2" ORDER="1" TYPE="TITLE_PAGE">
+				<fptr>
+					<par>
+						<area FILEID="IMG00001"/>
+						<area FILEID="ALTO00001" BETYPE="IDREF" BEGIN="P1"/>
+					</par>
+				</fptr>
+			</div>
+			<div ID="DIVP3" ORDER="2" TYPE="BLANK_PAGE">
+				<fptr>
+					<par>
+						<area FILEID="IMG00002"/>
+						<area FILEID="ALTO00002" BETYPE="IDREF" BEGIN="P2"/>
+					</par>
+				</fptr>
+			</div>
+			<div ID="DIVP4" ORDER="3" ORDERLABEL="1" TYPE="PAGE">
+				<fptr>
+					<par>
+						<area FILEID="IMG00003"/>
+						<area FILEID="ALTO00003" BETYPE="IDREF" BEGIN="P3"/>
+					</par>
+				</fptr>
+			</div>
+			<div ID="DIVP5" ORDER="4" ORDERLABEL="2" LABEL="*)» ( *" TYPE="PAGE">
+				<fptr>
+					<par>
+						<area FILEID="IMG00004"/>
+						<area FILEID="ALTO00004" BETYPE="IDREF" BEGIN="P4"/>
+					</par>
+				</fptr>
+			</div>
+			<div ID="DIVP6" ORDER="5" ORDERLABEL="3" LABEL="*)3 C $" TYPE="PAGE">
+				<fptr>
+					<par>
+						<area FILEID="IMG00005"/>
+						<area FILEID="ALTO00005" BETYPE="IDREF" BEGIN="P5"/>
+					</par>
+				</fptr>
+			</div>
+			<div ID="DIVP7" ORDER="6" ORDERLABEL="4" LABEL="4" TYPE="PAGE">
+				<fptr>
+					<par>
+						<area FILEID="IMG00006"/>
+						<area FILEID="ALTO00006" BETYPE="IDREF" BEGIN="P6"/>
+					</par>
+				</fptr>
+			</div>
+			<div ID="DIVP8" ORDER="7" ORDERLABEL="5" LABEL="* ) 5" TYPE="PAGE">
+				<fptr>
+					<par>
+						<area FILEID="IMG00007"/>
+						<area FILEID="ALTO00007" BETYPE="IDREF" BEGIN="P7"/>
+					</par>
+				</fptr>
+			</div>
+			<div ID="DIVP9" ORDER="8" ORDERLABEL="6" LABEL="f. ( 6 ) *" TYPE="PAGE">
+				<fptr>
+					<par>
+						<area FILEID="IMG00008"/>
+						<area FILEID="ALTO00008" BETYPE="IDREF" BEGIN="P8"/>
+					</par>
+				</fptr>
+			</div>
+			<div ID="DIVP10" ORDER="9" ORDERLABEL="7" LABEL="f)7 ( t" TYPE="PAGE">
+				<fptr>
+					<par>
+						<area FILEID="IMG00009"/>
+						<area FILEID="ALTO00009" BETYPE="IDREF" BEGIN="P9"/>
+					</par>
+				</fptr>
+			</div>
+			<div ID="DIVP11" ORDER="10" ORDERLABEL="8" LABEL="* )' 8 ( *" TYPE="PAGE">
+				<fptr>
+					<par>
+						<area FILEID="IMG00010"/>
+						<area FILEID="ALTO00010" BETYPE="IDREF" BEGIN="P10"/>
+					</par>
+				</fptr>
+			</div>
+			<div ID="DIVP12" ORDER="11" ORDERLABEL="9" LABEL="f ). 5&gt; C *" TYPE="PAGE">
+				<fptr>
+					<par>
+						<area FILEID="IMG00011"/>
+						<area FILEID="ALTO00011" BETYPE="IDREF" BEGIN="P11"/>
+					</par>
+				</fptr>
+			</div>
+			<div ID="DIVP13" ORDER="12" ORDERLABEL="10" LABEL="10" TYPE="PAGE">
+				<fptr>
+					<par>
+						<area FILEID="IMG00012"/>
+						<area FILEID="ALTO00012" BETYPE="IDREF" BEGIN="P12"/>
+					</par>
+				</fptr>
+			</div>
+			<div ID="DIVP14" ORDER="13" ORDERLABEL="11" LABEL="11" TYPE="PAGE">
+				<fptr>
+					<par>
+						<area FILEID="IMG00013"/>
+						<area FILEID="ALTO00013" BETYPE="IDREF" BEGIN="P13"/>
+					</par>
+				</fptr>
+			</div>
+			<div ID="DIVP15" ORDER="14" ORDERLABEL="12" LABEL="12" TYPE="PAGE">
+				<fptr>
+					<par>
+						<area FILEID="IMG00014"/>
+						<area FILEID="ALTO00014" BETYPE="IDREF" BEGIN="P14"/>
+					</par>
+				</fptr>
+			</div>
+			<div ID="DIVP16" ORDER="15" ORDERLABEL="13" LABEL="13" TYPE="PAGE">
+				<fptr>
+					<par>
+						<area FILEID="IMG00015"/>
+						<area FILEID="ALTO00015" BETYPE="IDREF" BEGIN="P15"/>
+					</par>
+				</fptr>
+			</div>
+			<div ID="DIVP17" ORDER="16" ORDERLABEL="14" LABEL="14" TYPE="PAGE">
+				<fptr>
+					<par>
+						<area FILEID="IMG00016"/>
+						<area FILEID="ALTO00016" BETYPE="IDREF" BEGIN="P16"/>
+					</par>
+				</fptr>
+			</div>
+			<div ID="DIVP18" ORDER="17" ORDERLABEL="15" LABEL="f ) iy ( f" TYPE="PAGE">
+				<fptr>
+					<par>
+						<area FILEID="IMG00017"/>
+						<area FILEID="ALTO00017" BETYPE="IDREF" BEGIN="P17"/>
+					</par>
+				</fptr>
+			</div>
+			<div ID="DIVP19" ORDER="18" ORDERLABEL="16" LABEL="16" TYPE="PAGE">
+				<fptr>
+					<par>
+						<area FILEID="IMG00018"/>
+						<area FILEID="ALTO00018" BETYPE="IDREF" BEGIN="P18"/>
+					</par>
+				</fptr>
+			</div>
+			<div ID="DIVP20" ORDER="19" ORDERLABEL="17" LABEL="f- ) 17- (• f" TYPE="PAGE">
+				<fptr>
+					<par>
+						<area FILEID="IMG00019"/>
+						<area FILEID="ALTO00019" BETYPE="IDREF" BEGIN="P19"/>
+					</par>
+				</fptr>
+			</div>
+			<div ID="DIVP21" ORDER="20" ORDERLABEL="18" LABEL="V **" TYPE="PAGE">
+				<fptr>
+					<par>
+						<area FILEID="IMG00020"/>
+						<area FILEID="ALTO00020" BETYPE="IDREF" BEGIN="P20"/>
+					</par>
+				</fptr>
+			</div>
+		</div>
+	</structMap>
+	<structMap LABEL="Logical Structure" TYPE="LOGICAL">
+		<div ID="DIVL1" TYPE="METAe_Monograph" LABEL="Dissertatio gradualis, stricturas quasdam criticas in historiam Alandiae, maris Baltici insulae, continens Stricturae quaedam criticae in historiam Alandiae, maris Baltici insulae">
+			<div ID="DIVL2" TYPE="VOLUME" DMDID="dmd-marc" LABEL="Dissertatio gradualis, stricturas quasdam criticas in historiam Alandiae, maris Baltici insulae, continens Stricturae quaedam criticae in historiam Alandiae, maris Baltici insulae">
+				<div ID="DIVL3" TYPE="FRONT">
+					<div ID="DIVL4" TYPE="TITLE_SECTION" ORDER="1">
+						<div ID="DIVL5" TYPE="TITLE_OF_WORK">
+							<fptr>
+								<area BETYPE="IDREF" FILEID="ALTO00001" BEGIN="P1_TB00001"/>
+							</fptr>
+						</div>
+						<div ID="DIVL6" TYPE="CREATOR_OF_WORK">
+							<fptr>
+								<area BETYPE="IDREF" FILEID="ALTO00001" BEGIN="P1_TB00006"/>
+							</fptr>
+						</div>
+						<div ID="DIVL7" TYPE="STATEMENT">
+							<fptr>
+								<area BETYPE="IDREF" FILEID="ALTO00001" BEGIN="P1_TB00002"/>
+							</fptr>
+						</div>
+						<div ID="DIVL8" TYPE="STATEMENT">
+							<fptr>
+								<area BETYPE="IDREF" FILEID="ALTO00001" BEGIN="P1_TB00003"/>
+							</fptr>
+						</div>
+						<div ID="DIVL9" TYPE="STATEMENT">
+							<fptr>
+								<area BETYPE="IDREF" FILEID="ALTO00001" BEGIN="P1_TB00004"/>
+							</fptr>
+						</div>
+						<div ID="DIVL10" TYPE="STATEMENT">
+							<fptr>
+								<area BETYPE="IDREF" FILEID="ALTO00001" BEGIN="P1_TB00005"/>
+							</fptr>
+						</div>
+						<div ID="DIVL11" TYPE="STATEMENT">
+							<fptr>
+								<area BETYPE="IDREF" FILEID="ALTO00001" BEGIN="P1_TB00007"/>
+							</fptr>
+						</div>
+						<div ID="DIVL12" TYPE="STATEMENT">
+							<fptr>
+								<area BETYPE="IDREF" FILEID="ALTO00001" BEGIN="P1_TB00008"/>
+							</fptr>
+						</div>
+						<div ID="DIVL13" TYPE="STATEMENT">
+							<fptr>
+								<area BETYPE="IDREF" FILEID="ALTO00001" BEGIN="P1_TB00009"/>
+							</fptr>
+						</div>
+						<div ID="DIVL14" TYPE="STATEMENT">
+							<fptr>
+								<area BETYPE="IDREF" FILEID="ALTO00001" BEGIN="P1_TB00010"/>
+							</fptr>
+						</div>
+					</div>
+				</div>
+				<div ID="DIVL15" TYPE="MAIN">
+					<div ID="DIVL16" TYPE="CHAPTER" ORDER="1" DMDID="ch001-dmd-mods" LABEL="PRAEFATIO.">
+						<div ID="DIVL17" TYPE="TITLE">
+							<fptr>
+								<area BETYPE="IDREF" FILEID="ALTO00003" BEGIN="P3_TB00001"/>
+							</fptr>
+						</div>
+						<div ID="DIVL18" TYPE="BODY">
+							<div ID="DIVL19" TYPE="BODY_CONTENT">
+								<div ID="DIVL20" TYPE="PARAGRAPH" ORDER="1">
+									<div ID="DIVL21" TYPE="TEXT">
+										<fptr>
+											<area BETYPE="IDREF" FILEID="ALTO00003" BEGIN="P3_TB00002"/>
+										</fptr>
+									</div>
+								</div>
+								<div ID="DIVL22" TYPE="PARAGRAPH" ORDER="2">
+									<div ID="DIVL23" TYPE="TEXT">
+										<fptr>
+											<area BETYPE="IDREF" FILEID="ALTO00004" BEGIN="P4_TB00002"/>
+										</fptr>
+									</div>
+								</div>
+							</div>
+							<div ID="DIVL24" TYPE="FOOTNOTE">
+								<div ID="DIVL25" TYPE="TEXT">
+									<fptr>
+										<area BETYPE="IDREF" FILEID="ALTO00004" BEGIN="P4_TB00003"/>
+									</fptr>
+								</div>
+							</div>
+							<div ID="DIVL26" TYPE="FOOTNOTE">
+								<div ID="DIVL27" TYPE="TEXT">
+									<fptr>
+										<area BETYPE="IDREF" FILEID="ALTO00005" BEGIN="P5_TB00002"/>
+									</fptr>
+								</div>
+							</div>
+							<div ID="DIVL28" TYPE="DECORATION" ORDER="1" DMDID="ch001-ill001-dmd-mods" LABEL="Ei kuvatekstiä">
+								<div ID="DIVL29" TYPE="IMAGE">
+									<fptr>
+										<par>
+											<area BETYPE="IDREF" FILEID="ALTO00003" BEGIN="P3_CB00001"/>
+										</par>
+									</fptr>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div ID="DIVL30" TYPE="CHAPTER" ORDER="2" DMDID="ch002-dmd-mods" LABEL="§. I.">
+						<div ID="DIVL31" TYPE="TITLE">
+							<fptr>
+								<area BETYPE="IDREF" FILEID="ALTO00005" BEGIN="P5_TB00003"/>
+							</fptr>
+						</div>
+						<div ID="DIVL32" TYPE="BODY">
+							<div ID="DIVL33" TYPE="BODY_CONTENT">
+								<div ID="DIVL34" TYPE="PARAGRAPH" ORDER="1">
+									<div ID="DIVL35" TYPE="TEXT">
+										<fptr>
+											<area BETYPE="IDREF" FILEID="ALTO00005" BEGIN="P5_TB00004"/>
+										</fptr>
+									</div>
+								</div>
+								<div ID="DIVL36" TYPE="PARAGRAPH" ORDER="2">
+									<div ID="DIVL37" TYPE="TEXT">
+										<fptr>
+											<area BETYPE="IDREF" FILEID="ALTO00006" BEGIN="P6_TB00002"/>
+										</fptr>
+									</div>
+								</div>
+								<div ID="DIVL38" TYPE="PARAGRAPH" ORDER="3">
+									<div ID="DIVL39" TYPE="TEXT">
+										<fptr>
+											<area BETYPE="IDREF" FILEID="ALTO00006" BEGIN="P6_TB00003"/>
+										</fptr>
+									</div>
+								</div>
+								<div ID="DIVL40" TYPE="PARAGRAPH" ORDER="4">
+									<div ID="DIVL41" TYPE="TEXT">
+										<fptr>
+											<area BETYPE="IDREF" FILEID="ALTO00007" BEGIN="P7_TB00006"/>
+										</fptr>
+									</div>
+								</div>
+							</div>
+							<div ID="DIVL42" TYPE="FOOTNOTE">
+								<div ID="DIVL43" TYPE="TEXT">
+									<fptr>
+										<area BETYPE="IDREF" FILEID="ALTO00007" BEGIN="P7_TB00002"/>
+									</fptr>
+								</div>
+							</div>
+							<div ID="DIVL44" TYPE="FOOTNOTE">
+								<div ID="DIVL45" TYPE="TEXT">
+									<fptr>
+										<area BETYPE="IDREF" FILEID="ALTO00007" BEGIN="P7_TB00003"/>
+									</fptr>
+								</div>
+							</div>
+							<div ID="DIVL46" TYPE="FOOTNOTE">
+								<div ID="DIVL47" TYPE="TEXT">
+									<fptr>
+										<area BETYPE="IDREF" FILEID="ALTO00007" BEGIN="P7_TB00004"/>
+									</fptr>
+								</div>
+							</div>
+							<div ID="DIVL48" TYPE="FOOTNOTE">
+								<div ID="DIVL49" TYPE="TEXT">
+									<fptr>
+										<area BETYPE="IDREF" FILEID="ALTO00007" BEGIN="P7_TB00005"/>
+									</fptr>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div ID="DIVL50" TYPE="CHAPTER" ORDER="3" DMDID="ch003-dmd-mods" LABEL="§. II.">
+						<div ID="DIVL51" TYPE="TITLE">
+							<fptr>
+								<area BETYPE="IDREF" FILEID="ALTO00008" BEGIN="P8_TB00002"/>
+							</fptr>
+						</div>
+						<div ID="DIVL52" TYPE="BODY">
+							<div ID="DIVL53" TYPE="BODY_CONTENT">
+								<div ID="DIVL54" TYPE="PARAGRAPH" ORDER="1">
+									<div ID="DIVL55" TYPE="TEXT">
+										<fptr>
+											<area BETYPE="IDREF" FILEID="ALTO00008" BEGIN="P8_TB00003"/>
+										</fptr>
+									</div>
+								</div>
+								<div ID="DIVL56" TYPE="PARAGRAPH" ORDER="2">
+									<div ID="DIVL57" TYPE="TEXT">
+										<fptr>
+											<area BETYPE="IDREF" FILEID="ALTO00008" BEGIN="P8_TB00004"/>
+										</fptr>
+									</div>
+								</div>
+								<div ID="DIVL58" TYPE="PARAGRAPH" ORDER="3">
+									<div ID="DIVL59" TYPE="TEXT">
+										<fptr>
+											<area BETYPE="IDREF" FILEID="ALTO00008" BEGIN="P8_TB00005"/>
+										</fptr>
+									</div>
+								</div>
+								<div ID="DIVL60" TYPE="PARAGRAPH" ORDER="4">
+									<div ID="DIVL61" TYPE="TEXT">
+										<fptr>
+											<area BETYPE="IDREF" FILEID="ALTO00008" BEGIN="P8_TB00006"/>
+										</fptr>
+									</div>
+								</div>
+								<div ID="DIVL62" TYPE="PARAGRAPH" ORDER="5">
+									<div ID="DIVL63" TYPE="TEXT">
+										<fptr>
+											<area BETYPE="IDREF" FILEID="ALTO00009" BEGIN="P9_TB00002"/>
+										</fptr>
+									</div>
+								</div>
+							</div>
+							<div ID="DIVL64" TYPE="FOOTNOTE">
+								<div ID="DIVL65" TYPE="TEXT">
+									<fptr>
+										<area BETYPE="IDREF" FILEID="ALTO00009" BEGIN="P9_TB00003"/>
+									</fptr>
+								</div>
+							</div>
+							<div ID="DIVL66" TYPE="FOOTNOTE">
+								<div ID="DIVL67" TYPE="TEXT">
+									<fptr>
+										<area BETYPE="IDREF" FILEID="ALTO00009" BEGIN="P9_TB00004"/>
+									</fptr>
+								</div>
+							</div>
+							<div ID="DIVL68" TYPE="FOOTNOTE">
+								<div ID="DIVL69" TYPE="TEXT">
+									<fptr>
+										<area BETYPE="IDREF" FILEID="ALTO00009" BEGIN="P9_TB00005"/>
+									</fptr>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div ID="DIVL70" TYPE="CHAPTER" ORDER="4" DMDID="ch004-dmd-mods" LABEL="§. III.">
+						<div ID="DIVL71" TYPE="TITLE">
+							<fptr>
+								<area BETYPE="IDREF" FILEID="ALTO00009" BEGIN="P9_TB00006"/>
+							</fptr>
+						</div>
+						<div ID="DIVL72" TYPE="BODY">
+							<div ID="DIVL73" TYPE="BODY_CONTENT">
+								<div ID="DIVL74" TYPE="PARAGRAPH" ORDER="1">
+									<div ID="DIVL75" TYPE="TEXT">
+										<fptr>
+											<area BETYPE="IDREF" FILEID="ALTO00009" BEGIN="P9_TB00007"/>
+										</fptr>
+									</div>
+								</div>
+								<div ID="DIVL76" TYPE="PARAGRAPH" ORDER="2">
+									<div ID="DIVL77" TYPE="TEXT">
+										<fptr>
+											<area BETYPE="IDREF" FILEID="ALTO00009" BEGIN="P9_TB00008"/>
+										</fptr>
+									</div>
+								</div>
+								<div ID="DIVL78" TYPE="PARAGRAPH" ORDER="3">
+									<div ID="DIVL79" TYPE="TEXT">
+										<fptr>
+											<area BETYPE="IDREF" FILEID="ALTO00010" BEGIN="P10_TB00002"/>
+										</fptr>
+									</div>
+								</div>
+							</div>
+							<div ID="DIVL80" TYPE="FOOTNOTE">
+								<div ID="DIVL81" TYPE="TEXT">
+									<fptr>
+										<area BETYPE="IDREF" FILEID="ALTO00010" BEGIN="P10_TB00003"/>
+									</fptr>
+								</div>
+							</div>
+							<div ID="DIVL82" TYPE="FOOTNOTE">
+								<div ID="DIVL83" TYPE="TEXT">
+									<fptr>
+										<area BETYPE="IDREF" FILEID="ALTO00010" BEGIN="P10_TB00004"/>
+									</fptr>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div ID="DIVL84" TYPE="CHAPTER" ORDER="5" DMDID="ch005-dmd-mods" LABEL="§. IV.">
+						<div ID="DIVL85" TYPE="TITLE">
+							<fptr>
+								<area BETYPE="IDREF" FILEID="ALTO00010" BEGIN="P10_TB00005"/>
+							</fptr>
+						</div>
+						<div ID="DIVL86" TYPE="BODY">
+							<div ID="DIVL87" TYPE="BODY_CONTENT">
+								<div ID="DIVL88" TYPE="PARAGRAPH" ORDER="1">
+									<div ID="DIVL89" TYPE="TEXT">
+										<fptr>
+											<seq>
+												<area BETYPE="IDREF" FILEID="ALTO00010" BEGIN="P10_TB00006"/>
+												<area BETYPE="IDREF" FILEID="ALTO00011" BEGIN="P11_TB00002"/>
+											</seq>
+										</fptr>
+									</div>
+								</div>
+							</div>
+							<div ID="DIVL90" TYPE="FOOTNOTE">
+								<div ID="DIVL91" TYPE="TEXT">
+									<fptr>
+										<area BETYPE="IDREF" FILEID="ALTO00011" BEGIN="P11_TB00003"/>
+									</fptr>
+								</div>
+							</div>
+							<div ID="DIVL92" TYPE="FOOTNOTE">
+								<div ID="DIVL93" TYPE="TEXT">
+									<fptr>
+										<area BETYPE="IDREF" FILEID="ALTO00011" BEGIN="P11_TB00004"/>
+									</fptr>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div ID="DIVL94" TYPE="CHAPTER" ORDER="6" DMDID="ch006-dmd-mods" LABEL="§. V.">
+						<div ID="DIVL95" TYPE="TITLE">
+							<fptr>
+								<area BETYPE="IDREF" FILEID="ALTO00011" BEGIN="P11_TB00005"/>
+							</fptr>
+						</div>
+						<div ID="DIVL96" TYPE="BODY">
+							<div ID="DIVL97" TYPE="BODY_CONTENT">
+								<div ID="DIVL98" TYPE="PARAGRAPH" ORDER="1">
+									<div ID="DIVL99" TYPE="TEXT">
+										<fptr>
+											<seq>
+												<area BETYPE="IDREF" FILEID="ALTO00011" BEGIN="P11_TB00006"/>
+												<area BETYPE="IDREF" FILEID="ALTO00012" BEGIN="P12_TB00002"/>
+											</seq>
+										</fptr>
+									</div>
+								</div>
+								<div ID="DIVL100" TYPE="PARAGRAPH" ORDER="2">
+									<div ID="DIVL101" TYPE="TEXT">
+										<fptr>
+											<area BETYPE="IDREF" FILEID="ALTO00012" BEGIN="P12_TB00003"/>
+										</fptr>
+									</div>
+								</div>
+								<div ID="DIVL102" TYPE="PARAGRAPH" ORDER="3">
+									<div ID="DIVL103" TYPE="TEXT">
+										<fptr>
+											<area BETYPE="IDREF" FILEID="ALTO00013" BEGIN="P13_TB00002"/>
+										</fptr>
+									</div>
+								</div>
+							</div>
+							<div ID="DIVL104" TYPE="FOOTNOTE">
+								<div ID="DIVL105" TYPE="TEXT">
+									<fptr>
+										<area BETYPE="IDREF" FILEID="ALTO00013" BEGIN="P13_TB00003"/>
+									</fptr>
+								</div>
+							</div>
+							<div ID="DIVL106" TYPE="FOOTNOTE">
+								<div ID="DIVL107" TYPE="TEXT">
+									<fptr>
+										<area BETYPE="IDREF" FILEID="ALTO00014" BEGIN="P14_TB00002"/>
+									</fptr>
+								</div>
+							</div>
+							<div ID="DIVL108" TYPE="FOOTNOTE">
+								<div ID="DIVL109" TYPE="TEXT">
+									<fptr>
+										<area BETYPE="IDREF" FILEID="ALTO00014" BEGIN="P14_TB00003"/>
+									</fptr>
+								</div>
+							</div>
+							<div ID="DIVL110" TYPE="FOOTNOTE">
+								<div ID="DIVL111" TYPE="TEXT">
+									<fptr>
+										<area BETYPE="IDREF" FILEID="ALTO00014" BEGIN="P14_TB00004"/>
+									</fptr>
+								</div>
+							</div>
+							<div ID="DIVL112" TYPE="FOOTNOTE">
+								<div ID="DIVL113" TYPE="TEXT">
+									<fptr>
+										<area BETYPE="IDREF" FILEID="ALTO00014" BEGIN="P14_TB00005"/>
+									</fptr>
+								</div>
+							</div>
+							<div ID="DIVL114" TYPE="FOOTNOTE">
+								<div ID="DIVL115" TYPE="TEXT">
+									<fptr>
+										<area BETYPE="IDREF" FILEID="ALTO00014" BEGIN="P14_TB00006"/>
+									</fptr>
+								</div>
+							</div>
+							<div ID="DIVL116" TYPE="FOOTNOTE">
+								<div ID="DIVL117" TYPE="TEXT">
+									<fptr>
+										<area BETYPE="IDREF" FILEID="ALTO00014" BEGIN="P14_TB00007"/>
+									</fptr>
+								</div>
+							</div>
+							<div ID="DIVL118" TYPE="FOOTNOTE">
+								<div ID="DIVL119" TYPE="TEXT">
+									<fptr>
+										<area BETYPE="IDREF" FILEID="ALTO00014" BEGIN="P14_TB00008"/>
+									</fptr>
+								</div>
+							</div>
+							<div ID="DIVL120" TYPE="FOOTNOTE">
+								<div ID="DIVL121" TYPE="TEXT">
+									<fptr>
+										<area BETYPE="IDREF" FILEID="ALTO00014" BEGIN="P14_TB00009"/>
+									</fptr>
+								</div>
+							</div>
+							<div ID="DIVL122" TYPE="FOOTNOTE">
+								<div ID="DIVL123" TYPE="TEXT">
+									<fptr>
+										<area BETYPE="IDREF" FILEID="ALTO00014" BEGIN="P14_TB00010"/>
+									</fptr>
+								</div>
+							</div>
+							<div ID="DIVL124" TYPE="FOOTNOTE">
+								<div ID="DIVL125" TYPE="TEXT">
+									<fptr>
+										<area BETYPE="IDREF" FILEID="ALTO00014" BEGIN="P14_TB00011"/>
+									</fptr>
+								</div>
+							</div>
+							<div ID="DIVL126" TYPE="FOOTNOTE">
+								<div ID="DIVL127" TYPE="TEXT">
+									<fptr>
+										<area BETYPE="IDREF" FILEID="ALTO00014" BEGIN="P14_TB00012"/>
+									</fptr>
+								</div>
+							</div>
+							<div ID="DIVL128" TYPE="FOOTNOTE">
+								<div ID="DIVL129" TYPE="TEXT">
+									<fptr>
+										<area BETYPE="IDREF" FILEID="ALTO00014" BEGIN="P14_TB00013"/>
+									</fptr>
+								</div>
+							</div>
+							<div ID="DIVL130" TYPE="FOOTNOTE">
+								<div ID="DIVL131" TYPE="TEXT">
+									<fptr>
+										<area BETYPE="IDREF" FILEID="ALTO00014" BEGIN="P14_TB00014"/>
+									</fptr>
+								</div>
+							</div>
+							<div ID="DIVL132" TYPE="FOOTNOTE">
+								<div ID="DIVL133" TYPE="TEXT">
+									<fptr>
+										<area BETYPE="IDREF" FILEID="ALTO00014" BEGIN="P14_TB00015"/>
+									</fptr>
+								</div>
+							</div>
+							<div ID="DIVL134" TYPE="FOOTNOTE">
+								<div ID="DIVL135" TYPE="TEXT">
+									<fptr>
+										<area BETYPE="IDREF" FILEID="ALTO00014" BEGIN="P14_TB00016"/>
+									</fptr>
+								</div>
+							</div>
+							<div ID="DIVL136" TYPE="FOOTNOTE">
+								<div ID="DIVL137" TYPE="TEXT">
+									<fptr>
+										<area BETYPE="IDREF" FILEID="ALTO00015" BEGIN="P15_TB00002"/>
+									</fptr>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div ID="DIVL138" TYPE="CHAPTER" ORDER="7" DMDID="ch007-dmd-mods" LABEL="§. VI.">
+						<div ID="DIVL139" TYPE="TITLE">
+							<fptr>
+								<area BETYPE="IDREF" FILEID="ALTO00015" BEGIN="P15_TB00003"/>
+							</fptr>
+						</div>
+						<div ID="DIVL140" TYPE="BODY">
+							<div ID="DIVL141" TYPE="BODY_CONTENT">
+								<div ID="DIVL142" TYPE="PARAGRAPH" ORDER="1">
+									<div ID="DIVL143" TYPE="TEXT">
+										<fptr>
+											<area BETYPE="IDREF" FILEID="ALTO00015" BEGIN="P15_TB00004"/>
+										</fptr>
+									</div>
+								</div>
+								<div ID="DIVL144" TYPE="PARAGRAPH" ORDER="2">
+									<div ID="DIVL145" TYPE="TEXT">
+										<fptr>
+											<area BETYPE="IDREF" FILEID="ALTO00016" BEGIN="P16_TB00002"/>
+										</fptr>
+									</div>
+								</div>
+							</div>
+							<div ID="DIVL146" TYPE="FOOTNOTE">
+								<div ID="DIVL147" TYPE="TEXT">
+									<fptr>
+										<area BETYPE="IDREF" FILEID="ALTO00016" BEGIN="P16_TB00003"/>
+									</fptr>
+								</div>
+							</div>
+							<div ID="DIVL148" TYPE="FOOTNOTE">
+								<div ID="DIVL149" TYPE="TEXT">
+									<fptr>
+										<area BETYPE="IDREF" FILEID="ALTO00016" BEGIN="P16_TB00004"/>
+									</fptr>
+								</div>
+							</div>
+							<div ID="DIVL150" TYPE="FOOTNOTE">
+								<div ID="DIVL151" TYPE="TEXT">
+									<fptr>
+										<area BETYPE="IDREF" FILEID="ALTO00016" BEGIN="P16_TB00005"/>
+									</fptr>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div ID="DIVL152" TYPE="CHAPTER" ORDER="8" DMDID="ch008-dmd-mods" LABEL="§. VII">
+						<div ID="DIVL153" TYPE="TITLE">
+							<fptr>
+								<area BETYPE="IDREF" FILEID="ALTO00016" BEGIN="P16_TB00006"/>
+							</fptr>
+						</div>
+						<div ID="DIVL154" TYPE="BODY">
+							<div ID="DIVL155" TYPE="BODY_CONTENT">
+								<div ID="DIVL156" TYPE="PARAGRAPH" ORDER="1">
+									<div ID="DIVL157" TYPE="TEXT">
+										<fptr>
+											<area BETYPE="IDREF" FILEID="ALTO00016" BEGIN="P16_TB00007"/>
+										</fptr>
+									</div>
+								</div>
+								<div ID="DIVL158" TYPE="PARAGRAPH" ORDER="2">
+									<div ID="DIVL159" TYPE="TEXT">
+										<fptr>
+											<area BETYPE="IDREF" FILEID="ALTO00016" BEGIN="P16_TB00008"/>
+										</fptr>
+									</div>
+								</div>
+								<div ID="DIVL160" TYPE="PARAGRAPH" ORDER="3">
+									<div ID="DIVL161" TYPE="TEXT">
+										<fptr>
+											<area BETYPE="IDREF" FILEID="ALTO00017" BEGIN="P17_TB00002"/>
+										</fptr>
+									</div>
+								</div>
+								<div ID="DIVL162" TYPE="PARAGRAPH" ORDER="4">
+									<div ID="DIVL163" TYPE="TEXT">
+										<fptr>
+											<area BETYPE="IDREF" FILEID="ALTO00017" BEGIN="P17_TB00003"/>
+										</fptr>
+									</div>
+								</div>
+							</div>
+							<div ID="DIVL164" TYPE="FOOTNOTE">
+								<div ID="DIVL165" TYPE="TEXT">
+									<fptr>
+										<area BETYPE="IDREF" FILEID="ALTO00018" BEGIN="P18_TB00002"/>
+									</fptr>
+								</div>
+							</div>
+							<div ID="DIVL166" TYPE="FOOTNOTE">
+								<div ID="DIVL167" TYPE="TEXT">
+									<fptr>
+										<area BETYPE="IDREF" FILEID="ALTO00018" BEGIN="P18_TB00003"/>
+									</fptr>
+								</div>
+							</div>
+							<div ID="DIVL168" TYPE="FOOTNOTE">
+								<div ID="DIVL169" TYPE="TEXT">
+									<fptr>
+										<area BETYPE="IDREF" FILEID="ALTO00018" BEGIN="P18_TB00004"/>
+									</fptr>
+								</div>
+							</div>
+							<div ID="DIVL170" TYPE="FOOTNOTE">
+								<div ID="DIVL171" TYPE="TEXT">
+									<fptr>
+										<area BETYPE="IDREF" FILEID="ALTO00018" BEGIN="P18_TB00005"/>
+									</fptr>
+								</div>
+							</div>
+							<div ID="DIVL172" TYPE="FOOTNOTE">
+								<div ID="DIVL173" TYPE="TEXT">
+									<fptr>
+										<area BETYPE="IDREF" FILEID="ALTO00018" BEGIN="P18_TB00006"/>
+									</fptr>
+								</div>
+							</div>
+							<div ID="DIVL174" TYPE="FOOTNOTE">
+								<div ID="DIVL175" TYPE="TEXT">
+									<fptr>
+										<area BETYPE="IDREF" FILEID="ALTO00018" BEGIN="P18_TB00007"/>
+									</fptr>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div ID="DIVL176" TYPE="CHAPTER" ORDER="9" DMDID="ch009-dmd-mods" LABEL="§. VIII">
+						<div ID="DIVL177" TYPE="TITLE">
+							<fptr>
+								<area BETYPE="IDREF" FILEID="ALTO00018" BEGIN="P18_TB00008"/>
+							</fptr>
+						</div>
+						<div ID="DIVL178" TYPE="BODY">
+							<div ID="DIVL179" TYPE="BODY_CONTENT">
+								<div ID="DIVL180" TYPE="PARAGRAPH" ORDER="1">
+									<div ID="DIVL181" TYPE="TEXT">
+										<fptr>
+											<seq>
+												<area BETYPE="IDREF" FILEID="ALTO00018" BEGIN="P18_TB00009"/>
+												<area BETYPE="IDREF" FILEID="ALTO00019" BEGIN="P19_TB00002"/>
+												<area BETYPE="IDREF" FILEID="ALTO00020" BEGIN="P20_TB00002"/>
+											</seq>
+										</fptr>
+									</div>
+								</div>
+							</div>
+							<div ID="DIVL182" TYPE="FOOTNOTE">
+								<div ID="DIVL183" TYPE="TEXT">
+									<fptr>
+										<area BETYPE="IDREF" FILEID="ALTO00020" BEGIN="P20_TB00003"/>
+									</fptr>
+								</div>
+							</div>
+							<div ID="DIVL184" TYPE="FOOTNOTE">
+								<div ID="DIVL185" TYPE="TEXT">
+									<fptr>
+										<area BETYPE="IDREF" FILEID="ALTO00020" BEGIN="P20_TB00004"/>
+									</fptr>
+								</div>
+							</div>
+							<div ID="DIVL186" TYPE="FOOTNOTE">
+								<div ID="DIVL187" TYPE="TEXT">
+									<fptr>
+										<area BETYPE="IDREF" FILEID="ALTO00020" BEGIN="P20_TB00005"/>
+									</fptr>
+								</div>
+							</div>
+							<div ID="DIVL188" TYPE="FOOTNOTE">
+								<div ID="DIVL189" TYPE="TEXT">
+									<fptr>
+										<area BETYPE="IDREF" FILEID="ALTO00020" BEGIN="P20_TB00006"/>
+									</fptr>
+								</div>
+							</div>
+							<div ID="DIVL190" TYPE="DECORATION" ORDER="1" DMDID="ch009-ill001-dmd-mods" LABEL="Ei kuvatekstiä">
+								<div ID="DIVL191" TYPE="IMAGE">
+									<fptr>
+										<par>
+											<area BETYPE="IDREF" FILEID="ALTO00020" BEGIN="P20_CB00001"/>
+										</par>
+									</fptr>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</structMap>
+</mets>
