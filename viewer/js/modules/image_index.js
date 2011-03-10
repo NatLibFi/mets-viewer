@@ -25,17 +25,7 @@ image_index._construct = function() {
 			
 				$img.ready(function() {
 					$("#imageindex .content_items").append($imgLink);
-			
-					$imgLink.click(function() {
-						num = $(this).attr('page');
-						while (num.length < 4) {
-							num = "0" + num;
-						}
-						viewer.loadPage(num);
-				
-					});
-				
-				
+		
 				});
 
 			});

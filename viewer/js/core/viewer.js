@@ -20,19 +20,6 @@ viewer._construct=function() {
 	onImageReady(redrawCanvas);
 	onViewportChange(redrawCanvas);
 
-
-	function refreshCanvasSize() {
-		
-		var canvas = document.getElementById("viewer");
-		if (canvas.getContext) { 
-			canvas.width=oViewerSize.width;
-			canvas.height=oViewerSize.height;
-		} 
-		$('#text_overlay').width(oViewerSize.width);
-		$('#text_overlay').height(oViewerSize.height);
-	}
-
-
 	function redrawCanvas() {
 
 		var canvas = document.getElementById("viewer");
@@ -74,10 +61,10 @@ viewer._construct=function() {
 		ctx.scale(scalingFactor, scalingFactor);
 	
 
-
 		for (var i=0;i<images.length;i++) {
 		
 			image = $('body').data(images[i].img);
+	
 			ctx.drawImage(image, images[i].xOffset, images[i].yOffset);
 		
 		}
@@ -85,11 +72,36 @@ viewer._construct=function() {
 		ctx.restore();
 	
 	}
-
+	function refreshCanvasSize() {
+		
+		var canvas = document.getElementById("viewer");
+		if (canvas.getContext) { 
+			canvas.width=oViewerSize.width;
+			canvas.height=oViewerSize.height;
+		} 
+		$('#text_overlay').width(oViewerSize.width);
+		$('#text_overlay').height(oViewerSize.height);
+	}
 
 	function getPackagePath() {
 
 		return sDataPath;
+	}
+
+	function currentWord() {
+		var wordhashPattern = new RegExp('#word=(.+)','gi');
+
+		var matches = wordhashPattern.exec(window.location.hash);
+	
+		if (matches == null) {
+			return null;
+		}
+		if (matches.length > 1) {
+			return matches[1];
+		}
+		
+		return null;
+	
 	}
 
 	function currentPage() {
@@ -114,67 +126,6 @@ viewer._construct=function() {
 		return num;
 	}
 
-	var mouseX, mouseY, mouseXlast, mouseYlast;
-
-
-	$(document).ready(function() {
-
-		if (!isCanvasSupported()) {
-			$("#message").fadeIn("slow");
-			$("#message a.close-notify").click(function() {
-				$("#message").fadeOut("slow");
-				return false;
-			});
-			
-			
-			$("#toolbar").hide();
-		}
-
-		refreshCanvasSize();
-		
-		
-		$(window).bind('hashchange', function() {
-
-			loadPage(currentPage());
-			triggerPagechange();
-		
-		});
-
-
-		page = $.query.get('page') || 1;
-		sDataPath += $.query.get('item') + "/";
-
-		loadPage(page);
-	
-		//tell registered modules that the core is ready.
-		triggerCoreReady();
-	
-
-		$("#viewer").mousemove(function(e) {
-
-			mouseXlast = mouseX || 0;
-			mouseYlast = mouseY || 0;
-		
-			mouseX = e.pageX - $(this).offset().left;
-			mouseY = e.pageY - $(this).offset().top;
-
-		});
-		
-	
-		$("#text_overlay").resizable({ 
-		  resize: function(event, ui) {
-		  	oViewerSize = {width: $('#text_overlay').width(), height: $('#text_overlay').height()};
-		  	redrawCanvas();
-		  }
-		});
-		
-		$("#pan").click(function() { setmode(this); });
-		$("#select").click(function() { setmode(this); });
-	});
-
-
-
-
 
 	function loadPage(num) {
 		num = "" + num;
@@ -182,7 +133,7 @@ viewer._construct=function() {
 			num = "0" + num;
 		}
 	
-		
+
 		$("#viewer").empty();
 
 		loadImage(num);	
@@ -200,14 +151,11 @@ viewer._construct=function() {
 	function loadImage(num) {
 
 		a = new Date();
-		
-
-
+	
 		smallImage = new Image();
 		smallImage.src= sDataPath + "small-" + num + ".jpg" + "?" + a.getTime();
 
 	
-
 		$(smallImage).load(function() {
 			$('body').data(smallImage.src, smallImage);
 			
@@ -242,13 +190,14 @@ viewer._construct=function() {
 			//Center the page(s)
 			viewportStartX = ($("#viewer").width() - $("#viewer").height() * (totalPagesWidth / totalPagesHeight)) / 2;
 	
-			viewport.setTransform(viewportStartX,0,1);
+		
+			viewport.setTransformNoUpdate(viewportStartX,0,1);
 			
+		
 			triggerSmallImageReady();
 		
 			bgImage = new Image();
 			bgImage.src= sDataPath + num + ".jpg" + "?" + a.getTime();
-
 
 		
 			$(bgImage).load(function() {
@@ -270,15 +219,14 @@ viewer._construct=function() {
 				images = [];
 				images.push({img: bgImage.src, xOffset: 0, yOffset: 0, size: oImageSize, type: 'large'});
 		
+			
 				triggerImageReady();
 		
 			});
 		
 		
 		});
-		
-		
-		
+
 	}
 
 
@@ -302,6 +250,23 @@ viewer._construct=function() {
 		}
 	
 	}
+	
+	var viewerSizeChangeListeners = [];
+	
+
+	function triggerSizeChange() {
+		for (i=0;i<viewerSizeChangeListeners.length;i++) {
+			viewerSizeChangeListeners[i]();
+		}
+	}
+
+	function onSizeChange(callback) {
+		viewerSizeChangeListeners.push(callback);
+	}
+	
+	
+	
+	
 	function getMouseMode() {
 		return mouse_mode;
 	}
@@ -324,6 +289,7 @@ viewer._construct=function() {
 	
 	}
 	
+	this.currentWord=currentWord;
 	this.loadPage=loadPage;
 	this.getMouseMode=getMouseMode;
 	this.getMousePosition=getMousePosition;
@@ -334,6 +300,64 @@ viewer._construct=function() {
 	this.currentPage=currentPage;
 	this.currentPage4=currentPage4;
 	this.isCanvasSupported=isCanvasSupported;
+	this.onSizeChange=onSizeChange;
+	
+	
+	
+	$(document).ready(function() {
+
+		if (!isCanvasSupported()) {
+			$("#message").fadeIn("slow");
+			$("#message a.close-notify").click(function() {
+				$("#message").fadeOut("slow");
+				return false;
+			});
+			
+			
+			$("#toolbar").hide();
+		}
+
+		refreshCanvasSize();
+		
+		
+		$(window).bind('hashchange', function() {
+
+			loadPage(currentPage());
+			triggerPagechange();
+		
+		});
+
+		sDataPath += $.query.get('item') + "/";
+
+		loadPage(currentPage());
+	
+		//tell registered modules that the core is ready.
+		triggerCoreReady();
+	
+
+		$("#viewer").mousemove(function(e) {
+
+			mouseXlast = mouseX || 0;
+			mouseYlast = mouseY || 0;
+		
+			mouseX = e.pageX - $(this).offset().left;
+			mouseY = e.pageY - $(this).offset().top;
+
+		});
+
+		$("#text_overlay").resizable({ 
+		  resize: function(event, ui) {
+		  	oViewerSize = {width: $('#text_overlay').width(), height: $('#text_overlay').height()};
+		  	triggerSizeChange();
+		  	redrawCanvas();
+		  }
+		});
+		
+		$("#pan").click(function() { setmode(this); });
+		$("#select").click(function() { setmode(this); });
+	});
+	
+	
 }
 viewer._construct();
 

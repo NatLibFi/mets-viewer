@@ -37,6 +37,12 @@ viewport._construct = function() {
 		triggerViewportChange();
 	};
 	
+	function setTransformNoUpdate(pX,pY,pZoom) {
+		x = pX;
+		y = pY;
+		zoom = pZoom;
+	}
+	
 	this.x=x;
 	this.y=y;
 	this.zoom=zoom;
@@ -45,5 +51,7 @@ viewport._construct = function() {
 	this.setZoom=setZoom;
 	this.getPosition=getPosition;
 	this.setPosition=setPosition;
+	
+	this.setTransformNoUpdate=setTransformNoUpdate;
 }
 viewport._construct();

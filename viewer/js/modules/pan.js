@@ -57,6 +57,12 @@ pan._construct = function() {
 			
 			}
 		});
+		
+		viewer.onSizeChange(function() {
+		
+			panning = false;
+		
+		});
 
 	});
 	

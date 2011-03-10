@@ -32,12 +32,12 @@ page_changer._construct = function() {
 				pageChangeTimeout = setTimeout(function() {
 			
 					var newPage = $pageChanger.val();
-					if (newPage > 0 && newPage <= count) {
+					if (newPage < 1) newPage = 1;
+					if (newPage > count) newPage = count;
+					
+					location.href = '#page='+newPage;
 				
-						location.href = '#page='+newPage;
 				
-					}
-			
 				}, 1000);
 		
 		
