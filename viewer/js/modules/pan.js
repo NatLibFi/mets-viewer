@@ -49,8 +49,8 @@ pan._construct = function() {
 				mouseXdiff = viewer.getLastMousePosition().x - viewer.getMousePosition().x;
 				mouseYdiff = viewer.getLastMousePosition().y - viewer.getMousePosition().y;
 			
-				oViewportPosition.x -= mouseXdiff / viewport.zoom;
-				oViewportPosition.y -= mouseYdiff / viewport.zoom;
+				oViewportPosition.x -= mouseXdiff / viewport.getZoom();
+				oViewportPosition.y -= mouseYdiff / viewport.getZoom();
 
 				viewport.setPosition(oViewportPosition.x, oViewportPosition.y);
 			
