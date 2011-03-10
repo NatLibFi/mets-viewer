@@ -8,7 +8,7 @@ page_changer._construct = function() {
 	function buildPageChanger() {
 
 		$("#pages").html('');
-
+		
 		$.get(viewer.getPackagePath() + "mets.xml", function(data) {
 	
 			count = $(data).find("file[MIMETYPE='text/xml']").length;
@@ -21,7 +21,7 @@ page_changer._construct = function() {
 		
 			$pageChanger = $("<input id='pageChanger' type='text'></input'>");
 			$pageChanger.val(viewer.currentPage());
-		
+			
 			onPageChanged(function() {
 				$("#pageChanger").val(viewer.currentPage());
 			});

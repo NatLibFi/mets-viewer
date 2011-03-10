@@ -9,22 +9,26 @@
 <script type="text/javascript" src="js/core/jquery-ui-1.8.10.custom.min.js"></script>
 <script type="text/javascript" src="js/core/jquery.mousewheel.min.js"></script>
 <script type="text/javascript" src="js/core/jquery.query-2.1.7.js"></script>
+
+<script type="text/javascript" src="js/core/jquery.ba-hashchange.min.js"></script>
+
 <script type="text/javascript" src="js/core/observers.js"></script>
 <script type="text/javascript" src="js/core/viewport.js"></script>
-
 <script type="text/javascript" src="js/core/viewer.js"></script>
 
 
+<script type="text/javascript" src="js/modules/page_changer.js"></script>
+
 <script type="text/javascript" src="js/modules/toc.js"></script>
 
-<script type="text/javascript" src="js/modules/page_changer.js"></script>
+
+
 <script type="text/javascript" src="js/modules/image_index.js"></script>
 
 <script type="text/javascript" src="js/modules/text_overlay.js"></script>
 
 <script type="text/javascript" src="js/modules/zoom.js"></script>
 <script type="text/javascript" src="js/modules/pan.js"></script>
-
 
 <link rel="stylesheet" href="css/ui-lightness/jquery-ui-1.8.10.custom.css" type="text/css" media="all" />
 
@@ -35,6 +39,8 @@
 	height: 700px;
 	width: 900px;
 	display: inline-block;
+	zoom:1; *display: inline;
+	border: 1px solid black;	
 }
 #texts {
 	position: relative;
@@ -42,16 +48,18 @@
 	width: 900px;
 	display: inline-block;
 	float: left;
+	zoom:1; *display: inline;
 }
 
 #viewer {
 	position: relative;
-	border: 1px solid black;	
+	
 
 	background-repeat: no-repeat;
 	display: inline-block;
 	float:left;
 	cursor: default;
+	zoom:1; *display: inline;
 }
 
 #viewer span {
@@ -72,6 +80,7 @@
 
 #pages {
 	display: inline-block;
+	zoom:1; *display: inline;
 }
 
 #pages a {
@@ -80,6 +89,7 @@
 	height: 24px;
 	width: 24px;
 	text-aling: center;
+	zoom:1; *display: inline;
 }
 
 #pageChanger {
@@ -94,6 +104,7 @@
 #toolbar {
 	display: inline-block;
 	float: right;
+	zoom:1; *display: inline;
 }
 
 #toolbar div.selected {
@@ -110,6 +121,7 @@
 	float: right;
 	display: inline-block;
 	vertical-align: top;
+	zoom:1; *display: inline;
 }
 #imageindexContainer img {
 	border: 0;
@@ -119,6 +131,7 @@
 #toc_container {
 	display: inline-block;
 	vertical-align: top;
+	zoom:1; *display: inline;
 	
 }
 
@@ -137,6 +150,7 @@
 	margin: 0px;
 	
 	height: 200px;
+	zoom:1; *display: inline;
 }
 #index .content_items li {
 	cursor: pointer;
@@ -175,11 +189,66 @@
 	border: 1px solid black;
 	display: inline-block;
 }
+
+#nocanvas {
+	text-align: center;
+}
+
+body {
+padding:0px;
+margin:0px;
+}
+
+/* browser notification */
+#message {
+    font-family:Arial,Helvetica,sans-serif;
+    position:fixed;
+    top:0px;
+    left:0px;
+    width:100%;
+    z-index:105;
+    text-align:center;
+    font-weight:bold;
+    font-size:100%;
+    color:white;
+    padding:10px 0px 10px 0px;
+    background-color:#8E1609;
+}
+
+#message span {
+    text-align: center;
+    width: 95%;
+    float:left;
+}
+
+.close-notify {
+    white-space: nowrap;
+    float:right;
+    margin-right:10px;
+    color:#fff;
+    text-decoration:none;
+    border:2px #fff solid;
+    padding-left:3px;
+    padding-right:3px
+}
+
+.close-notify a {
+    color: #fff;
+}
+
+
 </style>
 
 </head>
 
 <body>
+
+<div id='message' style="display: none;">
+    <span>Selaimesi ei tue canvas -elementtiä. Zoomaus, pannaus, sivun sisäisen tekstin etsiminen pois käytöstä.</span>
+    <a href="#" class="close-notify">X</a>
+</div>
+
+
 
 <div id="top_toolbars">
 <div id="pages"></div>
@@ -195,7 +264,7 @@
 </div>
 
 <div id="text_overlay">
-	<canvas id="viewer" height="700" width="900"></canvas>
+	<canvas id="viewer" height="700" width="900"><div id="nocanvas">Selain ei tue canvasta</div></canvas>
 </div>
 
 <div id="imageindexContainer">

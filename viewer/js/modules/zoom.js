@@ -52,13 +52,18 @@ zoom._construct = function() {
 	
 	
 	onCoreReady(function() {
+		
+		if (!viewer.isCanvasSupported()) {
+	 		return;
+	 	}
+	 	
+	 	
 		$("#viewer").mousewheel(function(e, delta) {
 				e.preventDefault();
 				e.stopPropagation();
 				zoom(delta);
 		});
-	});
-	onCoreReady(function() {
+
 		$("#text_overlay").mousewheel(function(e, delta) {
 				e.preventDefault();
 				e.stopPropagation();

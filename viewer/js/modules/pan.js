@@ -7,7 +7,13 @@ pan._construct = function() {
 
 	onCoreReady(function() {
 
+		if (!viewer.isCanvasSupported()) {
+	 		return;
+	 	}
+	 	
+	 	
 		$("#text_overlay").mousedown(function(e) {
+
 			if (viewer.getMouseMode() == 'pan') {
 				e.preventDefault();
 				panning = true;
@@ -36,7 +42,7 @@ pan._construct = function() {
 		$("#viewer").mousemove(function(e) {
 
 			if (panning) {
-		
+	
 				oViewportPosition = viewport.getPosition();
 				
 			

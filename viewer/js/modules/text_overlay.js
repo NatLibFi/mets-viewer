@@ -27,6 +27,9 @@ text_overlay._construct=function() {
 	function loadTexts(num) {
 	 	$("#text_overlay span").remove();
 	 	
+	
+	 	
+	 	
 	 	var imageData = viewer.getPageImages()[0];
 	 	if (imageData.type == 'small') {
 	 		return;
@@ -182,10 +185,18 @@ text_overlay._construct=function() {
 	
 	
 	onImageReady(function() {
+	 	if (!viewer.isCanvasSupported()) {
+	 		return;
+	 	}
+	 	
 		loadTexts(viewer.currentPage4());
 	});
 
 	onViewportChange(function() {
+	 	if (!viewer.isCanvasSupported()) {
+	 		return;
+	 	}
+	 	
 		loadTexts(viewer.currentPage4());
 	});
 	

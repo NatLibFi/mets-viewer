@@ -27,7 +27,7 @@ toc._construct = function() {
 						while (num.length < 4) {
 							num = "0" + num;
 						}
-						loadPage(num);
+						viewer.loadPage(num);
 				
 					});
 				}

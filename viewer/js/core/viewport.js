@@ -8,37 +8,38 @@ viewport._construct = function() {
 	
 
 	function getPosition() {
-
-		return {x: viewport.x, y: viewport.y };
+		return {x: x, y: y };
 	};
 	
 	
-	function setPosition(x,y) {
+	function setPosition(pX,pY) {
 
-		viewport.x = x;
-		viewport.y = y;
+		x = pX;
+		y = pY;
 		triggerViewportChange();
 	};
 
 	function getZoom() {
-		return viewport.zoom;
+		return zoom;
 	};
 
-	function setZoom(zoom) {
+	function setZoom(pZoom) {
 
-		viewport.zoom = zoom;
+		zoom = pZoom;
 		triggerViewportChange();
 	
 	};
 
-	function setTransform(x,y,zoom) {
-		viewport.x = x;
-		viewport.y = y;
-		viewport.zoom = zoom;
+	function setTransform(pX,pY,pZoom) {
+		x = pX;
+		y = pY;
+		zoom = pZoom;
 		triggerViewportChange();
 	};
 	
-
+	this.x=x;
+	this.y=y;
+	this.zoom=zoom;
 	this.setTransform=setTransform;
 	this.getZoom=getZoom;
 	this.setZoom=setZoom;
