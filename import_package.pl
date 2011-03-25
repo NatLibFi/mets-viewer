@@ -7,16 +7,21 @@ use XML::LibXML;
 use Image::Magick;
 use XML::Simple;
 use Digest::MD5 qw(md5_hex);
+use threads;
+use POSIX;
 
 sub import($);
+sub importFiles(@);
 
 my $IMPORT_DIR = "import/";
+$IMPORT_DIR = "/data/travel_final/zips/";
 my $WORKING_DIR = "temp/";
 my $PACKAGE_DIR = "packages/";
 
-`rm -rf temp/*`;
-#`rm -rf packages/*`;
+my $THREADS = 3;
 
+
+`rm -rf temp/*`;
 
 
 #check prequisites
@@ -29,13 +34,40 @@ opendir(DIR, $IMPORT_DIR) or die("Could not open dir: $IMPORT_DIR");
 my @files = grep(/\.zip$/,readdir(DIR));
 closedir(DIR);
 
+print "Importing " . @files . " packages.\n";
+my $count = @files;
 
-foreach my $file (@files) {
+my $perThread = ceil($count/$THREADS);
 
-	import($file);
+my @threads = ();
+
+for (my $i=0;$i<$THREADS;$i++) {
+
+	my @filesForThread = splice(@files, 0, $perThread);
+	
+	print "For $i. thread: " . @filesForThread . "\n";
+
+	my $thr = threads->create('importFiles', @filesForThread);
+	push(@threads, $thr);
 
 }
 
+
+for my $thr (@threads) {
+	$thr->join();
+}
+
+
+print "Packages imported.\n";
+
+
+sub importFiles(@) {
+	my @files = @_;
+	foreach my $file (@files) {
+
+		import($file);
+	}
+}
 
 sub import($) {
 	my $file = shift;
@@ -54,8 +86,19 @@ sub import($) {
 		die("Error extracting mets.xml from $IMPORT_DIR$file");
 	}
 	
+	my $mets;
+	eval {	
+	  $mets = XML::LibXML->load_xml( location =>  "$WORKING_DIR$file/mets.xml");
+	};
+	if ($@) {
+		use Data::Dumper;
+		print "Invalid package: $file";
+		print Dumper($@);
+		print "Skipping invalid package.\n";
+		next;
+		
+	}
 	
-	my $mets = XML::LibXML->load_xml( location =>  "$WORKING_DIR$file/mets.xml");
 	
 	my $urn = getURN($mets);
 
@@ -308,29 +351,6 @@ sub createFastImage($$) {
  
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
