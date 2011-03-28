@@ -1,4 +1,13 @@
-
+/*!
+ * Mets viewer
+ *
+ * Copyright 2011, the National Library of Finland
+ * Licensed under the 2-clause FreeBSD licence.
+ * See the LICENSE file in the root directory of this application.
+ *
+ * Author: Pasi Tuominen
+ */
+ 
 var text_overlay = {};
 
 text_overlay._construct=function() {
@@ -192,7 +201,7 @@ text_overlay._construct=function() {
 		loadTexts(viewer.currentPage4());
 	});
 
-	onViewportChange(function() {
+	viewport.onViewportChange(function() {
 	 	if (!viewer.isCanvasSupported()) {
 	 		return;
 	 	}

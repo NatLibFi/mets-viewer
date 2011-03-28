@@ -1,4 +1,12 @@
-
+/*!
+ * Mets viewer
+ *
+ * Copyright 2011, the National Library of Finland
+ * Licensed under the 2-clause FreeBSD licence.
+ * See the LICENSE file in the root directory of this application.
+ *
+ * Author: Pasi Tuominen
+ */
 var viewer = {};
 
 
@@ -15,11 +23,18 @@ viewer._construct=function() {
 	var mouseY;
 	var mouseXlast;
 	var mouseYlast;
-	
-	onSmallImageReady(redrawCanvas);
-	onImageReady(redrawCanvas);
-	onViewportChange(redrawCanvas);
 
+	function refreshCanvasSize() {
+		
+		var canvas = document.getElementById("viewer");
+		if (canvas.getContext) { 
+			canvas.width=oViewerSize.width;
+			canvas.height=oViewerSize.height;
+		} 
+		$('#text_overlay').width(oViewerSize.width);
+		$('#text_overlay').height(oViewerSize.height);
+	}
+	
 	function redrawCanvas() {
 
 		var canvas = document.getElementById("viewer");
@@ -48,11 +63,11 @@ viewer._construct=function() {
 		var maxHeight=0;
 		for (var i=0;i<images.length;i++) {
 	
-			image = $('body').data(images[i].img);
-			maxHeight = (image.height > maxHeight) ? image.height : maxHeight;
+			var image_tmp = $('body').data(images[i].img);
+			maxHeight = (image_tmp.height > maxHeight) ? image_tmp.height : maxHeight;
 		}
 	
-		vp = viewport.getPosition();
+		var vp = viewport.getPosition();
 	
 		ctx.translate(vp.x * viewport.getZoom(), vp.y * viewport.getZoom());
 
@@ -63,25 +78,16 @@ viewer._construct=function() {
 
 		for (var i=0;i<images.length;i++) {
 		
-			image = $('body').data(images[i].img);
+			var image_tmp = $('body').data(images[i].img);
 	
-			ctx.drawImage(image, images[i].xOffset, images[i].yOffset);
+			ctx.drawImage(image_tmp, images[i].xOffset, images[i].yOffset);
 		
 		}
 
 		ctx.restore();
 	
 	}
-	function refreshCanvasSize() {
-		
-		var canvas = document.getElementById("viewer");
-		if (canvas.getContext) { 
-			canvas.width=oViewerSize.width;
-			canvas.height=oViewerSize.height;
-		} 
-		$('#text_overlay').width(oViewerSize.width);
-		$('#text_overlay').height(oViewerSize.height);
-	}
+
 
 	function getPackagePath() {
 
@@ -93,7 +99,7 @@ viewer._construct=function() {
 
 		var matches = wordhashPattern.exec(window.location.hash);
 	
-		if (matches == null) {
+		if (matches === null) {
 			return null;
 		}
 		if (matches.length > 1) {
@@ -108,7 +114,7 @@ viewer._construct=function() {
 			var pagehashPattern = new RegExp('#page=(\\d+)','gi');
 
 			var matches = pagehashPattern.exec(window.location.hash);
-			if (matches == null) {
+			if (matches === null) {
 				return 1;
 			}
 			if (matches.length > 1) {
@@ -119,7 +125,7 @@ viewer._construct=function() {
 	}
 
 	function currentPage4() {
-		num = "" + currentPage();
+		var num = "" + currentPage();
 		while (num.length < 4) {
 			num = "0" + num;
 		}
@@ -128,7 +134,7 @@ viewer._construct=function() {
 
 
 	function loadPage(num) {
-		num = "" + num;
+		var num = "" + num;
 		while (num.length < 4) {
 			num = "0" + num;
 		}
@@ -142,32 +148,41 @@ viewer._construct=function() {
 
 	function getViewerSize() {
 
-		fWidth = $("#viewer").width();
-		fHeight = $("#viewer").height();
+		var fWidth = $("#viewer").width();
+		var fHeight = $("#viewer").height();
 		return { width: fWidth, height: fHeight };
 	}
 
 
 	function loadImage(num) {
 
-		a = new Date();
+		var a = new Date();
 	
-		smallImage = new Image();
+		var smallImage = new Image();
 		smallImage.src= sDataPath + "small-" + num + ".jpg" + "?" + a.getTime();
 
 	
 		$(smallImage).load(function() {
 			$('body').data(smallImage.src, smallImage);
 			
-			oImageSize = { width: smallImage.width, height: smallImage.height, ratio: smallImage.width / smallImage.height };
+			var oImageSize = { 
+				width: smallImage.width, 
+				height: smallImage.height, 
+				ratio: smallImage.width / smallImage.height 
+			};
 		
 			images = [];
 	
-			images.push( { img: smallImage.src, xOffset: 0, yOffset: 0, size: oImageSize, type: 'small'} );
+			images.push( { 
+				img: smallImage.src, 
+				xOffset: 0, 
+				yOffset: 0, 
+				size: oImageSize, type: 'small'
+			} );
 	
 			
-			elemWidth = $("#viewer").width();
-			elemHeight = $("#viewer").height();
+			var elemWidth = $("#viewer").width();
+			var elemHeight = $("#viewer").height();
 			var w = elemHeight * oImageSize.ratio;
 			oImageSize.left = (elemWidth-w)/2;
 			oImageSize.top = 0;
@@ -303,7 +318,12 @@ viewer._construct=function() {
 	this.onSizeChange=onSizeChange;
 	
 	
-	
+		
+	onSmallImageReady(redrawCanvas);
+	onImageReady(redrawCanvas);
+	viewport.onViewportChange(redrawCanvas);
+
+
 	$(document).ready(function() {
 
 		if (!isCanvasSupported()) {
@@ -347,7 +367,10 @@ viewer._construct=function() {
 
 		$("#text_overlay").resizable({ 
 		  resize: function(event, ui) {
-		  	oViewerSize = {width: $('#text_overlay').width(), height: $('#text_overlay').height()};
+		  	oViewerSize = {
+		  		width: $('#text_overlay').width(), 
+		  		height: $('#text_overlay').height()
+		  	};
 		  	triggerSizeChange();
 		  	redrawCanvas();
 		  }
