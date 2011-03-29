@@ -14,7 +14,7 @@ toc._construct = function() {
 
 	function buildIndex() {
 
-		$("#index .content_items").html('');
+		$("#sidebar_content .toc_items").html('');
 
 		$.get(viewer.getPackagePath() + "mets.xml", function(data) {
 	
@@ -30,8 +30,13 @@ toc._construct = function() {
 					$li = $("<li></li>");
 					$a = $("<a page='"+page+"' href='#page="+page+"'>"+ label +"</a>");
 					$li.append($a);
-					$("#index .content_items").append($li);
-					$("#index").height($("#index .content_items").height());
+					$("#sidebar_content .toc_items").append($li);
+					
+					
+					
+					$("#sidebar_content").height(
+						$("#sidebar_content .toc_items").height() + $("#bibdata").height() + 10
+					);
 				
 				}
 			});
@@ -61,10 +66,10 @@ toc._construct = function() {
 
 	onCoreReady(function() {
 		toc.buildIndex();
-		$("#index").resizable();
+		$("#sidebar_content").resizable();
 
-		$('#toc_toggle').click(function() {
-			$("#index").toggle('fast', 'swing');
+		$('#sidebar_toggle').click(function() {
+			$("#sidebar_content").toggle('fast', 'swing');
 		});
 
 

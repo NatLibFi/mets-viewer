@@ -32,6 +32,7 @@
 
 <script type="text/javascript" src="js/modules/zoom.js"></script>
 <script type="text/javascript" src="js/modules/pan.js"></script>
+<script type="text/javascript" src="js/modules/bib_data.js"></script>
 
 
 <link rel="stylesheet" href="css/ui-lightness/jquery-ui-1.8.10.custom.css" type="text/css" media="all" />
@@ -132,20 +133,20 @@
 	margin-right: -5px;
 }
 
-#toc_container {
+#sidebar {
 	display: inline-block;
 	vertical-align: top;
 	zoom:1; *display: inline;
 	
 }
 
-#toc_container img {
+#sidebar img {
 	padding: 0px;
 	margin-left: -5px;
 }
 
 
-#index {
+#sidebar_content {
 	display: inline-block;
 	vertical-align: top;
 	width: 215px;
@@ -156,7 +157,7 @@
 	height: 200px;
 	zoom:1; *display: inline;
 }
-#index .content_items li {
+#sidebar_content .content_items li {
 	cursor: pointer;
 	list-style: none;
 	width: 95%;
@@ -245,6 +246,15 @@ margin:0px;
 	background: rgba(255, 255, 170, 0.3);
 }
 
+#bibdata {
+	width: 215px;
+}
+#bibdata table td {
+	vertical-align: top;
+	font-size: 9pt;
+}
+
+
 
 </style>
 
@@ -253,7 +263,7 @@ margin:0px;
 <body>
 
 <div id='message' style="display: none;">
-    <span>Selaimesi ei tue canvas -elementtiä. Zoomaus, pannaus, sivun sisäisen tekstin etsiminen pois käytöstä.</span>
+    <span>Selaimesi ei tue canvas -elementtiä. Zoomaus, pannaus sekä sivun sisäisen tekstin etsiminen eivät ole käytössä. Tuettuja selaimia: IE9, Firefox, Chrome, Safari</span>
     <a href="#" class="close-notify">X</a>
 </div>
 
@@ -264,12 +274,16 @@ margin:0px;
 <div id="toolbar"><div id="pan" class="selected icon_pan"></div><div id="select" class="icon_select"></div></div>
 </div>
 
-<div id="toc_container">
+<div id="sidebar">
 
-<div id="index">
-	<div class="content_items"></div>
-</div>
-<img id="toc_toggle" src="img/toc.png"/>
+
+	<div id="sidebar_content">
+		<div id="bibdata"><div class="content"></div></div>
+
+		<div class="toc_items"></div>
+	</div>
+	
+	<img id="sidebar_toggle" src="img/toc.png"/>
 </div>
 
 <div id="text_overlay">
@@ -285,6 +299,7 @@ margin:0px;
 
 </div>
 -->
+
 
 
 </body>
