@@ -12,7 +12,7 @@ var viewer = {};
 
 viewer._construct=function() {
 
-	var sDataPath = "../packages/";
+	var sDataPath = "../../mets_viewer/packages/";
 	var scalingFactor;
 	var images = [];
 	var oViewerSize = { width: 700, height: 700 };
@@ -93,6 +93,11 @@ viewer._construct=function() {
 
 		return sDataPath;
 	}
+
+	function currentItem() {
+		return $.query.get('item');
+	}
+	
 
 	function currentWord() {
 		var wordhashPattern = new RegExp('#word=(.+)','gi');
@@ -316,7 +321,7 @@ viewer._construct=function() {
 	this.currentPage4=currentPage4;
 	this.isCanvasSupported=isCanvasSupported;
 	this.onSizeChange=onSizeChange;
-	
+	this.currentItem=currentItem;
 	
 		
 	onSmallImageReady(redrawCanvas);

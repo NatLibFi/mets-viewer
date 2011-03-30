@@ -1,6 +1,7 @@
 <html>
 
 <head>
+
 <META http-equiv="Content-Type" content="text/html; charset=utf-8">
 
 <title>Viewer</title>
@@ -145,6 +146,13 @@
 	margin-left: -5px;
 }
 
+#right_sidebar {
+	float: right;
+	display: inline-block;
+	vertical-align: top;
+	zoom:1; *display: inline;
+	padding-right: 20px;
+}
 
 #sidebar_content {
 	display: inline-block;
@@ -255,6 +263,10 @@ margin:0px;
 }
 
 
+#search_results a {
+	display: block;
+}
+
 
 </style>
 
@@ -299,6 +311,17 @@ margin:0px;
 
 </div>
 -->
+
+<div id="right_sidebar">
+
+	<div id="search">
+		<input type='text'></input>
+		<button>Hae</button>
+	
+		<div id="search_results"></div>
+	</div>
+
+</div>
 
 
 
