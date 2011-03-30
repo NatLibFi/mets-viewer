@@ -17,30 +17,41 @@ toc._construct = function() {
 		$("#sidebar_content .toc_items").html('');
 
 		$.get(viewer.getPackagePath() + "mets.xml", function(data) {
-	
+			var chapterCount = 0;
 			$(data).find("div[TYPE='CHAPTER']").each(function() {
 		
-				label = $(this).attr('LABEL');
-			
-				$file = $(this).find('area[FILEID]').first();
-	
-				page = fileIDToPageNum ( $file.attr('FILEID') );
-	
-				if (page != null) {
-					$li = $("<li></li>");
-					$a = $("<a page='"+page+"' href='#page="+page+"'>"+ label +"</a>");
-					$li.append($a);
-					$("#sidebar_content .toc_items").append($li);
-					
-					
-					
-					$("#sidebar_content").height(
-						$("#sidebar_content .toc_items").height() + $("#bibdata").height() + 10
-					);
 				
+				label = $(this).attr('LABEL');
+				if (label !== undefined) {
+
+					$file = $(this).find('area[FILEID]').first();
+	
+					page = fileIDToPageNum ( $file.attr('FILEID') );
+	
+					if (page != null) {
+						$li = $("<li></li>");
+						$a = $("<a page='"+page+"' href='#page="+page+"'>"+ label +"</a>");
+						$li.append($a);
+						$("#sidebar_content .toc_items").append($li);
+	
+						chapterCount++;
+				
+					}
 				}
+				
+				
 			});
-		
+			
+			if (chapterCount == 0) {
+				$("#sidebar_content .toc_items").append($("<span class='empty_toc'>Ei sisällysluetteloa</span>"));
+			}
+			
+			$("#sidebar_content").height(
+				$("#sidebar_content .toc_items").height() + $("#bibdata").height() + 10
+			);
+			if ($("#sidebar_content").height() < 200) {
+				$("#sidebar_content").height(200);
+			}
 	
 		});
 

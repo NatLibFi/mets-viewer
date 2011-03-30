@@ -89,9 +89,13 @@ bib_data._construct = function() {
 			
 			$("#bibdata .content").append($table);
 			$("#bibdata .content").append("<hr/>");
+			
 			$("#sidebar_content").height(
-				$("#sidebar_content .toc_items").height() + $("#bibdata").height() + 10
+			$("#sidebar_content .toc_items").height() + $("#bibdata").height() + 10
 			);
+			if ($("#sidebar_content").height() < 200) {
+				$("#sidebar_content").height(200);
+			}
 		
 
 		});
