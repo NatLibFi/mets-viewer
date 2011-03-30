@@ -12,7 +12,7 @@ var viewer = {};
 
 viewer._construct=function() {
 
-	var sDataPath = "../../mets_viewer/packages/";
+	var sDataPath = "../../prod/packages/";
 	var scalingFactor;
 	var images = [];
 	var oViewerSize = { width: 700, height: 700 };
