@@ -12,7 +12,7 @@ var viewer = {};
 
 viewer._construct=function() {
 
-	var sDataPath = "../../prod/packages/";
+	var sDataPath = "/viewer/prod/packages/";
 	var scalingFactor;
 	var images = [];
 	var oViewerSize = { width: 700, height: 700 };
