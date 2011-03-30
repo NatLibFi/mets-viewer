@@ -5,3 +5,8 @@ Installing dependencies:
 yum install perl-XML-LibXML.x86_64
 yum install ImageMagick-perl.x86_64
 yum install perl-XML-Simple.noarch
+
+
+
+imagemagick will use /tmp for default temp dir, if that's not enough consider:
+export MAGICK_TEMPDIR=/data/tmp
