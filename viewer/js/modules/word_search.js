@@ -20,32 +20,39 @@ word_search._construct = function() {
 	
 		$('#search button').click(function() {
 			$('#search_results').html('');
-			$('#search_results').html('<img src="img/loader.gif"/ alt="searching">');
+			$('#search_results').html('<img src="img/loader.gif" alt="searching"/>');
 			
-			var query = "mode=json&text=" + escape($('#search input').val()) + "&book=" + viewer.currentItem();
+			var query = "mode=json&text=" + $('#search input').val() + "&book=" + viewer.currentItem();
 			
 			$.post(SEARCH_API, query, function(data, status, xhr) {
 			
 				data = JSON.parse(data);
+				console.log(data);
 				$('#search_results').html('');
-	
-				if (data.hits.length) {
 				
-					for (var i=0;i<data.hits.length;i++) {
-						console.log(data.hits[i]);
+				var hitCount = 0;
+				for (hitStr in data.hits) {
+					
+					var hits = data.hits[hitStr];
+					for (var i=0;i<hits.length;i++) {
+					
+						var hit = hits[i];
+				
+						hitCount++;
+						page = parsePageNumberFromID(hit.id);
+						$result = $("<a>" + hit.content + " (" + page +")" + "</a>");
+						$result.attr('href','#page=' +page +'#word='+hit.content);
 						
-						page = parsePageNumberFromID(data.hits[i].id);
-						$result = $("<a>" + data.hits[i].content + " (" + page +")" + "</a>");
-						$result.attr('href','#page=' +page +'#word='+data.hits[i].content);
 		
 						$('#search_results').append($result);
 					}
-				} else {
+				}
+				if (hitCount == 0) {
 					$('#search_results').append("No hits");
 				}
 				
-			
-			
+				
+
 			});
 			
 	

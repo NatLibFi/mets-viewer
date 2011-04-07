@@ -34,46 +34,54 @@ text_overlay._construct=function() {
 
 	
 	function loadTexts(num) {
-	 	$("#text_overlay span").remove();
-	 	
 	
-	 	
-	 	
-	 	var imageData = viewer.getPageImages()[0];
-	 	if (imageData.type == 'small') {
-	 		return;
-	 	}
-	 
-
-		if (cache[num] === undefined) {
-
-			$.get( viewer.getPackagePath() + num + '.xml', function(data) {
-		
-				$page = $(data).find('Page').first();
-				oPageSize = { height: $page.attr('HEIGHT'), width:  $page.attr('WIDTH') };
-	
-				oScale = {
-					 width:  imageData.size.width / oPageSize.width * imageData.size.scale
-					,height: imageData.size.height / oPageSize.height * imageData.size.scale
-					
-				}
-				oScale.ratio = imageData.size.ratio;
-				
-				triggerScaleReady();
-			
-				cache[num] = {
-					"data": data
-					,"scale": oScale
-				};
-			
-				renderText(cache[num].data, cache[num].scale, imageData);
-
-			});
-	
-		} else {
-
-				renderText(cache[num].data, cache[num].scale, imageData);
+		$("#text_overlay span").remove();
+		 	
+		 	
+	 	if (textLoadDelayer != undefined) {
+			clearTimeout(textLoadDelayer);
+			console.log("Rendering reset");
 		}
+		
+		textLoadDelayer = setTimeout(function() {
+			
+		 	
+		 	var imageData = viewer.getPageImages()[0];
+		 	if (imageData.type == 'small') {
+		 		return;
+		 	}
+		 
+
+			if (cache[num] === undefined) {
+
+				$.get( viewer.getPackagePath() + num + '.xml', function(data) {
+		
+					$page = $(data).find('Page').first();
+					oPageSize = { height: $page.attr('HEIGHT'), width:  $page.attr('WIDTH') };
+	
+					oScale = {
+						 width:  imageData.size.width / oPageSize.width * imageData.size.scale
+						,height: imageData.size.height / oPageSize.height * imageData.size.scale
+					
+					}
+					oScale.ratio = imageData.size.ratio;
+				
+					triggerScaleReady();
+			
+					cache[num] = {
+						"data": data
+						,"scale": oScale
+					};
+			
+					renderText(cache[num].data, cache[num].scale, imageData);
+
+				});
+	
+			} else {
+
+					renderText(cache[num].data, cache[num].scale, imageData);
+			}
+		}, TEXT_LOAD_DELAY);
 	}
 
 
@@ -88,12 +96,8 @@ text_overlay._construct=function() {
 			}
 		}
 		
-		if (textLoadDelayer != undefined) {
-			clearTimeout(textLoadDelayer);
-
-		}
-		
-		textLoadDelayer = setTimeout(function() {
+	
+		console.log("rendering");
 			$(data).find('String').each(function() {
 		
 				render_string($(this), oScale, imageData);
@@ -105,7 +109,7 @@ text_overlay._construct=function() {
 			$("#text_overlay span").css('cursor', preCursor);
 			triggerTextOverlayReady();
 			
-		}, TEXT_LOAD_DELAY);
+		
 	
 	}
 
@@ -160,7 +164,7 @@ text_overlay._construct=function() {
 	}
 
 	function resize_text($bb) {
-
+		
 			var fontSize = lastWordSize;
 			var innerText = $bb.find('.text');
 			var maxWidth = $bb.width();
@@ -205,7 +209,8 @@ text_overlay._construct=function() {
 	 	if (!viewer.isCanvasSupported()) {
 	 		return;
 	 	}
-	 	
+	 		
+		
 		loadTexts(viewer.currentPage4());
 	});
 	
