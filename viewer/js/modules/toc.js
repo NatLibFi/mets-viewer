@@ -46,12 +46,7 @@ toc._construct = function() {
 				$("#sidebar_content .toc_items").append($("<span class='empty_toc'>Ei sisällysluetteloa</span>"));
 			}
 			
-			$("#sidebar_content").height(
-				$("#sidebar_content .toc_items").height() + $("#bibdata").height() + 10
-			);
-			if ($("#sidebar_content").height() < 200) {
-				$("#sidebar_content").height(200);
-			}
+			
 	
 		});
 
@@ -77,11 +72,9 @@ toc._construct = function() {
 
 	onCoreReady(function() {
 		toc.buildIndex();
-		$("#sidebar_content").resizable();
-
-		$('#sidebar_toggle').click(function() {
-			$("#sidebar_content").toggle('fast', 'swing');
-		});
+	
+		$(".toc_items").height( $(window).height() - $("#bibdata").height() );
+		
 
 
 	});

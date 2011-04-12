@@ -261,12 +261,14 @@ viewer._construct=function() {
 			$("#select").removeClass('selected');
 			$("#viewer").css('cursor', 'default');
 			$("#text_overlay span").css('cursor', 'default');
+			$(".text").css('color', 'rgba(0,0,0,0)');
 		}
 
 		if (mode == 'select') {
 			$("#pan").removeClass('selected');
 			$("#viewer").css('cursor', 'text');
 			$("#text_overlay span").css('cursor', 'text');
+			$(".text").css('color', 'black');
 		}
 	
 	}
@@ -341,6 +343,12 @@ viewer._construct=function() {
 			
 			$("#toolbar").hide();
 		}
+
+
+		oViewerSize = {
+		  		width: $('#text_overlay').width(), 
+		  		height: $('#text_overlay').height()
+		};
 
 		refreshCanvasSize();
 		
