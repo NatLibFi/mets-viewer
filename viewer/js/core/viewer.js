@@ -12,6 +12,7 @@ var viewer = {};
 
 viewer._construct=function() {
 
+
 	var sDataPath = "/viewer/prod/packages/";
 	var scalingFactor;
 	var images = [];
@@ -75,12 +76,23 @@ viewer._construct=function() {
 	
 		ctx.scale(scalingFactor, scalingFactor);
 	
+	
+	
 
 		for (var i=0;i<images.length;i++) {
+		
 		
 			var image_tmp = $('body').data(images[i].img);
 	
 			ctx.drawImage(image_tmp, images[i].xOffset, images[i].yOffset);
+		
+		
+			if (mouse_mode == 'select') { 
+				ctx.fillStyle = "rgba(255,255,255,0.5)";
+				var oSize = images[i].size;
+				ctx.fillRect(images[i].xOffset, images[i].yOffset, oSize.width, oSize.height);
+		
+			}
 		
 		}
 
@@ -268,8 +280,10 @@ viewer._construct=function() {
 			$("#pan").removeClass('selected');
 			$("#viewer").css('cursor', 'text');
 			$("#text_overlay span").css('cursor', 'text');
-			$(".text").css('color', 'black');
+			$(".text").css('color', 'rgba(0,0,0,1)');
 		}
+		
+		redrawCanvas();
 	
 	}
 	
@@ -311,6 +325,16 @@ viewer._construct=function() {
 	
 	}
 	
+	function getImages() {
+		return images;
+	}
+	
+	function getMode() {
+		return mouse_mode;
+	}
+	
+	this.getImages=getImages;
+	
 	this.currentWord=currentWord;
 	this.loadPage=loadPage;
 	this.getMouseMode=getMouseMode;
@@ -325,6 +349,8 @@ viewer._construct=function() {
 	this.onSizeChange=onSizeChange;
 	this.currentItem=currentItem;
 	
+	this.getMode=getMode;
+		
 		
 	onSmallImageReady(redrawCanvas);
 	onImageReady(redrawCanvas);
