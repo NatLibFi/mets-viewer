@@ -262,22 +262,27 @@ viewer._construct=function() {
 	}
 
 
-	function setmode(item) {
+	function toggleMode() {
 
-		mode = $(item).attr('id');
-	
-		$(item).addClass('selected');
 
-		mouse_mode = mode;
-		if (mode == 'pan') {
-			$("#select").removeClass('selected');
+		if (mouse_mode == 'pan') {
+		  mouse_mode = 'select';
+		} else {
+		  mouse_mode = 'pan';
+		}
+		
+		
+		if (mouse_mode == 'pan') {
+			$("#pan_select").removeClass('icon_select');
+			$("#pan_select").addClass('icon_pan');
 			$("#viewer").css('cursor', 'default');
 			$("#text_overlay span").css('cursor', 'default');
 			$(".text").css('color', 'rgba(0,0,0,0)');
 		}
 
-		if (mode == 'select') {
-			$("#pan").removeClass('selected');
+		if (mouse_mode == 'select') {
+			$("#pan_select").addClass('icon_select');
+			$("#pan_select").removeClass('icon_pan');
 			$("#viewer").css('cursor', 'text');
 			$("#text_overlay span").css('cursor', 'text');
 			$(".text").css('color', 'rgba(0,0,0,1)');
@@ -322,7 +327,6 @@ viewer._construct=function() {
 	function isCanvasSupported() {
 		var canvas = document.getElementById("viewer");
 		return (canvas.getContext) ? true : false;
-	
 	}
 	
 	function getImages() {
@@ -415,8 +419,8 @@ viewer._construct=function() {
 		  }
 		});
 		
-		$("#pan").click(function() { setmode(this); });
-		$("#select").click(function() { setmode(this); });
+		$("#pan_select").click(function() { toggleMode(); });
+	
 	});
 	
 	

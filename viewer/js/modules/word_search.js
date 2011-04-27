@@ -37,7 +37,7 @@ word_search._construct = function() {
 			
 				data = JSON.parse(data);
 			
-				//$('#search_results').html('');
+				$('#search_results .hits').html('');
 				$('#search_results .title').html('Hakutulokset');
 				var hitCount = 0;
 				for (hitStr in data.hits) {

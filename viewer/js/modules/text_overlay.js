@@ -40,8 +40,6 @@ text_overlay._construct=function() {
 		 	
 	 	if (textLoadDelayer != undefined) {
 			clearTimeout(textLoadDelayer);
-			console.log("reset");
-			
 		}
 		
 		
@@ -97,8 +95,7 @@ text_overlay._construct=function() {
 			}
 		}
 		
-		console.log("rendering");
-		
+	
 			$(data).find('String').each(function() {
 		
 				render_string($(this), oScale, imageData);
@@ -142,12 +139,16 @@ text_overlay._construct=function() {
 
 
 		var content = $oString.attr('CONTENT');
+	
+		
+		
 		var fontFace = "Times New Roman"; 
 	
 		//BoundingBox
 		var $bb = $("<span class='boundingbox'></span>");
 		//Content
-		var $content = $("<span class='text'>"+ content +"<span>");
+		var $content = $("<span class='text'><span>");
+		$content.text(content);
 	
 		if (viewer.getMode() == "select") {
 			$content.css('color', 'rgba(0,0,0,1)');
