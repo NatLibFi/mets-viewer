@@ -8,9 +8,9 @@
  * Author: Pasi Tuominen
  */
  
-var zoom = {};
+var button_zoom = {};
 
-zoom._construct = function() {
+button_zoom._construct = function() {
 
 	var ZOOM_SPEED = 1.2;
 	var ZOOM_MAX = 3;
@@ -59,8 +59,27 @@ zoom._construct = function() {
 	
 	}
 	
-	this.zoom=zoom;
+	
+	onCoreReady(function() {
+		
+		if (!viewer.isCanvasSupported()) {
+	 		return;
+	 	}
+	 	
+	 	
+		$("#viewer").mousewheel(function(e, delta) {
+				e.preventDefault();
+				e.stopPropagation();
+				zoom(delta);
+		});
+
+		$("#text_overlay").mousewheel(function(e, delta) {
+				e.preventDefault();
+				e.stopPropagation();
+				zoom(delta);
+		});
+	});
 	
 	
 }
-zoom._construct();
+button_zoom._construct();

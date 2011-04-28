@@ -6,7 +6,7 @@ use File::Copy;
 use XML::LibXML;
 use Image::Magick;
 use XML::Simple;
-use Digest::MD5 qw(md5_hex);
+use Digest::MD5::File qw(dir_md5_hex);
 use threads;
 use POSIX;
 
@@ -14,7 +14,7 @@ sub import($);
 sub importFiles(@);
 
 my $IMPORT_DIR = "import/";
-$IMPORT_DIR = "/data/travel_final/zips/";
+$IMPORT_DIR = "/data2/TravelEuropeana/";
 my $WORKING_DIR = "temp/";
 my $PACKAGE_DIR = "packages/";
 
@@ -31,7 +31,7 @@ if ($unzip != 0) {
 }
 
 opendir(DIR, $IMPORT_DIR) or die("Could not open dir: $IMPORT_DIR");
-my @files = grep(/\.zip$/,readdir(DIR));
+my @files = grep(/[^\.].*./,readdir(DIR));
 closedir(DIR);
 
 print "Importing " . @files . " packages.\n";
@@ -75,20 +75,10 @@ sub import($) {
 	
 	my $import_digest = md5($IMPORT_DIR . $file);
 
-	
-	if (!-d $WORKING_DIR) {
-		mkdir($WORKING_DIR, 0777);
-	}
-	
-	mkdir($WORKING_DIR . $file, 0777);	
-	my $status = system("unzip -qqo $IMPORT_DIR$file mets.xml -d $WORKING_DIR$file/");
-	if ($status != 0) {
-		die("Error extracting mets.xml from $IMPORT_DIR$file");
-	}
-	
+
 	my $mets;
 	eval {	
-	  $mets = XML::LibXML->load_xml( location =>  "$WORKING_DIR$file/mets.xml");
+	  $mets = XML::LibXML->load_xml( location =>  "$IMPORT_DIR$file/mets.xml");
 	};
 	if ($@) {
 		use Data::Dumper;
@@ -133,21 +123,21 @@ sub import($) {
 		}
 	}
 	
-	
-	
+
 	
 	mkdir($PACKAGE_DIR . $urn, 0777);
 	
-	if (system("unzip -qqo $IMPORT_DIR$file -d $PACKAGE_DIR$urn/") != 0) {
 	
-		die("Error extracting package $IMPORT_DIR$file");
+	if (system("cp -r $IMPORT_DIR$file/* $PACKAGE_DIR$urn") != 0) {
+	
+		die("Error copying package $IMPORT_DIR$file");
 	
 	}
 	
 	# Extract images from the mets package
 	
 	opendir(DIR, "$PACKAGE_DIR$urn/");
-	my @page_files = grep(/\d+\.xml$/,readdir(DIR));
+	my @page_files = grep(/\d+\.xml$/, readdir(DIR));
 	closedir(DIR);
 	
 	my @imageIndex = ();
@@ -242,11 +232,11 @@ sub md5($) {
 
 	my $file = shift;
 	
-	open(my $fh, "<", $file) or die ("Could not open $file");
+	#open(my $fh, "<", $file) or die ("Could not open $file");
 	
 	my $ctx = Digest::MD5->new;
 	
-	$ctx->addfile($fh);
+	$ctx->adddir($file);
 	
 	return $ctx->hexdigest;
 
