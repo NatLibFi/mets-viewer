@@ -28,12 +28,13 @@ viewer._construct=function() {
 	function refreshCanvasSize() {
 		
 		var canvas = document.getElementById("viewer");
+		
 		if (canvas.getContext) { 
 			canvas.width=oViewerSize.width;
 			canvas.height=oViewerSize.height;
 		} 
-		$('#text_overlay').width(oViewerSize.width);
-		$('#text_overlay').height(oViewerSize.height);
+		$('#text_overlay').width(oViewerSize.width + "px");
+		$('#text_overlay').height(oViewerSize.height + "px");
 	}
 	
 	function redrawCanvas() {
@@ -75,8 +76,6 @@ viewer._construct=function() {
 		scalingFactor = oViewerSize.height / maxHeight * viewport.getZoom();
 	
 		ctx.scale(scalingFactor, scalingFactor);
-	
-	
 	
 
 		for (var i=0;i<images.length;i++) {
@@ -374,12 +373,11 @@ viewer._construct=function() {
 			$("#toolbar").hide();
 		}
 
-
 		oViewerSize = {
 		  		width: $('#text_overlay').width(), 
 		  		height: $('#text_overlay').height()
 		};
-
+		
 		refreshCanvasSize();
 		
 		
@@ -408,6 +406,7 @@ viewer._construct=function() {
 
 		});
 
+
 		$("#text_overlay").resizable({ 
 		  resize: function(event, ui) {
 		  	oViewerSize = {
@@ -418,7 +417,7 @@ viewer._construct=function() {
 		  	redrawCanvas();
 		  }
 		});
-		
+	
 		$("#pan_select").click(function() { toggleMode(); });
 	
 	});

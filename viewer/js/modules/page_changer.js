@@ -12,6 +12,7 @@ var page_changer = {};
 
 page_changer._construct = function() {
 
+	var count;
 	var pageChangeTimeout;
 
 	function buildPageChanger() {
@@ -62,19 +63,11 @@ page_changer._construct = function() {
 		
 		
 			$next.click(function() {
-				newPage = viewer.currentPage()+1;
-				if (newPage > count) {
-					return;
-				}
-				location.href = '#page='+newPage;
+				next();
 			});
 		
 			$prev.click(function() {
-				newPage = viewer.currentPage()-1;
-				if (newPage < 1) {
-					return;
-				}
-				location.href = '#page='+newPage;
+				prev();
 			});
 		
 			$('#pages a').hover(
@@ -88,6 +81,25 @@ page_changer._construct = function() {
 
 	}
 	
+	function next() {
+			newPage = viewer.currentPage()+1;
+				if (newPage > count) {
+					return;
+				}
+				location.href = '#page='+newPage;
+	}
+	
+	function prev() {
+			newPage = viewer.currentPage()-1;
+				if (newPage < 1) {
+					return;
+				}
+				location.href = '#page='+newPage;
+	}
+	
+	
+	this.next=next;
+	this.prev=prev;
 	this.buildPageChanger = buildPageChanger;
 	
 	onCoreReady(function() {
