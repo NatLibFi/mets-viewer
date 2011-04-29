@@ -12,24 +12,22 @@ var bib_data = {};
 
 bib_data._construct = function() {
 
+	var title_prefix = "Doria - ";
+
 	var fields = [
 		{
-			'tag': 100
-			,'subfields': [ {'desc':'Tekijä', 'code': 'a'} ]
-		}
-		,{
 			'tag': 245
 			,'subfields': [ {'desc':'Nimeke', 'code': 'a'} ]
 		}
-	/*	,{
-			'tag': '008'
-			,'control': true
-			,'desc': 'Julkaisuvuosi'
-			,'func': parseYear
-		} */
+		
+		,{
+			'tag': 100
+			,'subfields': [ {'desc':'Tekijä', 'code': 'a'} ]
+		}
+	
 		,{
 			'tag': '260'
-			,'subfields': [ {'desc':'Julkaisuvuosi', 'code': 'c'} ]
+			,'subfields': [ {'desc':'Vuosi', 'code': 'c'} ]
 		}
 		
 	];
@@ -74,6 +72,11 @@ bib_data._construct = function() {
 								$subfields.each(function() {
 				
 									$row.append($("<td>" +  $(this).text() + "</td>"));
+									
+									if (fields[i].tag == 245) {
+									
+										document.title =  title_prefix + $(this).text();
+									}
 							
 								});
 							}
@@ -88,19 +91,11 @@ bib_data._construct = function() {
 			}
 			
 			$("#bibdata .content").append($table);
-			$("#bibdata .content").append("<hr/>");
-			
-			$("#sidebar_content").height(
-			$("#sidebar_content .toc_items").height() + $("#bibdata").height() + 10
-			);
-			if ($("#sidebar_content").height() < 200) {
-				$("#sidebar_content").height(200);
-			}
 		
-
+		
+			$(".toc_items").height( $(window).height() - $("#bibdata").height()  );
 		});
 	}
-	
 	
 	
 	function parseYear(data) {
@@ -118,6 +113,9 @@ bib_data._construct = function() {
 
 		bib_data.buildBibliographicData();	
 			
+		
+		
+		
 	});
 	
 }

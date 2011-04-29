@@ -12,6 +12,7 @@ var page_changer = {};
 
 page_changer._construct = function() {
 
+	var count;
 	var pageChangeTimeout;
 
 	function buildPageChanger() {
@@ -22,14 +23,15 @@ page_changer._construct = function() {
 	
 			count = $(data).find("file[MIMETYPE='text/xml']").length;
 
-			$first = $("<a class='ui-state-default ui-corner-all'><span class='ui-icon ui-icon-arrowthickstop-1-w'></span></a>");
-			$last = $("<a class='ui-state-default ui-corner-all'><span class='ui-icon ui-icon-arrowthickstop-1-e'></span></a>");
-		
+
 			$prev = $("<a class='ui-state-default ui-corner-all'><span class='ui-icon ui-icon-triangle-1-w'></span></a>");
 			$next = $("<a class='ui-state-default ui-corner-all'><span class='ui-icon ui-icon-triangle-1-e'></span></a>");
 		
 			$pageChanger = $("<input id='pageChanger' type='text'></input'>");
 			$pageChanger.val(viewer.currentPage());
+			
+			$lastPage = $("<span class='lastpage'></span>");
+			$lastPage.html("/ " + count);
 			
 			onPageChanged(function() {
 				$("#pageChanger").val(viewer.currentPage());
@@ -52,29 +54,20 @@ page_changer._construct = function() {
 		
 			});
 		
-			$('#pages').append($first);
+	
 			$('#pages').append($prev);
 			$('#pages').append($pageChanger);
+			$('#pages').append($lastPage);
 			$('#pages').append($next);
-			$('#pages').append($last);
 		
-			$first.attr('href','#page=1');
-			$last.attr('href','#page='+count);
+		
 		
 			$next.click(function() {
-				newPage = viewer.currentPage()+1;
-				if (newPage > count) {
-					return;
-				}
-				location.href = '#page='+newPage;
+				next();
 			});
 		
 			$prev.click(function() {
-				newPage = viewer.currentPage()-1;
-				if (newPage < 1) {
-					return;
-				}
-				location.href = '#page='+newPage;
+				prev();
 			});
 		
 			$('#pages a').hover(
@@ -88,6 +81,25 @@ page_changer._construct = function() {
 
 	}
 	
+	function next() {
+			newPage = viewer.currentPage()+1;
+				if (newPage > count) {
+					return;
+				}
+				location.href = '#page='+newPage;
+	}
+	
+	function prev() {
+			newPage = viewer.currentPage()-1;
+				if (newPage < 1) {
+					return;
+				}
+				location.href = '#page='+newPage;
+	}
+	
+	
+	this.next=next;
+	this.prev=prev;
 	this.buildPageChanger = buildPageChanger;
 	
 	onCoreReady(function() {

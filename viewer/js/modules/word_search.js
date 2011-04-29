@@ -19,17 +19,26 @@ word_search._construct = function() {
 	onCoreReady(function() {
 	
 		$('#search button').click(function() {
-			$('#search_results').html('');
-			$('#search_results').html('<img src="img/loader.gif" alt="searching"/>');
+			$('#search_results .hits').html('');
+			$('#search_results').css('display', 'block');
+			
+			
+			$('#search_results').css('top',  $('#search').position().top + 40);
+			$('#search_results').css('left', $('#search').position().left );
+			
+			
+			$('#search_results .title').html('Haetaan');
+			$('#search_results .hits').html('<img src="img/loader.gif" alt="searching"/>');
+			
 			
 			var query = "mode=json&text=" + $('#search input').val() + "&book=" + viewer.currentItem();
 			
 			$.post(SEARCH_API, query, function(data, status, xhr) {
 			
 				data = JSON.parse(data);
-				console.log(data);
-				$('#search_results').html('');
-				
+			
+				$('#search_results .hits').html('');
+				$('#search_results .title').html('Hakutulokset');
 				var hitCount = 0;
 				for (hitStr in data.hits) {
 					
@@ -44,15 +53,13 @@ word_search._construct = function() {
 						$result.attr('href','#page=' +page +'#word='+hit.content);
 						
 		
-						$('#search_results').append($result);
+						$('#search_results  .hits').append($result);
 					}
 				}
 				if (hitCount == 0) {
-					$('#search_results').append("No hits");
+					$('#search_results  .hits').append("No hits");
 				}
-				
-				
-
+		
 			});
 			
 	
@@ -63,8 +70,18 @@ word_search._construct = function() {
 			$('#search button').trigger('click');
 		});
 	
+	
+		$('#search .close').click(function() {
+		
+			$('#search_results').css('display', 'none');
+		
+		});
 
 	});
+
+
+	
+
 
 	function parsePageNumberFromID(idString) {
 	

@@ -40,12 +40,11 @@ text_overlay._construct=function() {
 		 	
 	 	if (textLoadDelayer != undefined) {
 			clearTimeout(textLoadDelayer);
-			console.log("Rendering reset");
 		}
+		
 		
 		textLoadDelayer = setTimeout(function() {
 			
-		 	
 		 	var imageData = viewer.getPageImages()[0];
 		 	if (imageData.type == 'small') {
 		 		return;
@@ -97,13 +96,12 @@ text_overlay._construct=function() {
 		}
 		
 	
-		console.log("rendering");
 			$(data).find('String').each(function() {
 		
 				render_string($(this), oScale, imageData);
 		
 			});
-		
+
 			
 			$("#viewer").css('cursor', preCursor);
 			$("#text_overlay span").css('cursor', preCursor);
@@ -141,13 +139,24 @@ text_overlay._construct=function() {
 
 
 		var content = $oString.attr('CONTENT');
+	
+		
+		
 		var fontFace = "Times New Roman"; 
 	
 		//BoundingBox
 		var $bb = $("<span class='boundingbox'></span>");
 		//Content
-		var $content = $("<span class='text'>"+ content +"<span>");
+		var $content = $("<span class='text'><span>");
+		$content.text(content);
 	
+		if (viewer.getMode() == "select") {
+			$content.css('color', 'rgba(0,0,0,1)');
+		} else {
+			$content.css('color', 'rgba(0,0,0,0)');
+		}
+		
+		
 		$bb.append($content);
 	
 		$bb.css('position', 'absolute');
@@ -159,6 +168,8 @@ text_overlay._construct=function() {
 		$bb.css('z-index', 2);
 		
 		$("#text_overlay").append($bb);
+	
+		
 	
 		resize_text($bb);
 	}

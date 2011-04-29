@@ -1,10 +1,22 @@
+<!DOCTYPE html 
+      PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" 
+      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
 <html>
 
-<head>
+<head profile="http://www.w3.org/2005/10/profile">
+<link rel="icon" 
+      type="image/png" 
+      href="favicon.png" />
 
 <META http-equiv="Content-Type" content="text/html; charset=utf-8">
 
-<title>Viewer</title>
+<link rel="stylesheet" href="css/ui-lightness/jquery-ui-1.8.10.custom.css" type="text/css" media="all" />
+
+<LINK href="css/screen.css" rel="stylesheet" type="text/css" media="screen">
+
+
+<title>Doria viewer</title>
 
 <script type="text/javascript" src="js/core/jquery-1.5.js"></script>
 <script type="text/javascript" src="js/core/jquery-ui-1.8.10.custom.min.js"></script>
@@ -31,245 +43,20 @@
 <script type="text/javascript" src="js/modules/word_search.js"></script>
 
 
+
 <script type="text/javascript" src="js/modules/zoom.js"></script>
 
-<script type="text/javascript" src="js/modules/scroll_zoom.js"></script>
-
+<script type="text/javascript" src="js/modules/button_zoom.js"></script>
 
 <script type="text/javascript" src="js/modules/pan.js"></script>
 <script type="text/javascript" src="js/modules/bib_data.js"></script>
+<script type="text/javascript" src="js/modules/scroll_pan.js"></script>
 
+<script type="text/javascript" src="js/modules/keyboard_shortcuts.js"></script>
 
-<link rel="stylesheet" href="css/ui-lightness/jquery-ui-1.8.10.custom.css" type="text/css" media="all" />
 
 <style type="text/css">
 
-#text_overlay {
-	position: relative;
-	height: 700px;
-	width: 900px;
-	display: inline-block;
-	zoom:1; *display: inline;
-	border: 1px solid black;	
-}
-#texts {
-	position: relative;
-	height: 700px;
-	width: 900px;
-	display: inline-block;
-	float: left;
-	zoom:1; *display: inline;
-}
-
-#viewer {
-	position: relative;
-	
-
-	background-repeat: no-repeat;
-	display: inline-block;
-	float:left;
-	cursor: default;
-	zoom:1; *display: inline;
-}
-
-#viewer span {
-	cursor: default;
-}
-
-.text {
-	color: rgba(0,0,0,0);
-	
-}
-
-#top_toolbars {
-	margin-left: 125px;
-	width: 900px;
-	clear:both;
-	height: 28px;
-}
-
-#pages {
-	display: inline-block;
-	zoom:1; *display: inline;
-}
-
-#pages a {
-	display: inline-block;
-	margin-left: 4px;
-	height: 24px;
-	width: 24px;
-	text-aling: center;
-	zoom:1; *display: inline;
-}
-
-#pageChanger {
-
-	width: 5ex;
-	margin-left: 4px;
-	text-align: center;
-	height: 24px;
-	vertical-align: top;
-}
-
-#toolbar {
-	display: inline-block;
-	float: right;
-	zoom:1; *display: inline;
-}
-
-#toolbar div.selected {
-	background-color: #dddddd;
-}
-
-#pages span {
-	
-	cursor: pointer;
-	margin: 4px;
-	
-}
-#imageindexContainer {
-	float: right;
-	display: inline-block;
-	vertical-align: top;
-	zoom:1; *display: inline;
-}
-#imageindexContainer img {
-	border: 0;
-	margin-right: -5px;
-}
-
-#sidebar {
-	display: inline-block;
-	vertical-align: top;
-	zoom:1; *display: inline;
-	
-}
-
-#sidebar img {
-	padding: 0px;
-	margin-left: -5px;
-}
-
-#right_sidebar {
-	float: right;
-	display: inline-block;
-	vertical-align: top;
-	zoom:1; *display: inline;
-	padding-right: 20px;
-}
-
-#sidebar_content {
-	display: inline-block;
-	vertical-align: top;
-	width: 215px;
-	border: 1px solid black;
-	padding: 0px;
-	margin: 0px;
-	
-	height: 200px;
-	zoom:1; *display: inline;
-}
-#sidebar_content .content_items li {
-	cursor: pointer;
-	list-style: none;
-	width: 95%;
-}
-
-
-#imageindex {
-	display: inline-block;
-	width: 200px;
-	height: 700px;
-	border: 1px solid black;
-	vertical-align: top;
-}
-#imageindex img {
-	cursor: pointer;
-
-}
-
-.icon_pan {
-	cursor: pointer;
-	background-image: url(img/select_pan.png);
-	width: 24px;
-	height: 24px;
-	border: 1px solid black;
-	background-position: -24px 0px;
-	display: inline-block;
-}
-
-.icon_select {
-	cursor: pointer;
-	background-image: url(img/select_pan.png);
-	width: 24px;
-	height: 24px;
-	border: 1px solid black;
-	display: inline-block;
-}
-
-#nocanvas {
-	text-align: center;
-}
-
-body {
-padding:0px;
-margin:0px;
-}
-
-/* browser notification */
-#message {
-    font-family:Arial,Helvetica,sans-serif;
-    position:fixed;
-    top:0px;
-    left:0px;
-    width:100%;
-    z-index:105;
-    text-align:center;
-    font-weight:bold;
-    font-size:100%;
-    color:white;
-    padding:10px 0px 10px 0px;
-    background-color:#8E1609;
-}
-
-#message span {
-    text-align: center;
-    width: 95%;
-    float:left;
-}
-
-.close-notify {
-    white-space: nowrap;
-    float:right;
-    margin-right:10px;
-    color:#fff;
-    text-decoration:none;
-    border:2px #fff solid;
-    padding-left:3px;
-    padding-right:3px
-}
-
-.close-notify a {
-    color: #fff;
-}
-
-.search_hit {
-	background: rgb(255, 255, 170);
-	background: rgba(255, 255, 170, 0.3);
-}
-
-#bibdata {
-	width: 215px;
-}
-#bibdata table td {
-	vertical-align: top;
-	font-size: 9pt;
-}
-
-
-#search_results a {
-	display: block;
-}
 
 
 </style>
@@ -279,54 +66,73 @@ margin:0px;
 <body>
 
 <div id='message' style="display: none;">
-    <span>Selaimesi ei tue canvas -elementtiä. Zoomaus, pannaus sekä sivun sisäisen tekstin etsiminen eivät ole käytössä. Tuettuja selaimia: IE9, Firefox, Chrome, Safari</span>
+    <span>Selaimesi ei tue canvas -elementtiä. Zoomaus, pannaus sekä sivun sisäisen tekstin etsiminen eivät ole käytössä. Paremmin tuettuja selaimia: IE9, Firefox, Chrome, Safari</span>
     <a href="#" class="close-notify">X</a>
 </div>
 
 
 
-<div id="top_toolbars">
-<div id="pages"></div>
-<div id="toolbar"><div id="pan" class="selected icon_pan"></div><div id="select" class="icon_select"></div></div>
+
+
+<div id="content_wrapper">
+
+<div id="content">
+
+	<div id="topbar">
+
+		<div id="toolbar">
+			<div id="pan_select" class="icon_pan ui-corner-left"></div>
+
+		</div>
+
+
+		
+		
+		<div id="search">
+			<input type='text'></input>
+			<button>Hae</button>
+	
+	
+			<div id="search_results">
+				<div class="header">
+				 <span class="title">Hakutulokset</span>
+				 <span class="close">[sulje]</span>
+				</div>
+				
+				<div class="hits"></div>
+			
+			</div>
+			
+		</div>
+		
+		<div id="pages"></div>
+	
+	</div>
+	
+	<div id="text_overlay">
+		<canvas id="viewer" height="800" width="800"><div id="nocanvas">Selaimesi ei tue canvas -elementtiä.</div></canvas>
+	</div>
+
+	</div>
+
 </div>
 
 <div id="sidebar">
 
+	<div id="logo">
+		<img src="img/logo.png" alt="logo" />
+	</div>
 
 	<div id="sidebar_content">
 		<div id="bibdata"><div class="content"></div></div>
 
+		<div id="toc">
+		<span class="header">Sisällysluettelo</span>
 		<div class="toc_items"></div>
+		</div>
 	</div>
 	
-	<img id="sidebar_toggle" src="img/toc.png"/>
 </div>
-
-<div id="text_overlay">
-	<canvas id="viewer" height="700" width="900"><div id="nocanvas">Selain ei tue canvasta</div></canvas>
-</div>
-
-<!--
-<div id="imageindexContainer">
-<img id="imageindex_toggle" src="img/imagelist.png"/>
-<div id="imageindex">
-	<div class="content_items">Latadataan</div>
-</div>
-
-</div>
--->
-
-<div id="right_sidebar">
-
-	<div id="search">
-		<input type='text'></input>
-		<button>Hae</button>
-	
-		<div id="search_results"></div>
-	</div>
-
-</div>
-
 
 
 </body>
