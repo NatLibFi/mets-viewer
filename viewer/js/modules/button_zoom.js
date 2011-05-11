@@ -26,6 +26,7 @@ button_zoom._construct = function() {
 	 	$zoomPanel.css('float', 'left');
 	 	$zoomPanel.css('margin-left', '20px');
 	 	$zoomPanel.css('margin-top', '6px');
+	 	$zoomPanel.css('line-height', '0px');
 	 	
 	 	$zoomInButton = $("<img src='img/zoom_in.png' alt='zoom in' />");
 	 	$zoomOutButton = $("<img src='img/zoom_out.png' alt='zoom out' />");
