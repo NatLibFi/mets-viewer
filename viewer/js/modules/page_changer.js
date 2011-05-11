@@ -82,19 +82,31 @@ page_changer._construct = function() {
 	}
 	
 	function next() {
+		if (viewer.getViewMode() == viewer.MODE_DUAL_PAGE) {
+			newPage = viewer.currentPage()+2;
+			if (newPage > count) newPage--;
+			if (newPage > count) return;
+			
+		} else {
 			newPage = viewer.currentPage()+1;
-				if (newPage > count) {
-					return;
-				}
-				location.href = '#page='+newPage;
+			if (newPage > count) return;
+		}
+
+		location.href = '#page='+newPage;
 	}
 	
 	function prev() {
+		if (viewer.getViewMode() == viewer.MODE_DUAL_PAGE) {
+			newPage = viewer.currentPage()-2;
+			if (newPage < 0) newPage++;
+			if (newPage < 0) return;
+			
+		} else {
 			newPage = viewer.currentPage()-1;
-				if (newPage < 1) {
-					return;
-				}
-				location.href = '#page='+newPage;
+			if (newPage < 1) return;
+		}
+	
+		location.href = '#page='+newPage;
 	}
 	
 	

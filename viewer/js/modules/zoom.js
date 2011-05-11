@@ -33,8 +33,14 @@ zoom._construct = function() {
 				
 			}
 		
+			//Center the page(s)
+			if (viewport.getViewMode == viewport.MODE_DUAL_PAGE && images.length > 1) {
+				viewportStartX = 0; 
+			} else {
+				viewportStartX = ($("#viewer").width() - $("#viewer").height() * (totalPagesWidth / totalPagesHeight)) / 2;
+			}
+			
 		
-			viewportStartX = ($("#viewer").width() - $("#viewer").height() * (totalPagesWidth / totalPagesHeight)) / 2;
 			
 			
 			viewport.setTransform(viewportStartX, 0, zoomLevel);

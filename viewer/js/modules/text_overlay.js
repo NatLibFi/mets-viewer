@@ -11,17 +11,26 @@
 var text_overlay = {};
 
 text_overlay._construct=function() {
+
+	var self=this;
+
 	//wait TEXT_LOAD_DELAY ms before (re-)rendering texts after viewport move/zoom
 	var TEXT_LOAD_DELAY = 1500;
 
-	var lastWordSize = 100;
+	var MAX_WORD_SIZE = 70;
+	var lastWordSize = 70;
 	var cache = {};
 	var textLoadDelayer;
 	var cursor;
 	
 	var textOverlayReadyListeners = [];
 	
-
+	var renderTimer;
+	var oScale;
+	var imageData;
+	var stringBuffer;
+	var RENDER_GROUP_SIZE = 10;
+	
 	function triggerTextOverlayReady() {
 		for (i=0;i<textOverlayReadyListeners.length;i++) {
 			textOverlayReadyListeners[i]();
@@ -33,102 +42,179 @@ text_overlay._construct=function() {
 	}
 
 	
-	function loadTexts(num) {
+	function loadTexts() {
 	
 		$("#text_overlay span").remove();
 		 	
-		 	
+	 	
 	 	if (textLoadDelayer != undefined) {
 			clearTimeout(textLoadDelayer);
 		}
 		
-		
-		textLoadDelayer = setTimeout(function() {
-			
-		 	var imageData = viewer.getPageImages()[0];
-		 	if (imageData.type == 'small') {
-		 		return;
-		 	}
-		 
-
-			if (cache[num] === undefined) {
-
-				$.get( viewer.getPackagePath() + num + '.xml', function(data) {
-		
-					$page = $(data).find('Page').first();
-					oPageSize = { height: $page.attr('HEIGHT'), width:  $page.attr('WIDTH') };
-	
-					oScale = {
-						 width:  imageData.size.width / oPageSize.width * imageData.size.scale
-						,height: imageData.size.height / oPageSize.height * imageData.size.scale
-					
-					}
-					oScale.ratio = imageData.size.ratio;
-				
-					triggerScaleReady();
-			
-					cache[num] = {
-						"data": data
-						,"scale": oScale
-					};
-			
-					renderText(cache[num].data, cache[num].scale, imageData);
-
-				});
-	
-			} else {
-
-					renderText(cache[num].data, cache[num].scale, imageData);
-			}
-		}, TEXT_LOAD_DELAY);
-	}
+		 if (renderTimer != undefined) {
+			clearTimeout(renderTimer);
+		}
 
 
-	function renderText(data, oScale, imageData) {
-		
-	
-		if ($("#viewer").css('cursor') != 'wait') {
-			preCursor = $("#viewer").css('cursor');
-	
-			if (preCursor == 'text') {
-				$("#viewer").css('cursor', 'wait');
-			}
+		if (viewport.getRotation() != 0) {
+			//should probably disable text overlay altogether if the viewport is not straight.
+			return;
 		}
 		
+		var pages = viewer.getCurrentPages();
+		
+		
+		var num;
+		
+		if (viewer.getViewMode() == viewer.MODE_DUAL_PAGE) {
+		
+	 		
+	 	} else {
+	 		num = viewer.currentPage4();
+	 	}
+		
+		textLoadDelayer = setTimeout(function() {
+				
+		 	var imageData = viewer.getPageImages();
+		 	if (imageData[0].type == 'small') {
+		 		return;
+		 	}
 	
-			$(data).find('String').each(function() {
+		 
+		 
+		 	if ($("#viewer").css('cursor') != 'wait') {
+				preCursor = $("#viewer").css('cursor');
+	
+				if (preCursor == 'text') {
+					$("#viewer").css('cursor', 'wait');
+				}
+			}
 		
-				render_string($(this), oScale, imageData);
 		
-			});
+		 	self.stringBuffer = [];
+		 	pagesToRender = pages.length;
+		 	
+		 	
+		 	for (var i=0; i< pages.length;i++) {
+		 	
+		 		var num = pages[i];
+		 
+				if (cache[num] === undefined) {
 
+					$.get( viewer.getPackagePath() + num + '.xml', wrapper(num, imageData[i]));
+					
+				} else {
+
+						fillBuffer(cache[num].data, cache[num].scale, imageData[i]);
+				}
+			}
 			
+		}, TEXT_LOAD_DELAY);
+	}
+	
+	function wrapper(num, imageData) {
+		return function(data, status) {
+		
+			$page = $(data).find('Page').first();
+			oPageSize = { height: $page.attr('HEIGHT'), width: $page.attr('WIDTH') };
+		
+						oScale = {
+							 width:  imageData.size.width / oPageSize.width * imageData.size.scale
+							,height: imageData.size.height / oPageSize.height * imageData.size.scale
+						};
+						
+						
+						oScale.ratio = imageData.size.ratio;
+		
+						triggerScaleReady();
+		
+						cache[num] = {
+							 "data": data
+							,"scale": oScale
+						};
+				
+						fillBuffer(cache[num].data, cache[num].scale, imageData);
+		}
+	}
+
+	
+
+
+	function fillBuffer(data, oScale, imageData) {
+		
+
+		$(data).find('String').each(function() {
+		
+			self.stringBuffer.push({string: $(this), scale: oScale, imageData: imageData });
+		
+		});
+		
+		pagesToRender--;
+	
+		if (pagesToRender == 0) {
+			render_buffer();
+		}
+	}
+	
+	
+	function render_buffer() {
+		
+		var strCount = (self.stringBuffer.length < RENDER_GROUP_SIZE) ? self.stringBuffer.length : RENDER_GROUP_SIZE;
+		
+		for (var i=0;i<strCount;i++) {
+			
+			render_string(self.stringBuffer.shift());
+		
+		}
+	
+		if (strCount >= RENDER_GROUP_SIZE) {
+		
+			renderTimer = setTimeout(render_buffer, 50);
+	
+		} else {
+		
 			$("#viewer").css('cursor', preCursor);
 			$("#text_overlay span").css('cursor', preCursor);
 			triggerTextOverlayReady();
-			
 		
+		}
 	
 	}
 
-	function render_string($oString, oScale, imageData) {
+	function render_string(oItem) {
 	
+		var $oString = oItem.string;	
+		var oScale = oItem.scale;
+		var imageData = oItem.imageData;
 		oViewerSize = viewer.getSize();
 
-		viewerScale = (oViewerSize.height) / imageData.size.height / imageData.size.scale;
+
+		if (viewer.getViewMode() == viewer.MODE_DUAL_PAGE) {
+			viewerScale = (oViewerSize.width) / imageData.size.width / imageData.size.scale / 2;
+			
+		} else {
 	
+			viewerScale = (oViewerSize.height) / imageData.size.height / imageData.size.scale;
+		}
+		
 		oViewportPosition = viewport.getPosition();
+		
+			
 		var left = parseInt($oString.attr('HPOS'), 10) * oScale.width * viewport.getZoom() * viewerScale;
 		var top =  parseInt($oString.attr('VPOS'), 10) * oScale.height * viewport.getZoom() * viewerScale;
 		
-		left +=  oViewportPosition.x * viewport.getZoom();
+		left += oViewportPosition.x * viewport.getZoom();
 		top +=  oViewportPosition.y * viewport.getZoom();
+		
+		left += oScale.width * viewport.getZoom() * viewerScale * imageData.xOffset / (oScale.width / imageData.size.scale);
+		top  += oScale.height * viewport.getZoom() * viewerScale * imageData.yOffset / (oScale.height / imageData.size.scale);
+		
+		
 		
 		var width = $oString.attr('WIDTH') * oScale.width * viewport.getZoom() * viewerScale;
 		var height = $oString.attr('HEIGHT') * oScale.height * viewport.getZoom() * viewerScale;
 	
 
-		
 		
 		//Dont create stringelements if they're out of bounds
 		if (left < 0 || left+width > oViewerSize.width ||
@@ -140,8 +226,6 @@ text_overlay._construct=function() {
 
 		var content = $oString.attr('CONTENT');
 	
-		
-		
 		var fontFace = "Times New Roman"; 
 	
 		//BoundingBox
@@ -199,7 +283,7 @@ text_overlay._construct=function() {
 					textWidth = innerText.width();
 					fontSize = fontSize + 1;
 
-				 } while (textWidth < maxWidth && fontSize < 100);
+				 } while (textWidth < maxWidth && fontSize < MAX_WORD_SIZE);
 		
 			}
 
@@ -213,7 +297,9 @@ text_overlay._construct=function() {
 	 		return;
 	 	}
 	 	
-		loadTexts(viewer.currentPage4());
+	 
+		loadTexts();
+		
 	});
 
 	viewport.onViewportChange(function() {
@@ -222,7 +308,8 @@ text_overlay._construct=function() {
 	 	}
 	 		
 		
-		loadTexts(viewer.currentPage4());
+		loadTexts();
+		
 	});
 	
 	this.onReady=onReady;

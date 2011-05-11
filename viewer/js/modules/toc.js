@@ -73,7 +73,7 @@ toc._construct = function() {
 	onCoreReady(function() {
 		toc.buildIndex();
 	
-		$(".toc_items").height( $(window).height() - $("#bibdata").height() );
+		$(".toc_items").height( $(window).height() - $("#bibdata").height() - $("#logo").height());
 		
 
 

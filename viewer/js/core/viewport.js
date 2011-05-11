@@ -13,6 +13,7 @@ var viewport = {};
 viewport._construct = function() {
 	var x=0;
 	var y=0;
+	var rotation=0;
 	var zoom=1;
 	var viewportListeners = [];
 	
@@ -66,6 +67,16 @@ viewport._construct = function() {
 		zoom = pZoom;
 	}
 	
+	function setRotation(angle) {
+		angle = (angle + 360) % 360;
+		rotation=angle;
+		console.log(rotation);
+		triggerViewportChange();
+	}
+	
+	function getRotation() {
+		return rotation;
+	}
 	
 	this.onViewportChange=onViewportChange;
 	this.triggerViewportChange=triggerViewportChange;
@@ -80,6 +91,11 @@ viewport._construct = function() {
 	this.setPosition=setPosition;
 	
 	this.setTransformNoUpdate=setTransformNoUpdate;
+
+	this.setRotation=setRotation;
+	this.getRotation=getRotation;
+	
+	
 };
 
 viewport._construct();

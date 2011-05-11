@@ -93,7 +93,7 @@ bib_data._construct = function() {
 			$("#bibdata .content").append($table);
 		
 		
-			$(".toc_items").height( $(window).height() - $("#bibdata").height()  );
+			$(".toc_items").height( $(window).height() - $("#bibdata").height() - $("#logo").height() -60);
 		});
 	}
 	

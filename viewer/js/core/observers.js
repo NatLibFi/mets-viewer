@@ -55,7 +55,7 @@ function triggerSmallImageReady() {
 	}
 }
 function onSmallImageReady(callback) {
-	scaleListeners.push(callback);
+	smallImageReadyListeners.push(callback);
 }
 
 var imageReadyListeners = [];

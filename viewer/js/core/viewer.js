@@ -12,11 +12,12 @@ var viewer = {};
 
 viewer._construct=function() {
 
+	var self=this;
 
 	var sDataPath = "/viewer/prod/packages/";
 	var scalingFactor;
 	var images = [];
-	var oViewerSize = { width: 700, height: 700 };
+	var oViewerSize = { width: 300, height: 300 };
 
 	var mouse_mode = "pan";
 	
@@ -24,6 +25,18 @@ viewer._construct=function() {
 	var mouseY;
 	var mouseXlast;
 	var mouseYlast;
+	
+	var largeImageTimeout;
+	
+	//0 = single_page, 1 = dual_page
+	var MODE_SINGLE_PAGE = 0;
+	var MODE_DUAL_PAGE = 1;
+	
+	this.MODE_DUAL_PAGE=MODE_DUAL_PAGE;
+	this.MODE_SINGLE_PAGE=MODE_SINGLE_PAGE;
+	
+	
+	var viewerMode = MODE_DUAL_PAGE;
 
 	function refreshCanvasSize() {
 		
@@ -51,7 +64,6 @@ viewer._construct=function() {
 			$("#nocanvas").html( image );
 			
 			
-			
 			return;
 		}
 
@@ -68,13 +80,25 @@ viewer._construct=function() {
 			var image_tmp = $('body').data(images[i].img);
 			maxHeight = (image_tmp.height > maxHeight) ? image_tmp.height : maxHeight;
 		}
+		
+		var totalWidth=0;
+		for (var i=0;i<images.length;i++) {
+	
+			var image_tmp = $('body').data(images[i].img);
+			totalWidth += (image_tmp.width > totalWidth) ? image_tmp.width : totalWidth;
+		}
+		
+		
 	
 		var vp = viewport.getPosition();
 	
 		ctx.translate(vp.x * viewport.getZoom(), vp.y * viewport.getZoom());
 
-		scalingFactor = oViewerSize.height / maxHeight * viewport.getZoom();
-	
+		var heightSF = oViewerSize.height / maxHeight * viewport.getZoom();
+		var widthSF =  oViewerSize.width / totalWidth * viewport.getZoom();
+
+		scalingFactor = (heightSF < widthSF) ? heightSF : widthSF; 
+
 		ctx.scale(scalingFactor, scalingFactor);
 	
 
@@ -83,8 +107,12 @@ viewer._construct=function() {
 		
 			var image_tmp = $('body').data(images[i].img);
 	
-			ctx.drawImage(image_tmp, images[i].xOffset, images[i].yOffset);
+			ctx.save();
+			ctx.translate(totalWidth/2,maxHeight/2);
+			ctx.rotate(Math.PI / 180 * viewport.getRotation());
 		
+			ctx.drawImage(image_tmp, images[i].xOffset - totalWidth/2, images[i].yOffset - maxHeight/2);
+			ctx.restore();
 		
 			if (mouse_mode == 'select') { 
 				ctx.fillStyle = "rgba(255,255,255,0.5)";
@@ -96,6 +124,8 @@ viewer._construct=function() {
 		}
 
 		ctx.restore();
+		
+		
 	
 	}
 
@@ -150,15 +180,33 @@ viewer._construct=function() {
 
 
 	function loadPage(num) {
-		var num = "" + num;
-		while (num.length < 4) {
-			num = "0" + num;
+
+		$("#viewer").empty();
+	
+	
+		if (viewerMode == MODE_DUAL_PAGE) {
+			num -= num%2;
+			var numStr = "" + num;
+			while (numStr.length < 4) {
+				numStr = "0" + numStr;
+			}
+		
+		
+			var numStr2 = "" + (num+1);
+			while (numStr2.length < 4) {
+				numStr2 = "0" + numStr2;
+			}
+			loadImage(numStr, numStr2);	
+		} else {
+		
+			var numStr = "" + num;
+			while (numStr.length < 4) {
+				numStr = "0" + numStr;
+			}
+			loadImage(numStr);	
 		}
 	
 
-		$("#viewer").empty();
-
-		loadImage(num);	
 	}
 
 
@@ -170,33 +218,115 @@ viewer._construct=function() {
 	}
 
 
-	function loadImage(num) {
+	var imageCount;
 
+	function smallImageReady() {
+	
+		self.imageCount--;
+	
+		if (self.imageCount == 0) {
+		
+			if (images[0].order != 0 && images.length > 1) {
+				var tmp = images[0];
+				images[0] = images[1];
+				images[1] = tmp;
+			}
+		
+			
+			totalPagesWidth = 0;
+			totalPagesHeight = 0;
+			for (i=0;i<images.length;i++) {
+			
+				var image = $('body').data(images[i].img);
+			
+				totalPagesWidth += image.width;
+				totalPagesHeight = (totalPagesHeight > image.height) ? totalPagesHeight : image.height ;
+	
+			}
+		
+			if (viewerMode == 1 && images.length > 1) {
+				var image = $('body').data(images[0].img);
+				images[0].xOffset = 0; //-(image.width);
+				
+				var image2 =  $('body').data(images[1].img);
+				images[1].xOffset = image.width;
+			}
+	
+		
+			//Center the page(s)
+			if (viewerMode == 1 && images.length > 1) {
+				viewportStartX = 0; 
+			} else {
+				viewportStartX = ($("#viewer").width() - $("#viewer").height() * (totalPagesWidth / totalPagesHeight)) / 2;
+			}
+			
+			viewport.setTransformNoUpdate(viewportStartX,0,1);
+		
+			triggerSmallImageReady();
+			
+			
+		
+		}
+		
+	}
+
+	function largeImageReady() {
+	
+		self.imageCount--;
+		if (self.imageCount == 0) {
+		
+			if (images[0].order != 0 && images.length > 1) {
+				var tmp = images[0];
+				images[0] = images[1];
+				images[1] = tmp;
+			}
+			if (viewerMode == 1 && images.length > 1) {
+				var image = $('body').data(images[0].img);
+				images[0].xOffset = 0; //-(image.width);
+				
+				var image2 =  $('body').data(images[1].img);
+				images[1].xOffset = image.width;
+			}
+			
+			triggerImageReady();
+		}
+	};
+
+	
+
+	function loadImage(num, num2) {
+		
+		if (!num2) {
+			var num2 = null;
+		}
 		var a = new Date();
 	
-		var smallImage = new Image();
-		smallImage.src= sDataPath + "small-" + num + ".jpg" + "?" + a.getTime();
+		var leftSmallImage = new Image();
+		leftSmallImage.src= sDataPath + "small-" + num + ".jpg" + "?" + a.getTime();
 
-	
-		$(smallImage).load(function() {
-			$('body').data(smallImage.src, smallImage);
+		if (num2 != null) {
+			var rightSmallImage = new Image();
+			rightSmallImage.src= sDataPath + "small-" + num2 + ".jpg" + "?" + a.getTime();
+		}
+		images = [];
+		
+		if (viewerMode == 1 && num2 != null) {
+		  self.imageCount = 2;
+		} else {
+		  self.imageCount = 1;
+		}
+
+
+
+		$(leftSmallImage).load(function() {
+			$('body').data(leftSmallImage.src, leftSmallImage);
 			
 			var oImageSize = { 
-				width: smallImage.width, 
-				height: smallImage.height, 
-				ratio: smallImage.width / smallImage.height 
+				width: leftSmallImage.width, 
+				height: leftSmallImage.height, 
+				ratio: leftSmallImage.width / leftSmallImage.height 
 			};
-		
-			images = [];
-	
-			images.push( { 
-				img: smallImage.src, 
-				xOffset: 0, 
-				yOffset: 0, 
-				size: oImageSize, type: 'small'
-			} );
-	
-			
+
 			var elemWidth = $("#viewer").width();
 			var elemHeight = $("#viewer").height();
 			var w = elemHeight * oImageSize.ratio;
@@ -205,37 +335,132 @@ viewer._construct=function() {
 			
 			oImageSize.scale = w / oImageSize.width;
 	
+			images.push( { 
+				order: 0,
+				img: leftSmallImage.src, 
+				xOffset: 0, 
+				yOffset: 0, 
+				size: oImageSize, type: 'small'
+			} );
 	
-			totalPagesWidth = 0;
-			totalPagesHeight = 0;
-			for (i=0;i<images.length;i++) {
+			smallImageReady();
+		}).error(function() {
+				smallImageReady();
+		});
 			
-				var image = $('body').data(images[i].img);
+		
+		if (viewerMode == 1 && num2 != null) {
+			$(rightSmallImage).load(function() {
+				$('body').data(rightSmallImage.src, rightSmallImage);
 			
-				totalPagesWidth += image.width;
-				totalPagesHeight += image.height;
-				
-				
+				var oImageSize = { 
+					width: rightSmallImage.width, 
+					height: rightSmallImage.height, 
+					ratio: rightSmallImage.width / rightSmallImage.height 
+				};
+		
+				var elemWidth = $("#viewer").width();
+				var elemHeight = $("#viewer").height();
+				var w = elemHeight * oImageSize.ratio;
+				oImageSize.left = (elemWidth-w) / 2;
+				oImageSize.top = 0;
+			
+				oImageSize.scale = w / oImageSize.width;
+			
+				images.push( { 
+					order: 1,
+					img: rightSmallImage.src, 
+					xOffset: 0, 
+					yOffset: 0, 
+					size: oImageSize, type: 'small'
+				} );
+	
+				smallImageReady();
+			}).error(function() {
+				smallImageReady();
+			});
+		}
+	
+	}
+
+
+	function loadBigImages() {
+
+		var num = currentPage();
+
+		if (viewerMode == MODE_DUAL_PAGE) {
+			num -= num%2;
+			var numStr = "" + num;
+			while (numStr.length < 4) {
+				numStr = "0" + numStr;
 			}
-		
-			//Center the page(s)
-			viewportStartX = ($("#viewer").width() - $("#viewer").height() * (totalPagesWidth / totalPagesHeight)) / 2;
 	
-		
-			viewport.setTransformNoUpdate(viewportStartX,0,1);
+			var numStr2 = "" + (num+1);
+			while (numStr2.length < 4) {
+				numStr2 = "0" + numStr2;
+			}
 			
+			num = numStr;
+			num2 = numStr2;
+			
+		} else {
 		
-			triggerSmallImageReady();
+			var numStr = "" + num;
+			while (numStr.length < 4) {
+				numStr = "0" + numStr;
+			}
+			
+			num = numStr;
+			num2 = null;
+		}
 		
-			bgImage = new Image();
-			bgImage.src= sDataPath + num + ".jpg" + "?" + a.getTime();
+		var a = new Date();
 
-		
-			$(bgImage).load(function() {
+		var leftImage = new Image();
+		leftImage.src= sDataPath + num + ".jpg" + "?" + a.getTime();
+	
+		if (num2 != null) {
+			var rightImage = new Image();
+			rightImage.src= sDataPath + num2 + ".jpg" + "?" + a.getTime();
+		}
+		images = [];
+		if (viewerMode == 1 && num2 != null) {
+		  self.imageCount = 2;
+		} else {
+		  self.imageCount = 1;
+		}
 
-				$('body').data(bgImage.src, bgImage);
+		$(leftImage).load(function() {
+
+				$('body').data(leftImage.src, leftImage);
 		
-				oImageSize = { width: bgImage.width, height: bgImage.height, ratio: bgImage.width / bgImage.height};
+				oImageSize = { width: leftImage.width, height: leftImage.height, ratio: leftImage.width / leftImage.height};
+
+
+				elemWidth = $("#viewer").width();
+				elemHeight = $("#viewer").height();
+				var w = elemHeight * oImageSize.ratio;
+				
+				oImageSize.left = (elemWidth-w)/2;
+				oImageSize.top = 0;
+			
+				oImageSize.scale = w / oImageSize.width;
+	
+				images.push({order: 0, img: leftImage.src, xOffset: 0, yOffset: 0, size: oImageSize, type: 'large'});
+		
+			
+				largeImageReady();
+				
+		}).error(function() {
+			console.log("Left Image error");
+			largeImageReady();
+		});
+		
+		$(rightImage).load(function() {
+
+				$('body').data(rightImage.src, rightImage);
+		
+				oImageSize = { width: rightImage.width, height: rightImage.height, ratio: rightImage.width / rightImage.height};
 
 
 				elemWidth = $("#viewer").width();
@@ -246,19 +471,23 @@ viewer._construct=function() {
 			
 				oImageSize.scale = w / oImageSize.width;
 	
-	
-				images = [];
-				images.push({img: bgImage.src, xOffset: 0, yOffset: 0, size: oImageSize, type: 'large'});
+				images.push({order: 1, img: rightImage.src, xOffset: 0, yOffset: 0, size: oImageSize, type: 'large'});
 		
-			
-				triggerImageReady();
+				largeImageReady();
+				
 		
-			});
-		
-		
+		}).error(function() {
+				console.log("Right Image error");
+				largeImageReady();
 		});
-
+			
+			
+		
+		
+		
 	}
+
+
 
 
 	function toggleMode() {
@@ -291,6 +520,24 @@ viewer._construct=function() {
 	
 	}
 	
+	
+	function togglePageMode() {
+
+		
+		if (viewerMode == MODE_DUAL_PAGE) {
+			$("#page_mode").removeClass('icon_page_mode_dual');
+			$("#page_mode").addClass('icon_page_mode_single');
+			viewerMode = MODE_SINGLE_PAGE;
+		} else if (viewerMode == MODE_SINGLE_PAGE) {
+			$("#page_mode").addClass('icon_page_mode_dual');
+			$("#page_mode").removeClass('icon_page_mode_single');
+			viewerMode = MODE_DUAL_PAGE;
+		}
+		loadPage(currentPage());
+
+	}
+	
+	
 	var viewerSizeChangeListeners = [];
 	
 
@@ -304,7 +551,33 @@ viewer._construct=function() {
 		viewerSizeChangeListeners.push(callback);
 	}
 	
+	function getCurrentPages() {
 	
+		var num = currentPage();
+	
+		if (viewerMode == MODE_DUAL_PAGE) {
+			num -= num%2;
+			var numStr = "" + num;
+			while (numStr.length < 4) {
+				numStr = "0" + numStr;
+			}
+		
+		
+			var numStr2 = "" + (num+1);
+			while (numStr2.length < 4) {
+				numStr2 = "0" + numStr2;
+			}
+			return [numStr, numStr2];	
+		} else {
+		
+			var numStr = "" + num;
+			while (numStr.length < 4) {
+				numStr = "0" + numStr;
+			}
+			return [numStr];	
+		}
+		
+	}
 	
 	
 	function getMouseMode() {
@@ -348,14 +621,23 @@ viewer._construct=function() {
 	this.getPackagePath=getPackagePath;
 	this.currentPage=currentPage;
 	this.currentPage4=currentPage4;
+	this.getCurrentPages=getCurrentPages;
 	this.isCanvasSupported=isCanvasSupported;
 	this.onSizeChange=onSizeChange;
 	this.currentItem=currentItem;
 	
 	this.getMode=getMode;
+	this.getViewMode=function() { return viewerMode; };
 		
-		
+	
 	onSmallImageReady(redrawCanvas);
+	onSmallImageReady(function() {
+		if (largeImageTimeout != undefined) {
+			clearTimeout(largeImageTimeout);
+		}
+		largeImageTimeout = setTimeout(loadBigImages, 500);
+	});
+	
 	onImageReady(redrawCanvas);
 	viewport.onViewportChange(redrawCanvas);
 
@@ -373,9 +655,11 @@ viewer._construct=function() {
 			$("#toolbar").hide();
 		}
 
+
+		
 		oViewerSize = {
-		  		width: $('#text_overlay').width(), 
-		  		height: $('#text_overlay').height()
+		  		width: $('#text_overlay').width() - 6, 
+		  		height: $(window).height() - $("#topbar").height() - 6
 		};
 		
 		refreshCanvasSize();
@@ -419,6 +703,7 @@ viewer._construct=function() {
 		});
 	
 		$("#pan_select").click(function() { toggleMode(); });
+		$("#page_mode").click(function() { togglePageMode(); });
 	
 	});
 	
