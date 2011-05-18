@@ -36,7 +36,7 @@ viewer._construct=function() {
 	this.MODE_SINGLE_PAGE=MODE_SINGLE_PAGE;
 	
 	
-	var viewerMode = MODE_DUAL_PAGE;
+	var viewerMode = MODE_SINGLE_PAGE;
 
 	function refreshCanvasSize() {
 		
