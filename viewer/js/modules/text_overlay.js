@@ -76,7 +76,7 @@ text_overlay._construct=function() {
 		textLoadDelayer = setTimeout(function() {
 				
 		 	var imageData = viewer.getPageImages();
-		 	if (imageData[0].type == 'small') {
+		 	if (imageData.length == 0 || imageData[0].type == 'small') {
 		 		return;
 		 	}
 	
@@ -190,8 +190,33 @@ text_overlay._construct=function() {
 
 
 		if (viewer.getViewMode() == viewer.MODE_DUAL_PAGE) {
-			viewerScale = (oViewerSize.width) / imageData.size.width / imageData.size.scale / 2;
+	
 			
+			var images = viewer.getImages();
+			var maxHeight=0;
+			for (var i=0;i<images.length;i++) {
+	
+				var image_tmp = $('body').data(images[i].img);
+				maxHeight = (image_tmp.height > maxHeight) ? image_tmp.height : maxHeight;
+			}
+		
+			var totalWidth=0;
+			for (var i=0;i<images.length;i++) {
+	
+				var image_tmp = $('body').data(images[i].img);
+				totalWidth += (image_tmp.width > totalWidth) ? image_tmp.width : totalWidth;
+			}
+		
+	
+			//determine whether the pages are fit to viewer by width or scale
+			//widthlimit
+			wViewerScale = (oViewerSize.width) / imageData.size.width / imageData.size.scale / 2;
+		
+			//heightlimit
+			hViewerScale = (oViewerSize.height) / imageData.size.height / imageData.size.scale;
+		
+			viewerScale = (wViewerScale < hViewerScale) ? wViewerScale : hViewerScale;
+		
 		} else {
 	
 			viewerScale = (oViewerSize.height) / imageData.size.height / imageData.size.scale;
@@ -256,6 +281,7 @@ text_overlay._construct=function() {
 		
 	
 		resize_text($bb);
+		$content.text(content+" ");
 	}
 
 	function resize_text($bb) {

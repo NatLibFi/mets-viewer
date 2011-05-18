@@ -1,0 +1,7 @@
+
+The architecture is a sort of plugin architecture.
+
+js/core contains all the necessary files to run the viewer.
+js/modules contains additional modules, which add functionality.
+
+

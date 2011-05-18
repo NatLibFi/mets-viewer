@@ -70,13 +70,61 @@ viewport._construct = function() {
 	function setRotation(angle) {
 		angle = (angle + 360) % 360;
 		rotation=angle;
-		console.log(rotation);
 		triggerViewportChange();
 	}
 	
 	function getRotation() {
 		return rotation;
 	}
+	
+	function reset(update) {
+	
+		
+			var images = viewer.getImages();
+			totalPagesWidth = 0;
+			totalPagesHeight = 0;
+			for (i=0;i<images.length;i++) {
+			
+				var image = $('body').data(images[i].img);
+				totalPagesWidth += image.width;
+				totalPagesHeight = (totalPagesHeight > image.height) ? totalPagesHeight : image.height;
+	
+			}
+			
+		
+			// Center the page(s)
+			if (viewport.getViewMode == viewport.MODE_DUAL_PAGE && images.length > 1) {
+			
+				var mRealWidth = $("#viewer").height() * (totalPagesWidth / totalPagesHeight);
+				
+				if (mRealWidth < ($("#viewer").width() - 3)) { //3=threshold
+					
+					viewportStartX = ($("#viewer").width() - mRealWidth) / 2;
+					viewportStartY = 0;
+				
+				} else {
+			
+			
+					viewportStartX = 0; 
+					var mRealHeight = $("#viewer").width() / totalPagesWidth * totalPagesHeight;
+					viewportStartY = ($("#viewer").height() - mRealHeight) / 2;	
+				}
+			} else {
+				viewportStartX = ($("#viewer").width() - $("#viewer").height() * (totalPagesWidth / totalPagesHeight)) / 2;
+				viewportStartY = 0;
+			}
+			
+		if (update && update === false) {
+			viewport.setTransformNoUpdate(viewportStartX, viewportStartY, 1);
+		} else {
+			
+			viewport.setTransform(viewportStartX, viewportStartY, 1);
+		
+		}
+	}
+	
+	
+	
 	
 	this.onViewportChange=onViewportChange;
 	this.triggerViewportChange=triggerViewportChange;
@@ -89,7 +137,7 @@ viewport._construct = function() {
 	this.setZoom=setZoom;
 	this.getPosition=getPosition;
 	this.setPosition=setPosition;
-	
+	this.reset=reset;
 	this.setTransformNoUpdate=setTransformNoUpdate;
 
 	this.setRotation=setRotation;

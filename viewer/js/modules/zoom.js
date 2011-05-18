@@ -17,33 +17,8 @@ zoom._construct = function() {
 	var ZOOM_MIN = 0.7;
 	
 	function reset() {
-	
-			var zoomLevel = 1;
-
-			var images = viewer.getImages();
-			totalPagesWidth = 0;
-			totalPagesHeight = 0;
-			for (i=0;i<images.length;i++) {
-			
-				var image = $('body').data(images[i].img);
-			
-				totalPagesWidth += image.width;
-				totalPagesHeight += image.height;
-				
-				
-			}
+		viewport.reset();
 		
-			//Center the page(s)
-			if (viewport.getViewMode == viewport.MODE_DUAL_PAGE && images.length > 1) {
-				viewportStartX = 0; 
-			} else {
-				viewportStartX = ($("#viewer").width() - $("#viewer").height() * (totalPagesWidth / totalPagesHeight)) / 2;
-			}
-			
-		
-			
-			
-			viewport.setTransform(viewportStartX, 0, zoomLevel);
 	}
 	
 	function centeredZoom(delta) {
@@ -63,7 +38,7 @@ zoom._construct = function() {
 					zoomLevel /= ZOOM_SPEED;
 				}
 			
-				if (zoomLevel < ZOOM_MIN || zoomLevel > ZOOM_MAX) {
+				if (zoomLevel < ZOOM_MIN || zoomLevel > ZOOM_MAX) {
 					return;
 				}
 			
@@ -105,7 +80,7 @@ zoom._construct = function() {
 					zoomLevel /= ZOOM_SPEED;
 				}
 			
-				if (zoomLevel < ZOOM_MIN || zoomLevel > ZOOM_MAX) {
+				if (zoomLevel < ZOOM_MIN || zoomLevel > ZOOM_MAX) {
 					return;
 				}
 			

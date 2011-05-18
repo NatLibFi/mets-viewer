@@ -89,7 +89,6 @@ viewer._construct=function() {
 		}
 		
 		
-	
 		var vp = viewport.getPosition();
 	
 		ctx.translate(vp.x * viewport.getZoom(), vp.y * viewport.getZoom());
@@ -232,18 +231,6 @@ viewer._construct=function() {
 				images[1] = tmp;
 			}
 		
-			
-			totalPagesWidth = 0;
-			totalPagesHeight = 0;
-			for (i=0;i<images.length;i++) {
-			
-				var image = $('body').data(images[i].img);
-			
-				totalPagesWidth += image.width;
-				totalPagesHeight = (totalPagesHeight > image.height) ? totalPagesHeight : image.height ;
-	
-			}
-		
 			if (viewerMode == 1 && images.length > 1) {
 				var image = $('body').data(images[0].img);
 				images[0].xOffset = 0; //-(image.width);
@@ -251,17 +238,10 @@ viewer._construct=function() {
 				var image2 =  $('body').data(images[1].img);
 				images[1].xOffset = image.width;
 			}
-	
-		
-			//Center the page(s)
-			if (viewerMode == 1 && images.length > 1) {
-				viewportStartX = 0; 
-			} else {
-				viewportStartX = ($("#viewer").width() - $("#viewer").height() * (totalPagesWidth / totalPagesHeight)) / 2;
-			}
 			
-			viewport.setTransformNoUpdate(viewportStartX,0,1);
-		
+			
+			viewport.reset(false);
+			
 			triggerSmallImageReady();
 			
 			
@@ -296,19 +276,26 @@ viewer._construct=function() {
 
 	function loadImage(num, num2) {
 		
+		for (key in $('body').data()) {
+			$('body').removeData(key);
+		}
+		
+		
 		if (!num2) {
 			var num2 = null;
 		}
-		var a = new Date();
 	
 		var leftSmallImage = new Image();
-		leftSmallImage.src= sDataPath + "small-" + num + ".jpg" + "?" + a.getTime();
+		leftSmallImage.src= sDataPath + "small-" + num + ".jpg";
 
 		if (num2 != null) {
 			var rightSmallImage = new Image();
-			rightSmallImage.src= sDataPath + "small-" + num2 + ".jpg" + "?" + a.getTime();
+			rightSmallImage.src= sDataPath + "small-" + num2 + ".jpg";
 		}
+		
+		delete(images);
 		images = [];
+		
 		
 		if (viewerMode == 1 && num2 != null) {
 		  self.imageCount = 2;
@@ -334,7 +321,7 @@ viewer._construct=function() {
 			oImageSize.top = 0;
 			
 			oImageSize.scale = w / oImageSize.width;
-	
+		
 			images.push( { 
 				order: 0,
 				img: leftSmallImage.src, 
@@ -414,14 +401,12 @@ viewer._construct=function() {
 			num2 = null;
 		}
 		
-		var a = new Date();
-
 		var leftImage = new Image();
-		leftImage.src= sDataPath + num + ".jpg" + "?" + a.getTime();
+		leftImage.src= sDataPath + num + ".jpg";
 	
 		if (num2 != null) {
 			var rightImage = new Image();
-			rightImage.src= sDataPath + num2 + ".jpg" + "?" + a.getTime();
+			rightImage.src= sDataPath + num2 + ".jpg";
 		}
 		images = [];
 		if (viewerMode == 1 && num2 != null) {
@@ -434,11 +419,14 @@ viewer._construct=function() {
 
 				$('body').data(leftImage.src, leftImage);
 		
-				oImageSize = { width: leftImage.width, height: leftImage.height, ratio: leftImage.width / leftImage.height};
+				oImageSize = { 
+					width: leftImage.width, 
+					height: leftImage.height, 
+					ratio: leftImage.width / leftImage.height
+				};
 
-
-				elemWidth = $("#viewer").width();
-				elemHeight = $("#viewer").height();
+				var elemWidth = $("#viewer").width();
+				var elemHeight = $("#viewer").height();
 				var w = elemHeight * oImageSize.ratio;
 				
 				oImageSize.left = (elemWidth-w)/2;
@@ -452,7 +440,7 @@ viewer._construct=function() {
 				largeImageReady();
 				
 		}).error(function() {
-			console.log("Left Image error");
+			if (window.console && console.log) console.log("Left Image error");
 			largeImageReady();
 		});
 		
@@ -477,14 +465,11 @@ viewer._construct=function() {
 				
 		
 		}).error(function() {
-				console.log("Right Image error");
+				if (window.console && console.log) console.log("Right Image error");
 				largeImageReady();
 		});
 			
 			
-		
-		
-		
 	}
 
 
@@ -549,6 +534,19 @@ viewer._construct=function() {
 
 	function onSizeChange(callback) {
 		viewerSizeChangeListeners.push(callback);
+	}
+	
+	function getCurrentPagesInt() {
+	
+		var num = currentPage();
+	
+		if (viewerMode == MODE_DUAL_PAGE) {
+			num -= num%2;
+			
+			return [num, num+1];
+		}
+		return [num];
+		
 	}
 	
 	function getCurrentPages() {
@@ -622,6 +620,7 @@ viewer._construct=function() {
 	this.currentPage=currentPage;
 	this.currentPage4=currentPage4;
 	this.getCurrentPages=getCurrentPages;
+	this.getCurrentPagesInt=getCurrentPagesInt;
 	this.isCanvasSupported=isCanvasSupported;
 	this.onSizeChange=onSizeChange;
 	this.currentItem=currentItem;
@@ -703,7 +702,13 @@ viewer._construct=function() {
 		});
 	
 		$("#pan_select").click(function() { toggleMode(); });
-		$("#page_mode").click(function() { togglePageMode(); });
+		
+		if (viewer.isCanvasSupported()) {
+			$("#page_mode").css('display','block');
+			$("#page_mode").click(function() { togglePageMode(); });
+	 	}
+	 	
+		
 	
 	});
 	
