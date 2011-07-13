@@ -18,7 +18,7 @@ keyboard_shortcuts._construct = function() {
 	onCoreReady(function() {
 
 		
-		$(document).keypress(function(e) {
+		$(document).keydown(function(e) {
 		
 			var code = e.keyCode || e.which;
 			
