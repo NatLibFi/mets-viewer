@@ -339,6 +339,17 @@ text_overlay._construct=function() {
 	});
 	
 	this.onReady=onReady;
-	
+	onCoreReady(function() {
+
+	 	pan_mode = $('<div id="pan_select" class="icon_pan ui-corner-left"></div>');
+		$('#toolbar').append(pan_mode);
+	});
+
 }
-text_overlay._construct();
+
+if (viewer.itemType()=='fra') {
+	text_overlay._construct();
+
+} else {
+	text_overlay._construct();
+}

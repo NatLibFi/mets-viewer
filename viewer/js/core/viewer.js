@@ -129,6 +129,11 @@ viewer._construct=function() {
 	}
 
 
+	function getMetsPath() {
+
+		return metsFilePath;
+	}
+
 	function getPackagePath() {
 
 		return sDataPath;
@@ -138,6 +143,25 @@ viewer._construct=function() {
 		return $.query.get('item');
 	}
 	
+	function itemType() {
+		return $.query.get('type');
+	}
+	
+	function getAccessImagePath(num) {
+		if (itemType() == 'fra') {
+			return sDataPath + "access_img/img" + num + "-access.jpg";
+		} else {
+			return sDataPath + "" + num + ".jpg";
+		}
+	}
+
+	function getThumbImagePath(num) {
+		if (itemType() == 'fra') {
+			return sDataPath + "thumb_img/img" + num + "-thumb.jpg";
+		} else {
+			return sDataPath + "small-" + num + ".jpg";
+		}
+	}
 
 	function currentWord() {
 		var wordhashPattern = new RegExp('#word=(.+)','gi');
@@ -286,11 +310,11 @@ viewer._construct=function() {
 		}
 	
 		var leftSmallImage = new Image();
-		leftSmallImage.src= sDataPath + "small-" + num + ".jpg";
+		leftSmallImage.src= getThumbImagePath(num);
 
 		if (num2 != null) {
 			var rightSmallImage = new Image();
-			rightSmallImage.src= sDataPath + "small-" + num2 + ".jpg";
+			rightSmallImage.src= getThumbImagePath(num2)
 		}
 		
 		delete(images);
@@ -402,11 +426,11 @@ viewer._construct=function() {
 		}
 		
 		var leftImage = new Image();
-		leftImage.src= sDataPath + num + ".jpg";
+		leftImage.src= getAccessImagePath(num);
 	
 		if (num2 != null) {
 			var rightImage = new Image();
-			rightImage.src= sDataPath + num2 + ".jpg";
+			rightImage.src= getAccessImagePath(num2);
 		}
 		images = [];
 		if (viewerMode == 1 && num2 != null) {
@@ -617,6 +641,7 @@ viewer._construct=function() {
 	this.getSize=getSize;
 	this.getPageImages=getPageImages;
 	this.getPackagePath=getPackagePath;
+	this.getMetsPath=getMetsPath;
 	this.currentPage=currentPage;
 	this.currentPage4=currentPage4;
 	this.getCurrentPages=getCurrentPages;
@@ -624,6 +649,9 @@ viewer._construct=function() {
 	this.isCanvasSupported=isCanvasSupported;
 	this.onSizeChange=onSizeChange;
 	this.currentItem=currentItem;
+	this.itemType=itemType;
+	this.getThumbImagePath=getThumbImagePath;
+	this.getAccessImagePath=getAccessImagePath;
 	
 	this.getMode=getMode;
 	this.getViewMode=function() { return viewerMode; };
@@ -671,7 +699,16 @@ viewer._construct=function() {
 		
 		});
 
-		sDataPath += $.query.get('item') + "/";
+		var itemString = $.query.get('item');
+		sDataPath += itemString + "/";
+
+		if (viewer.itemType() == 'fra') {
+			var parts = itemString.split('/');
+			var metsFileName = parts[parts.length-1].replace('-preservation', "-METS.xml");
+			metsFilePath = sDataPath + metsFileName;
+		} else {
+			metsFilePath = sDataPath + 'mets.xml';
+		}
 
 		loadPage(currentPage());
 	

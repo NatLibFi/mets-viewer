@@ -12,82 +12,86 @@ var bib_data = {};
 
 bib_data._construct = function() {
 
-	var title_prefix = "Doria - ";
-
-	var fields = [
-		{
-			'tag': 245
-			,'subfields': [ {'desc':'Nimeke', 'code': 'a'} ]
-		}
-		
-		,{
-			'tag': 100
-			,'subfields': [ {'desc':'Tekijä', 'code': 'a'} ]
-		}
-	
-		,{
-			'tag': '260'
-			,'subfields': [ {'desc':'Vuosi', 'code': 'c'} ]
-		}
-		
-	];
+	var title_prefix;
+	var fields;
 
 	function buildBibliographicData() {
 		
 		$("#bibdata .content").html('');
 
-		$.get(viewer.getPackagePath() + "mets.xml", function(data) {
+		$.get(viewer.getMetsPath(), function(data) {
 	
-			
-			var $marc =	$(data).find("[nodeName='MARC:record']");
-			
-			var $table = $("<table border='0'></table>");
-			
-			for (var i=0;i<fields.length;i++) {
-				$row = $("<tr></tr>");
+			if (viewer.itemType() == 'fra') {
+				var dc = $(data).find("qdc\\:qualifieddc");
+				var $table = $("<table border='0'></table>");
 				
-				
-				$marc.find("[tag='" + fields[i].tag + "']").each(function() {
-				
-
-					if (typeof(fields[i].control) != 'undefined' && fields[i].control) {
+				for (var i=0;i<fields.length;i++) {
+					$row = $("<tr></tr>");
 					
-						
-						$row.append($("<td>" +  fields[i].desc + "</td>"));
-					
-						$row.append($("<td>" +  fields[i].func( $(this).text() ) + "</td>"));
-					
-					
-					} else {				
-				
-						for (var j=0;j<fields[i].subfields.length;j++) {
-			
-							var $subfields = $(this).find("[code='"+ fields[i].subfields[j].code +"']");
-						
-			
-							if ($subfields.length) {
-			
-								$row.append($("<td>" +  fields[i].subfields[j].desc + "</td>"));
-				
-								$subfields.each(function() {
-				
-									$row.append($("<td>" +  $(this).text() + "</td>"));
-									
-									if (fields[i].tag == 245) {
-									
-										document.title =  title_prefix + $(this).text();
-									}
+					$(dc).find(fields[i].tag).each(function() {
 							
-								});
+						$row.append($("<td>" +  fields[i].desc + "</td>"));
+						
+						$row.append($("<td>" +  $(this).text() + "</td>"));
+						
+						if (fields[i].tag == 'dc\\:title') {
+							document.title = title_prefix + $(this).text();
+						}
+					});
+					$table.append($row);
+
+				}
+			} else {
+		
+				var marc =	$(data).find("[nodeName='MARC:record']");
+				
+				var $table = $("<table border='0'></table>");
+				
+				for (var i=0;i<fields.length;i++) {
+					$row = $("<tr></tr>");
+					
+					
+					marc.find("[tag='" + fields[i].tag + "']").each(function() {
+					
+
+						if (typeof(fields[i].control) != 'undefined' && fields[i].control) {
+						
+							
+							$row.append($("<td>" +  fields[i].desc + "</td>"));
+						
+							$row.append($("<td>" +  fields[i].func( $(this).text() ) + "</td>"));
+						
+						
+						} else {				
+					
+							for (var j=0;j<fields[i].subfields.length;j++) {
+				
+								var $subfields = $(this).find("[code='"+ fields[i].subfields[j].code +"']");
+							
+				
+								if ($subfields.length) {
+				
+									$row.append($("<td>" +  fields[i].subfields[j].desc + "</td>"));
+					
+									$subfields.each(function() {
+					
+										$row.append($("<td>" +  $(this).text() + "</td>"));
+										
+										if (fields[i].tag == 245) {
+										
+											document.title =  title_prefix + $(this).text();
+										}
+								
+									});
+								}
 							}
 						}
-					}
+					
+					});
 				
-				});
-			
-				$table.append($row);
-				
-
+					$table.append($row);
+					
+				}
 			}
 			
 			$("#bibdata .content").append($table);
@@ -107,15 +111,53 @@ bib_data._construct = function() {
 	
 	
 	
+	if (viewer.itemType()=='fra') {
+		title_prefix = "Fragmenta membranea - ";
+		fields = [
+			{
+				'tag': 'dc\\:title',
+				'desc':'Nimeke'
+			}
+			
+			,{
+				'tag': 'dc\\:creator',
+				'desc':'Tekijä'
+			}
+		
+			,{
+				'tag': 'dc\\:date',
+				'desc':'Ajoitus'
+			}
+			
+		];
+
+	} else {
+		title_prefix = "Doria - ";
+		fields = [
+			{
+				'tag': 245
+				,'subfields': [ {'desc':'Nimeke', 'code': 'a'} ]
+			}
+			
+			,{
+				'tag': 100
+				,'subfields': [ {'desc':'Tekijä', 'code': 'a'} ]
+			}
+		
+			,{
+				'tag': '260'
+				,'subfields': [ {'desc':'Vuosi', 'code': 'c'} ]
+			}
+			
+		];
+
+	}
 	this.buildBibliographicData=buildBibliographicData;
 	
 	onCoreReady(function() {
 
 		bib_data.buildBibliographicData();	
-			
-		
-		
-		
+
 	});
 	
 }

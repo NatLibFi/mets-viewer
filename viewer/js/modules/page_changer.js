@@ -19,9 +19,13 @@ page_changer._construct = function() {
 
 		$("#pages").html('');
 		
-		$.get(viewer.getPackagePath() + "mets.xml", function(data) {
+		$.get(viewer.getMetsPath(), function(data) {
 	
-			count = $(data).find("file[MIMETYPE='text/xml']").length;
+			if (viewer.itemType() == 'fra') {
+				count = $(data).find("[TYPE=\"PAGE\"][CONTENTIDS]").length;
+			} else {
+				count = $(data).find("file[MIMETYPE='text/xml']").length;
+			}
 
 
 			$prev = $("<a class='ui-state-default ui-corner-all'><span class='ui-icon ui-icon-triangle-1-w'></span></a>");

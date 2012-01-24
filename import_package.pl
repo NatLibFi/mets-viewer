@@ -14,7 +14,6 @@ sub import($);
 sub importFiles(@);
 
 my $IMPORT_DIR = "import/";
-$IMPORT_DIR = "/data2/TravelEuropeana/";
 my $WORKING_DIR = "temp/";
 my $PACKAGE_DIR = "packages/";
 

@@ -18,6 +18,9 @@ word_search._construct = function() {
 
 	onCoreReady(function() {
 	
+		search = $('<div id="search"> <input type="text"></input> <button>Hae</button> <div id="search_results"> <div class="header"> <span class="title">Hakutulokset</span> <span class="close">[sulje]</span> </div> <div class="hits"></div> </div> </div>');
+		search.insertBefore('#pages');
+			
 		$('#search button').click(function() {
 			$('#search_results .hits').html('');
 			$('#search_results').css('display', 'block');
@@ -116,5 +119,10 @@ word_search._construct = function() {
 	
 	
 }
-word_search._construct();
+if (viewer.itemType()=='fra') {
+	word_search._construct();
+
+} else {
+	word_search._construct();
+}
 
