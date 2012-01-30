@@ -217,6 +217,18 @@ body {
 	float: left;
 }
 
+#save_pdf, #save_page {
+	margin-top: 10px;
+	font-size: 10pt;
+}
+a { color: black; text-decoration: none;}
+a:hover, a:active { text-decoration: underline;}
+#save_pdf a img, #save_page a img {
+	vertical-align: middle;
+	width: 32px;
+	height: 32px;
+}
+
 .icon_save {
 	border: 1px solid gray;
 	width: 30px;

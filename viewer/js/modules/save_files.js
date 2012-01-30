@@ -32,10 +32,10 @@ save_files._construct = function() {
 	var href_pdf = BASE_PATH + viewer.getHandle() + tail_pdf;
 	var href_page = BASE_PATH + viewer.getHandle() + tail_page 
 	
-	save_pdf = $('<div id="save_pdf" class="icon_save ui-corner-all"><a href="'+href_pdf+'">pdf</a></div>');
-	save_page = $('<div id="save_page" class="icon_save ui-corner-all"><a href="'+href_page+'">tiff</a></div>');
-	$('#toolbar').append(save_pdf);
-	$('#toolbar').append(save_page);
+	save_pdf = $('<div id="save_pdf"><a href="'+href_pdf+'"><img src="img/pdf.png" />Save whole document</a></div>');
+	save_page = $('<div id="save_page"><a href="'+href_page+'"><img src="img/tiff.png" />Save current page</a></div>');
+	$('#bibdata').append(save_pdf);
+	$('#bibdata').append(save_page);
 	// TODO: much
 	onPageChanged(function() {
 		tail_page = "/img"+zeroPad(viewer.currentPage(),4)+"-access.jpg?sequence="+viewer.currentPage();
