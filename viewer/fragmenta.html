@@ -1,0 +1,127 @@
+<!DOCTYPE html 
+      PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" 
+      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html>
+
+<head profile="http://www.w3.org/2005/10/profile">
+<link id="favicon" rel="shortcut icon" type="image/png" href="favicon-fra.png" />
+
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<link rel="stylesheet" href="css/ui-lightness/jquery-ui-1.8.10.custom.css" type="text/css" media="all" />
+
+<LINK href="css/screen.css" rel="stylesheet" type="text/css" media="screen">
+<LINK href="css/print.css" rel="stylesheet" type="text/css" media="print">
+
+
+<title>Mets viewer</title>
+
+<script type="text/javascript" src="js/core/jquery-1.5.js"></script>
+<script type="text/javascript" src="js/core/jquery-ui-1.8.10.custom.min.js"></script>
+<script type="text/javascript" src="js/core/jquery.mousewheel.min.js"></script>
+<script type="text/javascript" src="js/core/jquery.query-2.1.7.js"></script>
+
+<script type="text/javascript" src="js/core/json2.js"></script>
+
+<script type="text/javascript" src="js/core/jquery.ba-hashchange.min.js"></script>
+
+<script type="text/javascript" src="js/core/observers.js"></script>
+<script type="text/javascript" src="js/core/viewport.js"></script>
+<script type="text/javascript" src="js/core/viewer.js"></script>
+
+<script type="text/javascript" src="js/modules/page_changer.js"></script>
+
+<script type="text/javascript" src="js/modules/toc.js"></script>
+
+<script type="text/javascript" src="js/modules/rotate.js"></script>
+
+<script type="text/javascript" src="js/modules/button_rotate.js"></script>
+
+
+<script type="text/javascript" src="js/modules/zoom.js"></script>
+
+<script type="text/javascript" src="js/modules/button_zoom.js"></script>
+
+<script type="text/javascript" src="js/modules/pan.js"></script>
+<script type="text/javascript" src="js/modules/bib_data.js"></script>
+<script type="text/javascript" src="js/modules/scroll_pan.js"></script>
+
+<script type="text/javascript" src="js/modules/save_files.js"></script>
+<script type="text/javascript" src="js/modules/keyboard_shortcuts.js"></script>
+
+<script type="text/javascript" src="js/modules/logo_link.js"></script>
+<script type="text/javascript" src="js/modules/print.js"></script>
+
+<!--
+
+
+-->
+
+
+
+<style type="text/css">
+
+
+
+</style>
+
+</head>
+
+<body>
+
+<div id='message' style="display: none;">
+<span>Selaimesi ei tue canvas -elementtiä. Osa ominaisuuksista eivät ole käytössä. Paremmin tuettuja selaimia: IE9, Firefox, Chrome, Safari</span>
+<a href="#" class="close-notify">X</a>
+</div>
+
+
+<div id="content_wrapper">
+
+<div id="content">
+
+<div id="topbar">
+
+<div id="toolbar">
+<div id="page_mode" class="icon_page_mode_single ui-corner-left" style="display: none;"></div>
+</div>
+
+<div id="pages"></div>
+	
+	</div>
+	
+	<div id="text_overlay">
+		<canvas id="viewer" height="800" width="800"><div id="nocanvas">Selaimesi ei tue canvas -elementtiä.</div></canvas>
+	</div>
+
+	</div>
+
+</div>
+
+<div id="sidebar">
+
+	<div id="logo">
+		<img src="img/logo-fra.png" alt="logo" />
+	</div>
+
+	<div id="sidebar_content">
+		<div id="bibdata"><div class="content"></div></div>
+
+		<div id="toc">
+		<span class="header">Sisällysluettelo</span>
+		<div class="toc_items"></div>
+		</div>
+	</div>
+	
+</div>
+
+
+<div id="print">
+	<div class="metadata">Metadata</div>
+	<div class="image"></div>
+</div>
+
+
+</body>
+
+</html>
