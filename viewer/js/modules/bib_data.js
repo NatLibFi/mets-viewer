@@ -12,16 +12,33 @@ var bib_data = {};
 
 bib_data._construct = function() {
 
-	var title_prefix;
-	var fields;
-
 	function buildBibliographicData() {
-		
+
 		$("#bibdata .content").html('');
 
 		$.get(viewer.getMetsPath(), function(data) {
+			var title_prefix;
+			var fields;
 	
-			if (viewer.itemType() == 'fra') {
+			if (viewer.itemType() == 'fragmenta') {
+				title_prefix = "Fragmenta membranea - ";
+				fields = [
+					{
+						'tag': 'dc\\:title',
+						'desc':'Nimeke'
+					}
+					
+					,{
+						'tag': 'dc\\:creator',
+						'desc':'Tekijä'
+					}
+				
+					,{
+						'tag': 'dc\\:date',
+						'desc':'Ajoitus'
+					}
+					
+				];
 				var dc = $(data).find("qdc\\:qualifieddc");
 				var $table = $("<table border='0'></table>");
 				
@@ -43,6 +60,24 @@ bib_data._construct = function() {
 				}
 			} else {
 		
+				title_prefix = "Doria - ";
+				fields = [
+					{
+						'tag': 245
+						,'subfields': [ {'desc':'Nimeke', 'code': 'a'} ]
+					}
+					
+					,{
+						'tag': 100
+						,'subfields': [ {'desc':'Tekijä', 'code': 'a'} ]
+					}
+				
+					,{
+						'tag': '260'
+						,'subfields': [ {'desc':'Vuosi', 'code': 'c'} ]
+					}
+					
+				];
 				var marc =	$(data).find("[nodeName='MARC:record']");
 				
 				var $table = $("<table border='0'></table>");
@@ -110,50 +145,7 @@ bib_data._construct = function() {
 	}
 	
 	
-	
-	if (viewer.itemType()=='fra') {
-		title_prefix = "Fragmenta membranea - ";
-		fields = [
-			{
-				'tag': 'dc\\:title',
-				'desc':'Nimeke'
-			}
-			
-			,{
-				'tag': 'dc\\:creator',
-				'desc':'Tekijä'
-			}
-		
-			,{
-				'tag': 'dc\\:date',
-				'desc':'Ajoitus'
-			}
-			
-		];
-
-	} else {
-		title_prefix = "Doria - ";
-		fields = [
-			{
-				'tag': 245
-				,'subfields': [ {'desc':'Nimeke', 'code': 'a'} ]
-			}
-			
-			,{
-				'tag': 100
-				,'subfields': [ {'desc':'Tekijä', 'code': 'a'} ]
-			}
-		
-			,{
-				'tag': '260'
-				,'subfields': [ {'desc':'Vuosi', 'code': 'c'} ]
-			}
-			
-		];
-
-	}
 	this.buildBibliographicData=buildBibliographicData;
-	
 	onCoreReady(function() {
 
 		bib_data.buildBibliographicData();	

@@ -19,7 +19,7 @@ logo_link._construct = function() {
 
 		var path;
 
-		if (viewer.itemType() == 'fra') {
+		if (viewer.itemType() == 'fragmenta') {
 			var parts = viewer.currentItem().split('/');
 			var URN = "URN:NBN:fi-" + parts[parts.length-1].replace('-preservation', "");
 			path = BASE_PATH + URN;
@@ -30,9 +30,6 @@ logo_link._construct = function() {
 		$link = $('<a></a>');
 		$link.attr('href', path);
 
-		if (viewer.itemType()=='fra') {
-			$('#logo img').attr('src','img/logo-fra.png');
-		}
 		$('#logo img').wrap($link);
 		
 	

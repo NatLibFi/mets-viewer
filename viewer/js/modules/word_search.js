@@ -119,10 +119,6 @@ word_search._construct = function() {
 	
 	
 }
-if (viewer.itemType()=='fra') {
-	word_search._construct();
 
-} else {
-	word_search._construct();
-}
+word_search._construct();
 

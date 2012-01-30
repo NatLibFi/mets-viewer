@@ -347,9 +347,4 @@ text_overlay._construct=function() {
 
 }
 
-if (viewer.itemType()=='fra') {
-	text_overlay._construct();
-
-} else {
-	text_overlay._construct();
-}
+text_overlay._construct();

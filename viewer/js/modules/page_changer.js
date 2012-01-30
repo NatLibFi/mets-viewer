@@ -15,13 +15,18 @@ page_changer._construct = function() {
 	var count;
 	var pageChangeTimeout;
 
+	function pageCount() {
+		return count;
+	}
+	this.pageCount = pageCount;
+
 	function buildPageChanger() {
 
 		$("#pages").html('');
 		
 		$.get(viewer.getMetsPath(), function(data) {
 	
-			if (viewer.itemType() == 'fra') {
+			if (viewer.itemType() == 'fragmenta') {
 				count = $(data).find("[TYPE=\"PAGE\"][CONTENTIDS]").length;
 			} else {
 				count = $(data).find("file[MIMETYPE='text/xml']").length;

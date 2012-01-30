@@ -14,6 +14,8 @@ viewer._construct=function() {
 
 	var self=this;
 
+	var myHandle;
+	var myItemType;
 	var sDataPath = "/viewer/prod/packages/";
 	var scalingFactor;
 	var images = [];
@@ -144,11 +146,15 @@ viewer._construct=function() {
 	}
 	
 	function itemType() {
-		return $.query.get('type');
+		return myItemType;
+	}
+	
+	function getHandle() {
+		return myHandle;
 	}
 	
 	function getAccessImagePath(num) {
-		if (itemType() == 'fra') {
+		if (itemType() == 'fragmenta') {
 			return sDataPath + "access_img/img" + num + "-access.jpg";
 		} else {
 			return sDataPath + "" + num + ".jpg";
@@ -156,7 +162,7 @@ viewer._construct=function() {
 	}
 
 	function getThumbImagePath(num) {
-		if (itemType() == 'fra') {
+		if (itemType() == 'fragmenta') {
 			return sDataPath + "thumb_img/img" + num + "-thumb.jpg";
 		} else {
 			return sDataPath + "small-" + num + ".jpg";
@@ -650,6 +656,7 @@ viewer._construct=function() {
 	this.onSizeChange=onSizeChange;
 	this.currentItem=currentItem;
 	this.itemType=itemType;
+	this.getHandle=getHandle;
 	this.getThumbImagePath=getThumbImagePath;
 	this.getAccessImagePath=getAccessImagePath;
 	
@@ -699,10 +706,18 @@ viewer._construct=function() {
 		
 		});
 
+		myHandle = $.query.get('handle');
 		var itemString = $.query.get('item');
 		sDataPath += itemString + "/";
 
-		if (viewer.itemType() == 'fra') {
+		var logoHref = $('#logo img').attr('src');
+		if (logoHref == 'img/logo-fra.png') {
+			myItemType = 'fragmenta';
+		} else {
+			myItemType = 'doria';
+		}
+
+		if (viewer.itemType() == 'fragmenta') {
 			var parts = itemString.split('/');
 			var metsFileName = parts[parts.length-1].replace('-preservation', "-METS.xml");
 			metsFilePath = sDataPath + metsFileName;

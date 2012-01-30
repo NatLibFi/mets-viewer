@@ -217,6 +217,19 @@ body {
 	float: left;
 }
 
+.icon_save {
+	border: 1px solid gray;
+	width: 30px;
+	height: 30px;
+	
+	margin: 0px;
+	margin-left: 10px;
+	padding: 0px;
+	padding-left: 10px;
+	
+	float: left;
+}
+
 .icon_select {
 	cursor: pointer;
 	background-image: url(../img/modes.png);
