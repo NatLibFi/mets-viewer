@@ -5,7 +5,7 @@
 <html>
 
 <head profile="http://www.w3.org/2005/10/profile">
-<link id="favicon" rel="shortcut icon" type="image/png" href="favicon.png" />
+<link id="favicon" rel="shortcut icon" type="image/png" href="favicon-fra.png" />
 
 <META http-equiv="Content-Type" content="text/html; charset=utf-8">
 
@@ -34,10 +34,6 @@
 
 <script type="text/javascript" src="js/modules/toc.js"></script>
 
-<script type="text/javascript" src="js/modules/text_overlay.js"></script>
-
-<script type="text/javascript" src="js/modules/word_search.js"></script>
-
 <script type="text/javascript" src="js/modules/rotate.js"></script>
 
 <script type="text/javascript" src="js/modules/button_rotate.js"></script>
@@ -51,6 +47,7 @@
 <script type="text/javascript" src="js/modules/bib_data.js"></script>
 <script type="text/javascript" src="js/modules/scroll_pan.js"></script>
 
+<script type="text/javascript" src="js/modules/save_files.js"></script>
 <script type="text/javascript" src="js/modules/keyboard_shortcuts.js"></script>
 
 <script type="text/javascript" src="js/modules/logo_link.js"></script>
@@ -74,7 +71,7 @@
 <body>
 
 <div id='message' style="display: none;">
-<span>Selaimesi ei tue canvas -elementtiä. Osa ominaisuuksista eivät ole käytössä. Paremmin tuettuja selaimia: IE9, Firefox, Chrome, Safari</span>
+<span>Your browser doesn't support HTML canvas.</span>
 <a href="#" class="close-notify">X</a>
 </div>
 
@@ -94,7 +91,7 @@
 	</div>
 	
 	<div id="text_overlay">
-		<canvas id="viewer" height="800" width="800"><div id="nocanvas">Selaimesi ei tue canvas -elementtiä.</div></canvas>
+		<canvas id="viewer" height="800" width="800"><div id="nocanvas">Your browser doesn't support HTML canvas.</div></canvas>
 	</div>
 
 	</div>
@@ -104,14 +101,14 @@
 <div id="sidebar">
 
 	<div id="logo">
-		<img src="img/logo.png" alt="logo" />
+		<img src="img/logo-fra.png" alt="logo" />
 	</div>
 
 	<div id="sidebar_content">
 		<div id="bibdata"><div class="content"></div></div>
 
 		<div id="toc">
-		<span class="header">Sisällysluettelo</span>
+		<span class="header">Contents</span>
 		<div class="toc_items"></div>
 		</div>
 	</div>

@@ -18,7 +18,7 @@ toc._construct = function() {
 
 		$.get(viewer.getMetsPath(), function(data) {
 			var chapterCount = 0;
-			if (viewer.itemType() == 'fra') {
+			if (viewer.itemType() == 'fragmenta') {
 				pagesString = '[TYPE="PAGE"][CONTENTIDS]';
 				pageString = 'ID';
 			} else {
@@ -36,7 +36,7 @@ toc._construct = function() {
 	
 					if (page != null) {
 						$li = $("<li></li>");
-						if (viewer.itemType() == 'fra') {
+						if (viewer.itemType() == 'fragmenta') {
 							a = $("<a page='"+page+"' href='#page="+page+"'><img src=\"" + viewer.getPackagePath() + "thumb_img/" + label +"-thumb.jpg\" /></a>");
 						} else {
 							a = $("<a page='"+page+"' href='#page="+page+"'>"+ label +"</a>");
