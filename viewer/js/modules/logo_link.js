@@ -20,8 +20,7 @@ logo_link._construct = function() {
 		var path;
 
 		if (viewer.itemType() == 'fra') {
-			var parts = viewer.currentItem().split('/');
-			var URN = "URN:NBN:fi-" + parts[parts.length-1].replace('-preservation', "");
+			var URN = "URN:NBN:fi-" + viewer.currentItem();
 			path = BASE_PATH + URN;
 		} else {
 			path = BASE_PATH + viewer.currentItem();
