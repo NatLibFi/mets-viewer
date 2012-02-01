@@ -16,7 +16,7 @@ viewer._construct=function() {
 
 	var myHandle;
 	var myItemType;
-	var sDataPath = "/viewer/prod/packages/";
+	var sDataPath;
 	var scalingFactor;
 	var images = [];
 	var oViewerSize = { width: 300, height: 300 };
@@ -708,22 +708,17 @@ viewer._construct=function() {
 
 		myHandle = $.query.get('handle');
 		var itemString = $.query.get('item');
-		sDataPath += itemString + "/";
-
 		var logoHref = $('#logo img').attr('src');
 		if (logoHref == 'img/logo-fra.png') {
 			myItemType = 'fragmenta';
+			sDataPath = "/packages/" + itemString + "/";
+			metsFilePath = sDataPath + itemString + '-METS.xml';
 		} else {
 			myItemType = 'doria';
-		}
-
-		if (viewer.itemType() == 'fragmenta') {
-			var parts = itemString.split('/');
-			var metsFileName = parts[parts.length-1].replace('-preservation', "-METS.xml");
-			metsFilePath = sDataPath + metsFileName;
-		} else {
+			sDataPath = "/viewer/prod/packages/" + itemString + "/";
 			metsFilePath = sDataPath + 'mets.xml';
 		}
+
 
 		loadPage(currentPage());
 	
