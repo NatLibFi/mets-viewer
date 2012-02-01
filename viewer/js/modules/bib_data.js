@@ -25,17 +25,17 @@ bib_data._construct = function() {
 				fields = [
 					{
 						'tag': 'dc\\:title',
-						'desc':'Nimeke'
+						'desc':'Title'
 					}
 					
 					,{
 						'tag': 'dc\\:creator',
-						'desc':'Tekijä'
+						'desc':'Author'
 					}
 				
 					,{
 						'tag': 'dc\\:date',
-						'desc':'Ajoitus'
+						'desc':'Date'
 					}
 					
 				];
