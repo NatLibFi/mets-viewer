@@ -217,13 +217,13 @@ body {
 	float: left;
 }
 
-#save_pdf, #save_page {
+.linkbutton {
 	margin-top: 10px;
 	font-size: 10pt;
 }
 a { color: black; text-decoration: none;}
 a:hover, a:active { text-decoration: underline;}
-#save_pdf a img, #save_page a img {
+.linkbutton a img {
 	vertical-align: middle;
 	width: 32px;
 	height: 32px;

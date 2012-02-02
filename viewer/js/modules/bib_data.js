@@ -5,148 +5,151 @@
  * Licensed under the 2-clause FreeBSD licence.
  * See the LICENSE file in the root directory of this application.
  *
- * Author: Pasi Tuominen
+ * Author: Pasi Tuominen, Juho Vuori
  */
  
 var bib_data = {};
 
 bib_data._construct = function() {
 
+	var signum;
+
+	function getSignum() {
+		return signum;
+	}
+
+	this.getSignum = getSignum;
+
 	function buildBibliographicData() {
 
 		$("#bibdata .content").html('');
 
-		$.get(viewer.getMetsPath(), function(data) {
-			var title_prefix;
-			var fields;
-	
-			if (viewer.itemType() == 'fragmenta') {
-				title_prefix = "Fragmenta membranea - ";
-				fields = [
-					{
-						'tag': 'dc\\:title',
-						'desc':'Title'
-					}
-					
-					,{
-						'tag': 'dc\\:creator',
-						'desc':'Author'
-					}
+		var data = viewer.getMets();
+		var title_prefix;
+		var fields;
+
+		if (viewer.itemType() == 'fragmenta') {
+			title_prefix = "Fragmenta membranea - ";
+			fields = [
+				{
+					'tag': 'dc\\:identifier',
+					'type': 'signum',
+					'desc':'Signum'
+				}
 				
-					,{
-						'tag': 'dc\\:date',
-						'desc':'Date'
-					}
-					
-				];
-				var dc = $(data).find("qdc\\:qualifieddc");
-				var $table = $("<table border='0'></table>");
+				,{
+					'tag': 'dc\\:creator',
+					'desc':'Author'
+				}
+			
+				,{
+					'tag': 'dc\\:description',
+					'type': 'timing',
+					'desc':'Date'
+				}
 				
-				for (var i=0;i<fields.length;i++) {
-					$row = $("<tr></tr>");
-					
-					$(dc).find(fields[i].tag).each(function() {
-							
-						$row.append($("<td>" +  fields[i].desc + "</td>"));
+			];
+			var dc = $(data).find("qdc\\:qualifieddc");
+			var $table = $("<table border='0'></table>");
+			
+			for (var i=0;i<fields.length;i++) {
+				$row = $("<tr></tr>");
+				
+				$(dc).find(fields[i].tag).each(function() {
 						
+					if ((fields[i].type === undefined) || (fields[i].type == $(this).attr('type'))) {
+						$row.append($("<td> </td>"));
+						//$row.append($("<td>" +  fields[i].desc + "</td>"));
 						$row.append($("<td>" +  $(this).text() + "</td>"));
 						
-						if (fields[i].tag == 'dc\\:title') {
+						if (fields[i].tag == 'dc\\:identifier') {
 							document.title = title_prefix + $(this).text();
+							signum = $(this).text()
 						}
-					});
-					$table.append($row);
+					}
+				});
+				$table.append($row);
 
+			}
+		} else {
+	
+			title_prefix = "Doria - ";
+			fields = [
+				{
+					'tag': 245
+					,'subfields': [ {'desc':'Nimeke', 'code': 'a'} ]
 				}
-			} else {
-		
-				title_prefix = "Doria - ";
-				fields = [
-					{
-						'tag': 245
-						,'subfields': [ {'desc':'Nimeke', 'code': 'a'} ]
-					}
-					
-					,{
-						'tag': 100
-						,'subfields': [ {'desc':'Tekijä', 'code': 'a'} ]
-					}
 				
-					,{
-						'tag': '260'
-						,'subfields': [ {'desc':'Vuosi', 'code': 'c'} ]
-					}
-					
-				];
-				var marc =	$(data).find("[nodeName='MARC:record']");
+				,{
+					'tag': 100
+					,'subfields': [ {'desc':'Tekijä', 'code': 'a'} ]
+				}
+			
+				,{
+					'tag': '260'
+					,'subfields': [ {'desc':'Vuosi', 'code': 'c'} ]
+				}
 				
-				var $table = $("<table border='0'></table>");
+			];
+			var marc =	$(data).find("[nodeName='MARC:record']");
+			
+			var $table = $("<table border='0'></table>");
+			
+			for (var i=0;i<fields.length;i++) {
+				$row = $("<tr></tr>");
 				
-				for (var i=0;i<fields.length;i++) {
-					$row = $("<tr></tr>");
-					
-					
-					marc.find("[tag='" + fields[i].tag + "']").each(function() {
-					
+				
+				marc.find("[tag='" + fields[i].tag + "']").each(function() {
+				
 
-						if (typeof(fields[i].control) != 'undefined' && fields[i].control) {
+					if (typeof(fields[i].control) != 'undefined' && fields[i].control) {
+					
 						
+						$row.append($("<td>" +  fields[i].desc + "</td>"));
+					
+						$row.append($("<td>" +  fields[i].func( $(this).text() ) + "</td>"));
+					
+					
+					} else {				
+				
+						for (var j=0;j<fields[i].subfields.length;j++) {
+			
+							var $subfields = $(this).find("[code='"+ fields[i].subfields[j].code +"']");
+						
+			
+							if ($subfields.length) {
+			
+								$row.append($("<td>" +  fields[i].subfields[j].desc + "</td>"));
+				
+								$subfields.each(function() {
+				
+									$row.append($("<td>" +  $(this).text() + "</td>"));
+									
+									if (fields[i].tag == 245) {
+									
+										document.title =  title_prefix + $(this).text();
+									}
 							
-							$row.append($("<td>" +  fields[i].desc + "</td>"));
-						
-							$row.append($("<td>" +  fields[i].func( $(this).text() ) + "</td>"));
-						
-						
-						} else {				
-					
-							for (var j=0;j<fields[i].subfields.length;j++) {
-				
-								var $subfields = $(this).find("[code='"+ fields[i].subfields[j].code +"']");
-							
-				
-								if ($subfields.length) {
-				
-									$row.append($("<td>" +  fields[i].subfields[j].desc + "</td>"));
-					
-									$subfields.each(function() {
-					
-										$row.append($("<td>" +  $(this).text() + "</td>"));
-										
-										if (fields[i].tag == 245) {
-										
-											document.title =  title_prefix + $(this).text();
-										}
-								
-									});
-								}
+								});
 							}
 						}
-					
-					});
+					}
 				
-					$table.append($row);
-					
-				}
-			}
+				});
 			
-			$("#bibdata .content").append($table);
+				$table.append($row);
+				
+			}
+		}
 		
-		
-			$(".toc_items").height( $(window).height() - $("#bibdata").height() - $("#logo").height() -60);
-		});
+		$("#bibdata .content").append($table);
+	
+	
+		$(".toc_items").height( $(window).height() - $("#bibdata").height() - $("#logo").height() -60);
 	}
-	
-	
-	function parseYear(data) {
-		//TODO: this works only for the common case
-		//Specification: http://www.kansalliskirjasto.fi/extra/marc21/bib/008.htm
-		return data.substr(7,4);
-	
-	}
-	
 	
 	this.buildBibliographicData=buildBibliographicData;
-	onCoreReady(function() {
+	onMetsLoaded(function() {
 
 		bib_data.buildBibliographicData();	
 

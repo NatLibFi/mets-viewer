@@ -5,7 +5,7 @@
  * Licensed under the 2-clause FreeBSD licence.
  * See the LICENSE file in the root directory of this application.
  *
- * Author: Pasi Tuominen
+ * Author: Pasi Tuominen, Juho Vuori
  */
 var viewer = {};
 
@@ -14,6 +14,8 @@ viewer._construct=function() {
 
 	var self=this;
 
+	var metsXML;
+	var metsFilePath;
 	var myHandle;
 	var myItemType;
 	var sDataPath;
@@ -131,9 +133,9 @@ viewer._construct=function() {
 	}
 
 
-	function getMetsPath() {
+	function getMets() {
 
-		return metsFilePath;
+		return metsXML;
 	}
 
 	function getPackagePath() {
@@ -647,7 +649,7 @@ viewer._construct=function() {
 	this.getSize=getSize;
 	this.getPageImages=getPageImages;
 	this.getPackagePath=getPackagePath;
-	this.getMetsPath=getMetsPath;
+	this.getMets=getMets;
 	this.currentPage=currentPage;
 	this.currentPage4=currentPage4;
 	this.getCurrentPages=getCurrentPages;
@@ -719,12 +721,15 @@ viewer._construct=function() {
 			metsFilePath = sDataPath + 'mets.xml';
 		}
 
-
 		loadPage(currentPage());
 	
 		//tell registered modules that the core is ready.
 		triggerCoreReady();
 	
+		$.get(metsFilePath, function(data) {
+			metsXML = data;
+			triggerMetsLoaded();
+		});
 
 		$("#viewer").mousemove(function(e) {
 

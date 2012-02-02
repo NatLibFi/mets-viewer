@@ -5,7 +5,7 @@
  * Licensed under the 2-clause FreeBSD licence.
  * See the LICENSE file in the root directory of this application.
  *
- * Author: Pasi Tuominen
+ * Author: Pasi Tuominen, Juho Vuori
  */
  
 var toc = {};
@@ -16,49 +16,45 @@ toc._construct = function() {
 
 		$("#sidebar_content .toc_items").html('');
 
-		$.get(viewer.getMetsPath(), function(data) {
-			var chapterCount = 0;
-			if (viewer.itemType() == 'fragmenta') {
-				pagesString = '[TYPE="PAGE"][CONTENTIDS]';
-				pageString = 'ID';
-			} else {
-				pagesString = '[TYPE="CHAPTER"]';
-				pageString = 'LABEL';
-			}
-			$(data).find(pagesString).each(function() {
+		data = viewer.getMets();
+		var chapterCount = 0;
+		if (viewer.itemType() == 'fragmenta') {
+			pagesString = '[TYPE="PAGE"][CONTENTIDS]';
+			pageString = 'ID';
+		} else {
+			pagesString = '[TYPE="CHAPTER"]';
+			pageString = 'LABEL';
+		}
+		$(data).find(pagesString).each(function() {
 
-				label = $(this).attr(pageString);
-				if (label !== undefined) {
+			label = $(this).attr(pageString);
+			if (label !== undefined) {
 
-					$file = $(this).find('[FILEID]').first();
-	
-					page = fileIDToPageNum ( $file.attr('FILEID') );
-	
-					if (page != null) {
-						$li = $("<li></li>");
-						if (viewer.itemType() == 'fragmenta') {
-							a = $("<a page='"+page+"' href='#page="+page+"'><img src=\"" + viewer.getPackagePath() + "thumb_img/" + label +"-thumb.jpg\" /></a>");
-						} else {
-							a = $("<a page='"+page+"' href='#page="+page+"'>"+ label +"</a>");
-						}
-						$li.append(a);
-						$("#sidebar_content .toc_items").append($li);
-	
-						chapterCount++;
-				
+				$file = $(this).find('[FILEID]').first();
+
+				page = fileIDToPageNum ( $file.attr('FILEID') );
+
+				if (page != null) {
+					$li = $("<li></li>");
+					if (viewer.itemType() == 'fragmenta') {
+						a = $("<a page='"+page+"' href='#page="+page+"'><img src=\"" + viewer.getPackagePath() + "thumb_img/" + label +"-thumb.jpg\" /></a>");
+					} else {
+						a = $("<a page='"+page+"' href='#page="+page+"'>"+ label +"</a>");
 					}
-				}
-				
-				
-			});
+					$li.append(a);
+					$("#sidebar_content .toc_items").append($li);
+
+					chapterCount++;
 			
-			if (chapterCount == 0) {
-				$("#sidebar_content .toc_items").append($("<span class='empty_toc'>Ei sisällysluetteloa</span>"));
+				}
 			}
 			
 			
-	
 		});
+		
+		if (chapterCount == 0) {
+			$("#sidebar_content .toc_items").append($("<span class='empty_toc'>Ei sisällysluetteloa</span>"));
+		}
 
 	};
 
@@ -79,8 +75,7 @@ toc._construct = function() {
 
 	toc.buildIndex=buildIndex;
 
-
-	onCoreReady(function() {
+	onMetsLoaded(function() {
 		toc.buildIndex();
 	
 		$(".toc_items").height( $(window).height() - $("#bibdata").height() - $("#logo").height());
