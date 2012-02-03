@@ -742,6 +742,7 @@ viewer._construct=function() {
 		});
 
 
+/*
 		$("#text_overlay").resizable({ 
 		  resize: function(event, ui) {
 		  	oViewerSize = {
@@ -752,6 +753,7 @@ viewer._construct=function() {
 		  	redrawCanvas();
 		  }
 		});
+*/
 	
 		$("#pan_select").click(function() { toggleMode(); });
 		
@@ -760,8 +762,23 @@ viewer._construct=function() {
 			$("#page_mode").click(function() { togglePageMode(); });
 	 	}
 	 	
-		
-	
+		function setCanvasSize() {
+			var wh = $(window).height();
+			var ww = $(window).width();
+			var o = $('#text_overlay').offset();
+			// FIXME: I have no idea where - 10 comes from, but
+			// without it, the canvas is too big.
+		  	oViewerSize = {
+		  		width: ww - o.left - 10,
+		  		height: wh - o.top - 10
+		  	};
+			$('#text_overlay').width(oViewerSize.width);
+			$('#text_overlay').height(oViewerSize.height);
+		  	triggerSizeChange();
+		  	redrawCanvas();
+		}
+		setCanvasSize();
+		$(window).resize(setCanvasSize);
 	});
 	
 	

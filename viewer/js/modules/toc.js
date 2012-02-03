@@ -14,7 +14,7 @@ toc._construct = function() {
 
 	function buildIndex() {
 
-		$("#sidebar_content .toc_items").html('');
+		$("#toc_items").html('');
 
 		data = viewer.getMets();
 		var chapterCount = 0;
@@ -42,7 +42,7 @@ toc._construct = function() {
 						a = $("<a page='"+page+"' href='#page="+page+"'>"+ label +"</a>");
 					}
 					$li.append(a);
-					$("#sidebar_content .toc_items").append($li);
+					$("#toc_items").append($li);
 
 					chapterCount++;
 			
@@ -53,7 +53,7 @@ toc._construct = function() {
 		});
 		
 		if (chapterCount == 0) {
-			$("#sidebar_content .toc_items").append($("<span class='empty_toc'>Ei sisällysluetteloa</span>"));
+			$("#toc_items").append($("<span class='empty_toc'>Ei sisällysluetteloa</span>"));
 		}
 
 	};
@@ -75,11 +75,15 @@ toc._construct = function() {
 
 	toc.buildIndex=buildIndex;
 
+	function setTocSize() {
+		// FIXME: This works, but relays on #bibdata, #toc_header and #logo to
+		// already have been rendered to their final size.
+		$("#toc_items").height($(window).height() - $('#toc_items').offset().top);
+	}
 	onMetsLoaded(function() {
 		toc.buildIndex();
-	
-		$(".toc_items").height( $(window).height() - $("#bibdata").height() - $("#logo").height());
-
+		setTocSize();
+		$(window).resize(setTocSize);
 	});
 }
 toc._construct();
