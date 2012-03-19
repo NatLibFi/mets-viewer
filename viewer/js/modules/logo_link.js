@@ -19,7 +19,7 @@ logo_link._construct = function() {
 
 		var path;
 
-		if (viewer.itemType() == 'fra') {
+		if (viewer.itemType() == 'fragmenta') {
 			var URN = "URN:NBN:fi-" + viewer.currentItem();
 			path = BASE_PATH + URN;
 		} else {

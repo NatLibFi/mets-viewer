@@ -28,7 +28,7 @@ save_files._construct = function() {
 
 	var base_path = "/bitstream/handle/" + viewer.getHandle();
 	var signum = bib_data.getSignum();
-	var prefix = signum.replace(/\./g,'_');
+	var prefix = (signum==null) && ('_') || (signum.replace(/\./g,'_'));
 	var num = zeroPad(viewer.currentPage(),4);
 	var tail_pdf = "/"+prefix+".pdf?sequence="+(page_changer.pageCount()+1);
 	var href_pdf = base_path + tail_pdf;
