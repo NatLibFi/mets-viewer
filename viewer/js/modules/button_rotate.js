@@ -5,7 +5,7 @@
  * Licensed under the 2-clause FreeBSD licence.
  * See the LICENSE file in the root directory of this application.
  *
- * Author: Pasi Tuominen
+ * Author: Pasi Tuominen, Juho Vuori
  */
  
 var button_rotate = {};

@@ -60,12 +60,12 @@ body {
 	
 }
 
-#sidebar_content .toc_items li {
+#toc_items li {
 	list-style: none;
 	width: 95%;
 }
 
-#sidebar_content .toc_items li a {
+#toc_items li a {
 	list-style: none;
 	width: 95%;
 	color: #585858;
@@ -75,11 +75,11 @@ body {
 }
 
 
-#toc .header {
+#toc_header {
 	color: #adadad;
 }
 
-.toc_items {
+#toc_items {
 	height: 300px;
 	overflow-y: scroll;
 }
@@ -128,7 +128,6 @@ body {
 	height: 24px;
 	width: 24px;
 	text-align: center;
-	zoom:1; *display: inline;
 	vertical-align: middle;
 	
 }
@@ -217,13 +216,13 @@ body {
 	float: left;
 }
 
-#save_pdf, #save_page {
+.linkbutton {
 	margin-top: 10px;
 	font-size: 10pt;
 }
 a { color: black; text-decoration: none;}
 a:hover, a:active { text-decoration: underline;}
-#save_pdf a img, #save_page a img {
+.linkbutton a img {
 	vertical-align: middle;
 	width: 32px;
 	height: 32px;

@@ -5,7 +5,7 @@
  * Licensed under the 2-clause FreeBSD licence.
  * See the LICENSE file in the root directory of this application.
  *
- * Author: Pasi Tuominen
+ * Author: Pasi Tuominen, Juho Vuori
  */
  
 var logo_link = {};
@@ -19,7 +19,7 @@ logo_link._construct = function() {
 
 		var path;
 
-		if (viewer.itemType() == 'fra') {
+		if (viewer.itemType() == 'fragmenta') {
 			var URN = "URN:NBN:fi-" + viewer.currentItem();
 			path = BASE_PATH + URN;
 		} else {

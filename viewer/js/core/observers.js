@@ -5,9 +5,23 @@
  * Licensed under the 2-clause FreeBSD licence.
  * See the LICENSE file in the root directory of this application.
  *
- * Author: Pasi Tuominen
+ * Author: Pasi Tuominen, Juho Vuori
  */
  
+var metsLoadedListeners = [];
+function triggerMetsLoaded() {
+	for (i=0;i<metsLoadedListeners.length;i++) {
+	
+		metsLoadedListeners[i]();
+	}
+}
+
+function onMetsLoaded(callback) {
+	metsLoadedListeners.push(callback);
+}
+
+
+
 var pagechangeListeners = [];
 function triggerPagechange() {
 	for (i=0;i<pagechangeListeners.length;i++) {
