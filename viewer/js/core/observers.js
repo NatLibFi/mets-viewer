@@ -34,6 +34,18 @@ function onScaleReady(callback) {
 }
 
 
+var metsLoadedListeners = [];
+function triggerMetsLoaded(data) {
+	for (i=0;i<metsLoadedListeners.length;i++) {
+	
+		metsLoadedListeners[i](data);
+	}
+}
+
+function onMetsLoaded(callback) {
+	metsLoadedListeners.push(callback);
+}
+
 var coreReadyListeners = [];
 function triggerCoreReady() {
 	for (i=0;i<coreReadyListeners.length;i++) {

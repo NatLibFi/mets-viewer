@@ -16,14 +16,14 @@ toc._construct = function() {
 
 		$("#sidebar_content .toc_items").html('');
 
-		$.get(viewer.getMetsPath(), function(data) {
+		onMetsLoaded (function(data) {
 			var chapterCount = 0;
-			if (viewer.itemType() == 'fragmenta') {
-				pagesString = '[TYPE="PAGE"][CONTENTIDS]';
-				pageString = 'ID';
-			} else {
+			if (viewer.itemType() == 'doria') {
 				pagesString = '[TYPE="CHAPTER"]';
 				pageString = 'LABEL';
+			} else {
+				pagesString = '[TYPE="PAGE"][CONTENTIDS]';
+				pageString = 'ID';
 			}
 			$(data).find(pagesString).each(function() {
 
@@ -36,10 +36,10 @@ toc._construct = function() {
 	
 					if (page != null) {
 						$li = $("<li></li>");
-						if (viewer.itemType() == 'fragmenta') {
-							a = $("<a page='"+page+"' href='#page="+page+"'><img src=\"" + viewer.getPackagePath() + "thumb_img/" + label +"-thumb.jpg\" /></a>");
-						} else {
+						if (viewer.itemType() == 'doria') {
 							a = $("<a page='"+page+"' href='#page="+page+"'>"+ label +"</a>");
+						} else {
+							a = $("<a page='"+page+"' href='#page="+page+"'><img src=\"" + viewer.getPackagePath() + "thumb_img/" + label +"-thumb.jpg\" /></a>");
 						}
 						$li.append(a);
 						$("#sidebar_content .toc_items").append($li);

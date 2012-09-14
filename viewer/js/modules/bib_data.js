@@ -16,7 +16,7 @@ bib_data._construct = function() {
 
 		$("#bibdata .content").html('');
 
-		$.get(viewer.getMetsPath(), function(data) {
+		onMetsLoaded(function(data) {
 			var title_prefix;
 			var fields;
 	

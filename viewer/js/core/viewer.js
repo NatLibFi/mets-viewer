@@ -131,11 +131,6 @@ viewer._construct=function() {
 	}
 
 
-	function getMetsPath() {
-
-		return metsFilePath;
-	}
-
 	function getPackagePath() {
 
 		return sDataPath;
@@ -154,18 +149,18 @@ viewer._construct=function() {
 	}
 	
 	function getAccessImagePath(num) {
-		if (itemType() == 'fragmenta') {
-			return sDataPath + "access_img/img" + num + "-access.jpg";
-		} else {
+		if (itemType() == 'doria') {
 			return sDataPath + "" + num + ".jpg";
+		} else {
+			return sDataPath + "access_img/img" + num + "-access.jpg";
 		}
 	}
 
 	function getThumbImagePath(num) {
-		if (itemType() == 'fragmenta') {
-			return sDataPath + "thumb_img/img" + num + "-thumb.jpg";
-		} else {
+		if (itemType() == 'doria') {
 			return sDataPath + "small-" + num + ".jpg";
+		} else {
+			return sDataPath + "thumb_img/img" + num + "-thumb.jpg";
 		}
 	}
 
@@ -255,6 +250,9 @@ viewer._construct=function() {
 	
 		if (self.imageCount == 0) {
 		
+                        if (images.length == 0) {
+                            return;
+                        }
 			if (images[0].order != 0 && images.length > 1) {
 				var tmp = images[0];
 				images[0] = images[1];
@@ -647,7 +645,6 @@ viewer._construct=function() {
 	this.getSize=getSize;
 	this.getPageImages=getPageImages;
 	this.getPackagePath=getPackagePath;
-	this.getMetsPath=getMetsPath;
 	this.currentPage=currentPage;
 	this.currentPage4=currentPage4;
 	this.getCurrentPages=getCurrentPages;
@@ -663,7 +660,6 @@ viewer._construct=function() {
 	this.getMode=getMode;
 	this.getViewMode=function() { return viewerMode; };
 		
-	
 	onSmallImageReady(redrawCanvas);
 	onSmallImageReady(function() {
 		if (largeImageTimeout != undefined) {
@@ -719,9 +715,17 @@ viewer._construct=function() {
 			metsFilePath = sDataPath + 'mets.xml';
 		}
 
-
-		loadPage(currentPage());
 	
+                $.get(metsFilePath, function(data) {
+                    var mets = $(data).find("mets");
+                    if (mets.is('[TYPE="METAe_Ephemera_v1_00"]')) {
+                        myItemType = "mikkeli";
+                        loadPage(currentPage());
+                    }
+
+                    triggerMetsLoaded(data);
+                });
+
 		//tell registered modules that the core is ready.
 		triggerCoreReady();
 	

@@ -24,7 +24,7 @@ page_changer._construct = function() {
 
 		$("#pages").html('');
 		
-		$.get(viewer.getMetsPath(), function(data) {
+		onMetsLoaded(function(data) {
 	
 			if (viewer.itemType() == 'fragmenta') {
 				count = $(data).find("[TYPE=\"PAGE\"][CONTENTIDS]").length;
