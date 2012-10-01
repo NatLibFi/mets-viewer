@@ -5,7 +5,7 @@
  * Licensed under the 2-clause FreeBSD licence.
  * See the LICENSE file in the root directory of this application.
  *
- * Author: Pasi Tuominen
+ * Author: Pasi Tuominen, Juho Vuori
  */
 var viewer = {};
 
@@ -14,6 +14,8 @@ viewer._construct=function() {
 
 	var self=this;
 
+	var metsXML;
+	var metsFilePath;
 	var myHandle;
 	var myItemType;
 	var sDataPath;
@@ -130,6 +132,11 @@ viewer._construct=function() {
 	
 	}
 
+
+	function getMets() {
+
+		return metsXML;
+	}
 
 	function getPackagePath() {
 
@@ -645,6 +652,7 @@ viewer._construct=function() {
 	this.getSize=getSize;
 	this.getPageImages=getPageImages;
 	this.getPackagePath=getPackagePath;
+	this.getMets=getMets;
 	this.currentPage=currentPage;
 	this.currentPage4=currentPage4;
 	this.getCurrentPages=getCurrentPages;
@@ -719,6 +727,7 @@ viewer._construct=function() {
                 $.get(metsFilePath, function(data) {
                     var mets = $(data).find("mets");
                     if (mets.is('[TYPE="METAe_Ephemera_v1_00"]')) {
+			metsXML = data;
                         myItemType = "mikkeli";
                         loadPage(currentPage());
                     }
@@ -729,7 +738,6 @@ viewer._construct=function() {
 		//tell registered modules that the core is ready.
 		triggerCoreReady();
 	
-
 		$("#viewer").mousemove(function(e) {
 
 			mouseXlast = mouseX || 0;
@@ -741,6 +749,7 @@ viewer._construct=function() {
 		});
 
 
+/*
 		$("#text_overlay").resizable({ 
 		  resize: function(event, ui) {
 		  	oViewerSize = {
@@ -751,6 +760,7 @@ viewer._construct=function() {
 		  	redrawCanvas();
 		  }
 		});
+*/
 	
 		$("#pan_select").click(function() { toggleMode(); });
 		
@@ -759,8 +769,23 @@ viewer._construct=function() {
 			$("#page_mode").click(function() { togglePageMode(); });
 	 	}
 	 	
-		
-	
+		function setCanvasSize() {
+			var wh = $(window).height();
+			var ww = $(window).width();
+			var o = $('#text_overlay').offset();
+			// FIXME: I have no idea where - 10 comes from, but
+			// without it, the canvas is too big.
+		  	oViewerSize = {
+		  		width: ww - o.left - 10,
+		  		height: wh - o.top - 10
+		  	};
+			$('#text_overlay').width(oViewerSize.width);
+			$('#text_overlay').height(oViewerSize.height);
+		  	triggerSizeChange();
+		  	redrawCanvas();
+		}
+		setCanvasSize();
+		$(window).resize(setCanvasSize);
 	});
 	
 	
