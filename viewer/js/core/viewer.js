@@ -155,6 +155,14 @@ viewer._construct=function() {
 		return myHandle;
 	}
 	
+	function getAltoPath(num) {
+		if (itemType() == 'doria') {
+                    return sDataPath + num + '.xml'
+		} else {
+			return sDataPath + "alto/img" + num + "-alto.xml";
+		}
+        }
+
 	function getAccessImagePath(num) {
 		if (itemType() == 'doria') {
 			return sDataPath + "" + num + ".jpg";
@@ -452,56 +460,54 @@ viewer._construct=function() {
 
 		$(leftImage).load(function() {
 
-				$('body').data(leftImage.src, leftImage);
-		
-				oImageSize = { 
-					width: leftImage.width, 
-					height: leftImage.height, 
-					ratio: leftImage.width / leftImage.height
-				};
+                        $('body').data(leftImage.src, leftImage);
+        
+                        oImageSize = { 
+                                width: leftImage.width, 
+                                height: leftImage.height, 
+                                ratio: leftImage.width / leftImage.height
+                        };
 
-				var elemWidth = $("#viewer").width();
-				var elemHeight = $("#viewer").height();
-				var w = elemHeight * oImageSize.ratio;
-				
-				oImageSize.left = (elemWidth-w)/2;
-				oImageSize.top = 0;
-			
-				oImageSize.scale = w / oImageSize.width;
-	
-				images.push({order: 0, img: leftImage.src, xOffset: 0, yOffset: 0, size: oImageSize, type: 'large'});
-		
-			
-				largeImageReady();
+                        var elemWidth = $("#viewer").width();
+                        var elemHeight = $("#viewer").height();
+                        var w = elemHeight * oImageSize.ratio;
+                        
+                        oImageSize.left = (elemWidth-w)/2;
+                        oImageSize.top = 0;
+                
+                        oImageSize.scale = w / oImageSize.width;
+
+                        images.push({order: 0, img: leftImage.src, xOffset: 0, yOffset: 0, size: oImageSize, type: 'large'});
+        
+                
+                        largeImageReady();
 				
 		}).error(function() {
-			if (window.console && console.log) console.log("Left Image error");
 			largeImageReady();
 		});
 		
 		$(rightImage).load(function() {
 
-				$('body').data(rightImage.src, rightImage);
-		
-				oImageSize = { width: rightImage.width, height: rightImage.height, ratio: rightImage.width / rightImage.height};
+                        $('body').data(rightImage.src, rightImage);
+        
+                        oImageSize = { width: rightImage.width, height: rightImage.height, ratio: rightImage.width / rightImage.height};
 
 
-				elemWidth = $("#viewer").width();
-				elemHeight = $("#viewer").height();
-				var w = elemHeight * oImageSize.ratio;
-				oImageSize.left = (elemWidth-w)/2;
-				oImageSize.top = 0;
-			
-				oImageSize.scale = w / oImageSize.width;
-	
-				images.push({order: 1, img: rightImage.src, xOffset: 0, yOffset: 0, size: oImageSize, type: 'large'});
-		
-				largeImageReady();
+                        elemWidth = $("#viewer").width();
+                        elemHeight = $("#viewer").height();
+                        var w = elemHeight * oImageSize.ratio;
+                        oImageSize.left = (elemWidth-w)/2;
+                        oImageSize.top = 0;
+                
+                        oImageSize.scale = w / oImageSize.width;
+
+                        images.push({order: 1, img: rightImage.src, xOffset: 0, yOffset: 0, size: oImageSize, type: 'large'});
+        
+                        largeImageReady();
 				
 		
 		}).error(function() {
-				if (window.console && console.log) console.log("Right Image error");
-				largeImageReady();
+                        largeImageReady();
 		});
 			
 			
@@ -664,6 +670,7 @@ viewer._construct=function() {
 	this.getHandle=getHandle;
 	this.getThumbImagePath=getThumbImagePath;
 	this.getAccessImagePath=getAccessImagePath;
+	this.getAltoPath=getAltoPath;
 	
 	this.getMode=getMode;
 	this.getViewMode=function() { return viewerMode; };
@@ -725,12 +732,13 @@ viewer._construct=function() {
 
 	
                 $.get(metsFilePath, function(data) {
-                    var mets = $(data).find("mets");
+                    var mets = $(data).find('[nodeName="mets:mets"]');
                     if (mets.is('[TYPE="METAe_Ephemera_v1_00"]')) {
 			metsXML = data;
                         myItemType = "mikkeli";
                         loadPage(currentPage());
                     }
+                    var t = mets.get(0);
 
                     triggerMetsLoaded(data);
                 });

@@ -17,7 +17,6 @@ viewport._construct = function() {
 	var zoom=1;
 	var viewportListeners = [];
 	
-	
 	function triggerViewportChange() {
 		for (var i=0;i<viewportListeners.length;i++) {
 	
@@ -32,39 +31,30 @@ viewport._construct = function() {
 	
 
 	function getPosition() {
-		return {x: x, y: y };
+		return { x:x, y:y };
 	}
 	
 	
-	function setPosition(pX,pY) {
+	function setPosition(pX,pY,update) {
 
 		x = pX;
 		y = pY;
-		triggerViewportChange();
+                if (update != false) { triggerViewportChange(); }
 	}
 
 	function getZoom() {
 		return zoom;
 	}
 
-	function setZoom(pZoom) {
+	function setZoom(pZoom,update) {
 
 		zoom = pZoom;
-		triggerViewportChange();
-	
+                if (update != false) { triggerViewportChange(); }
 	}
 
-	function setTransform(pX,pY,pZoom) {
-		x = pX;
-		y = pY;
-		zoom = pZoom;
-		triggerViewportChange();
-	}
-	
-	function setTransformNoUpdate(pX,pY,pZoom) {
-		x = pX;
-		y = pY;
-		zoom = pZoom;
+	function setTransform(pX,pY,pZoom,update) {
+                setPosition(pX,pY,false);
+		setZoom(pZoom,update)
 	}
 	
 	function setRotation(angle) {
@@ -115,7 +105,7 @@ viewport._construct = function() {
 			}
 			
 		if (update && update === false) {
-			viewport.setTransformNoUpdate(viewportStartX, viewportStartY, 1);
+			viewport.setTransformUpdate(viewportStartX, viewportStartY, 1, false);
 		} else {
 			
 			viewport.setTransform(viewportStartX, viewportStartY, 1);
@@ -138,7 +128,6 @@ viewport._construct = function() {
 	this.getPosition=getPosition;
 	this.setPosition=setPosition;
 	this.reset=reset;
-	this.setTransformNoUpdate=setTransformNoUpdate;
 
 	this.setRotation=setRotation;
 	this.getRotation=getRotation;

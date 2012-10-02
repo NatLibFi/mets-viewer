@@ -259,6 +259,7 @@ a:hover, a:active { text-decoration: underline;}
 
 #text_overlay {
 	width: 100%;
+        position: relative;
 	height: 100%;
 	z-index: 1;
 	border-left: 1px solid black;	

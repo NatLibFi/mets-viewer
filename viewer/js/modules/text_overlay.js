@@ -101,11 +101,11 @@ text_overlay._construct=function() {
 		 
 				if (cache[num] === undefined) {
 
-					$.get( viewer.getPackagePath() + num + '.xml', wrapper(num, imageData[i]));
+					$.get( viewer.getAltoPath(num), wrapper(num, imageData[i]));
 					
 				} else {
 
-						fillBuffer(cache[num].data, cache[num].scale, imageData[i]);
+                                        fillBuffer(cache[num].data, cache[num].scale, imageData[i]);
 				}
 			}
 			
@@ -118,22 +118,22 @@ text_overlay._construct=function() {
 			$page = $(data).find('Page').first();
 			oPageSize = { height: $page.attr('HEIGHT'), width: $page.attr('WIDTH') };
 		
-						oScale = {
-							 width:  imageData.size.width / oPageSize.width * imageData.size.scale
-							,height: imageData.size.height / oPageSize.height * imageData.size.scale
-						};
-						
-						
-						oScale.ratio = imageData.size.ratio;
-		
-						triggerScaleReady();
-		
-						cache[num] = {
-							 "data": data
-							,"scale": oScale
-						};
-				
-						fillBuffer(cache[num].data, cache[num].scale, imageData);
+                            oScale = {
+                                        width:  imageData.size.width / oPageSize.width * imageData.size.scale
+                                    ,height: imageData.size.height / oPageSize.height * imageData.size.scale
+                            };
+                            
+                            
+                            oScale.ratio = imageData.size.ratio;
+
+                            triggerScaleReady();
+
+                            cache[num] = {
+                                        "data": data
+                                    ,"scale": oScale
+                            };
+            
+                            fillBuffer(cache[num].data, cache[num].scale, imageData);
 		}
 	}
 

@@ -25,10 +25,10 @@ page_changer._construct = function() {
 		$("#pages").html('');
 		data = viewer.getMets();
 		
-		if (viewer.itemType() == 'fragmenta') {
-			count = $(data).find("[TYPE=\"PAGE\"][CONTENTIDS]").length;
-		} else {
+		if (viewer.itemType() == 'doria') {
 			count = $(data).find("file[MIMETYPE='text/xml']").length;
+		} else {
+			count = $(data).find("[TYPE=\"PAGE\"][CONTENTIDS]").length;
 		}
 
 

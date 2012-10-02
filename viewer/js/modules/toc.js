@@ -13,7 +13,6 @@ var toc = {};
 toc._construct = function() {
 
 	function buildIndex() {
-
 		$("#toc_items").html('');
 
 		data = viewer.getMets();
@@ -73,15 +72,13 @@ toc._construct = function() {
 		return null;
 	};
 
-	toc.buildIndex=buildIndex;
-
 	function setTocSize() {
 		// FIXME: This works, but relays on #bibdata, #toc_header and #logo to
 		// already have been rendered to their final size.
 		$("#toc_items").height($(window).height() - $('#toc_items').offset().top);
 	}
 	onMetsLoaded(function() {
-		toc.buildIndex();
+		buildIndex();
 		setTocSize();
 		$(window).resize(setTocSize);
 	});

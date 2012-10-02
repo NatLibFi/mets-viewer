@@ -51,7 +51,6 @@ function onScaleReady(callback) {
 var metsLoadedListeners = [];
 function triggerMetsLoaded(data) {
 	for (i=0;i<metsLoadedListeners.length;i++) {
-	
 		metsLoadedListeners[i](data);
 	}
 }
