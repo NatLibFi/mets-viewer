@@ -734,12 +734,11 @@ viewer._construct=function() {
                 $.get(metsFilePath, function(data) {
                     var mets = $(data).find('[nodeName="mets:mets"]');
                     if (mets.is('[TYPE="METAe_Ephemera_v1_00"]')) {
-			metsXML = data;
                         myItemType = "mikkeli";
-                        loadPage(currentPage());
                     }
-                    var t = mets.get(0);
 
+                    metsXML = data;
+                    loadPage(currentPage());
                     triggerMetsLoaded(data);
                 });
 
