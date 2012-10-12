@@ -733,9 +733,14 @@ viewer._construct=function() {
 	
                 $.get(metsFilePath, function(data) {
                     var mets = $(data).find('[nodeName="mets:mets"]');
-                    if (mets.is('[TYPE="METAe_Ephemera_v1_00"]')) {
-                        myItemType = "mikkeli";
-                    }
+
+                    var type = mets.attr('TYPE');
+                    [
+                        'METAe_Ephemera_v1_00',
+                        'KK-v1'
+                    ].map(function(value) {
+                        if (value == type) myItemType = "mikkeli";
+                    });
 
                     metsXML = data;
                     loadPage(currentPage());
