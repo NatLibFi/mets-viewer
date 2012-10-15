@@ -74,6 +74,10 @@ body {
 	text-decoration: none;
 }
 
+#toc_items li a img {
+        height: 148px;
+        width:100px;
+}
 
 #toc_header {
 	color: #adadad;

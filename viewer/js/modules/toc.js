@@ -13,35 +13,43 @@ var toc = {};
 toc._construct = function() {
 
 	function buildIndex() {
-		$("#toc_items").html('');
+                $toc_items=$("#toc_items");
+		$toc_items.html('');
 
-		data = viewer.getMets();
+		var data = viewer.getMets();
                 var chapterCount = 0;
                 if (viewer.itemType() == 'doria') {
-                        pagesString = '[TYPE="CHAPTER"]';
-                        pageString = 'LABEL';
+                        var pagesString = '[TYPE="CHAPTER"]';
+                        var pageString = 'LABEL';
                 } else {
-                        pagesString = '[TYPE="PAGE"][CONTENTIDS]';
-                        pageString = 'ID';
+                        var pagesString = '[TYPE="PAGE"][CONTENTIDS]';
+                        var pageString = 'ID';
                 }
                 $(data).find(pagesString).each(function() {
 
-			label = $(this).attr(pageString);
+			var label = $(this).attr(pageString);
 			if (label !== undefined) {
 
-				$file = $(this).find('[FILEID]').first();
+                                var $a;
+                                var $img;
+                                var $li;
+				var $file = $(this).find('[FILEID]').first();
 
-				page = fileIDToPageNum ( $file.attr('FILEID') );
+				var page = fileIDToPageNum ( $file.attr('FILEID') );
 
 				if (page != null) {
 					$li = $("<li></li>");
+                                        $a = $("<a page='"+page+"' href='#page="+page+"' />");
+
 					if (viewer.itemType() == 'doria') {
-						a = $("<a page='"+page+"' href='#page="+page+"'>"+ label +"</a>");
+                                            $a.text(label);
 					} else {
-						a = $("<a page='"+page+"' href='#page="+page+"'><img src=\"" + viewer.getPackagePath() + "thumb_img/" + label +"-thumb.jpg\" /></a>");
+                                                $img = $('<img class="lazy" />')
+                                                $img.attr('data-original', viewer.getPackagePath() + "thumb_img/" + label +"-thumb.jpg");
+                                                $a.append($img);
 					}
-					$li.append(a);
-					$("#toc_items").append($li);
+					$li.append($a);
+                                        $toc_items.append($li);
 
 					chapterCount++;
 			
@@ -50,6 +58,9 @@ toc._construct = function() {
 			
 			
 		});
+                $toc_items.find('.lazy').lazyload({
+                    container: $toc_items
+                });
 		
 		if (chapterCount == 0) {
 			$("#toc_items").append($("<span class='empty_toc'>Ei sisällysluetteloa</span>"));
@@ -75,7 +86,10 @@ toc._construct = function() {
 	function setTocSize() {
 		// FIXME: This works, but relays on #bibdata, #toc_header and #logo to
 		// already have been rendered to their final size.
-		$("#toc_items").height($(window).height() - $('#toc_items').offset().top);
+                var $ti = $("#toc_items");
+		$ti.height($(window).height() - $ti.offset().top);
+                $ti.scroll(); // trigger scroll to make laze toc work.
+
 	}
 	onMetsLoaded(function() {
 		buildIndex();
