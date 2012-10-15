@@ -21,7 +21,7 @@ scroll_pan._construct = function() {
 	 	}
 	 	
 	 	
-		$("#viewer").mousewheel(function(e, delta) {
+                function scroll_cb(e, delta) {
 				e.preventDefault();
 				e.stopPropagation();
 	
@@ -32,19 +32,10 @@ scroll_pan._construct = function() {
 					oViewportPosition.y -= SCROLL_SPEED;
 				}
 				viewport.setPosition(oViewportPosition.x, oViewportPosition.y);
-		});
+		}
 
-		$("#text_overlay").mousewheel(function(e, delta) {
-				e.preventDefault();
-				e.stopPropagation();
-				oViewportPosition = viewport.getPosition();
-				if (delta > 0) {
-					oViewportPosition.y += SCROLL_SPEED;
-				} else {
-					oViewportPosition.y -= SCROLL_SPEED;
-				}
-				viewport.setPosition(oViewportPosition.x, oViewportPosition.y);
-		});
+		$("#viewer").mousewheel(scroll_cb);
+		$("#text_overlay").mousewheel(scroll_cb);
 	});
 	
 	
