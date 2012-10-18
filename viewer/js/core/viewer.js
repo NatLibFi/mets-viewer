@@ -736,7 +736,7 @@ viewer._construct=function() {
 
                     var type = mets.attr('TYPE');
                     [
-                        /Metae_Ephemera_v.*/,
+                        /METAe_Ephemera_v.*/,
                         /KK-v.*/
                     ].map(function(re) {
                         if (re.test(type)) myItemType = "mikkeli";
